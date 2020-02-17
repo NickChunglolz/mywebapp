@@ -1,0 +1,52 @@
+@import '../utilities/Utilities';
+.tech{
+    height: 100%;
+    width: 100%;
+    .mySkills{
+        margin-top: 10rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+        grid-gap: 2.5rem;
+        text-align: center;
+        @media screen and (max-width:380px){
+            grid-template-columns: none;
+        }
+        .skill{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            h1{
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin: 2rem -2px 2rem 0;
+                @media screen and (max-width:400px){
+                    font-size: 1.8rem;
+                }
+            }
+            .iconContainer{
+                width: 10rem;
+                height: 10rem;
+                border: 3px solid #ffe838;
+                background-color: #fd57bf;
+                margin-bottom: 2rem;
+                display: flex;
+                transform: rotate(45deg);
+                @media screen and (max-width:400px){
+                    width:  9rem;
+                    height: 9rem;
+                }
+                i{
+                    color: #ffe838;
+                    font-size: 5rem;
+                    margin: auto;
+                    transform: rotate(-45deg);
+                    @media screen and (max-width:400px){
+                        font-size: 4rem;
+                    }
+                }
+            }
+        }
+    }
+}

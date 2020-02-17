@@ -1,0 +1,212 @@
+@import '../utilities/Utilities';
+
+.NavBar{
+    width: 100%;
+    // background: none; 
+    background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135)) !important;
+    position: fixed;
+    z-index: 9999;
+    .myName{
+        float: left;
+        margin: 0 0 0 5%;
+        h1{
+            padding: 1%;
+            font-family: 'The Historia Demo', sans-serif;
+            font-size: 5rem;
+            background: linear-gradient(to top, #ffe838, #fd57bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-animation: fadeIn 3s ; /* Chrome, Safari, Opera */
+            animation: fadeIn 3s ;
+            @media screen and (max-width: 600px){
+                font-size: 4rem;
+                padding-top: 3%;
+            }
+            @media screen and (max-width: 600px){
+                font-size: 4rem;
+                padding-top: 3%;
+            }
+            @media screen and (max-width: 480px){
+                font-size: 3rem;
+                padding-top: 3%;
+            }
+            @media screen and (max-width: 380px){
+                font-size: 2.5rem;
+                padding-top: 7%;
+            }
+        }
+    }
+    .navBtn{
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        color: white;
+        margin: 12px;
+        display: block;
+        float: right;
+        color: black;
+        -webkit-animation: fadeIn 3s ; /* Chrome, Safari, Opera */
+        animation: fadeIn 3s ;
+        i{
+            color: white;
+            margin: auto;
+        }
+    }
+}
+
+.NavBar.scrollBG{
+    background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135)) !important;
+    transition: background-color 200ms linear;
+}
+
+// title outfit
+#chatBox{
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+    padding: 3px 0px 0px 3px;
+    margin-left: 12px;
+    box-shadow: -3px -3px 10px rgba(255,255,255,0.1),
+                3px 3px 10px rgba(0,0,0,0.4);
+    background: none;
+}
+#chatBox:active{
+    box-shadow: inset -3px -3px 10px rgba(255,255,255,0.1),
+                inset 3px 3px 10px rgba(0,0,0,0.4);
+}
+
+#wordsLink{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: -3px -3px 10px rgba(255,255,255,.1), 
+                3px 3px 10px rgba(0,0,0,.3)
+}
+
+#wordsLink:active{
+    box-shadow: inset -3px -3px 10px rgba(255,255,255,.1), 
+                inset 3px 3px 10px rgba(0,0,0,.3)
+}
+
+// mobile nav 
+.topNav{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: -150vh;
+    background-color: #16162d;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    transition: all 650ms cubic-bezier(1,0,0,1);
+}
+
+.navList{
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+ul{
+    padding: 10%;
+    @media screen and (max-width: 320px){
+        padding:2%;
+    }
+}
+li{
+    margin: 5%;
+    a{
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.navLink{
+    font-family: 'The Historia Demo', sans-serif;
+    font-size: 5rem;
+    padding: 1rem;
+    @media screen and (max-width: 415px){
+        font-size: 4rem;
+    }
+}
+
+.navLink:hover,
+.navLink:focus{
+    background: linear-gradient(to top, #ffe838, #fd57bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.topNav.open{
+    top: 0;
+    border-radius: initial;
+}
+
+.menuToggler{
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 650ms ease-out;
+    position: fixed;
+    float: right;
+    -webkit-animation: fadeIn 3s ; /* Chrome, Safari, Opera */
+    animation: fadeIn 3s ;
+    @media screen and (max-width: 480px){
+        width: 3rem;
+        height: 2rem;
+        top: 1.2rem;
+    }
+    @media screen and (max-width: 350px){
+        right: 1rem;
+    }
+}
+
+.menuToggler.open{
+    transform: rotate(-45deg);
+}
+
+.bar{
+    background: linear-gradient(to top, #ffe838, #fd57bf);
+    width: 100%;
+    height: 4px;
+    border-radius: .8rem;
+}
+
+.bar.half{
+    width: 50%;
+}
+
+.bar.start{
+    transform-origin: right;
+    transition: transform 650ms cubic-bezier(0.54, -0.81,0.57,0.57);
+}
+
+.open .bar.start{
+    transform: rotate(-450deg) translateX(.8rem);
+}
+
+.bar.end{
+    align-self: flex-end;
+    transform-origin: left;
+    transition: transform 650ms cubic-bezier(0.54, -0.81,0.57,0.57);
+}
+
+.open .bar.end{
+    transform: rotate(-450deg) translateX(-.8rem);
+}
+
+
+

@@ -1,0 +1,238 @@
+@import '../utilities/Utilities';
+
+.about{
+    height: 100%;
+    width: 100%;
+    // background: black;
+    color: white;
+    overflow: hidden;
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .profileImg{
+        flex: 1;
+        min-width: 350px;
+        max-width: 450px;
+        margin: 3rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        @media screen and (max-width: 836px){
+            height:100px;
+        }
+        @media screen and (max-width: 375px){
+            img{
+                width: 270px;
+                height: 180px;
+            }
+        }
+        @media screen and (max-height: 900px) and (max-width: 375px){
+            img{
+                width: 300px;
+                height: 200px;
+            }
+        }
+    }
+    
+    .detail{
+        flex: 1;
+        .head{
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 6rem;
+            @media screen and (max-width: 958px){
+                margin-bottom: 3rem;
+            }
+            @media screen and (max-height: 840px) and (max-width: 958px){
+                margin-bottom: 2.5rem;
+            }
+            @media screen and (max-height: 900px) and (max-width: 958px){
+                margin-bottom: 1.8rem;
+            }
+            h1{
+                font-size: 10rem;
+                opacity: .3;
+                line-height: 0px;
+                @media screen and (max-width: 1142px){
+                    font-size: 5rem;
+                }
+                @media screen and (max-width: 375px){
+                    font-size:4rem;
+                }
+                @media screen and (max-height: 900px) and (max-width: 958px){
+                    font-size:3.5rem;
+                }
+            }
+            h6{
+                font-size: 2rem;
+                font-weight: 300;
+                line-height: 0px;
+                @media screen and (max-width: 1142px){
+                    font-size: 1rem;
+                }
+            }
+        }
+        p{
+            padding: 2%;
+            @media screen and (max-width: 1142px){
+                font-size: 14px;
+            }
+            @media screen and (max-width: 375px){
+                font-size: 10px;
+            }
+        }
+    }
+
+    .socialMedia{
+        margin-top: 2rem;
+        overflow: hidden;
+        ul {
+            position: absolute;
+            top:85%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            display: flex;
+            @media screen and  (max-width: 900px){
+                left:45%;
+            }
+            @media screen and (max-width: 836px){
+                top:87%;
+            }
+            @media screen and (max-width:375px){
+                top:90%;
+            }
+            @media screen and (max-width:350px){
+                left:43.6%;
+            }
+            @media screen and (max-height: 900px){
+                top:85%;
+            }
+          }
+          ul li {
+            list-style: none;
+            margin: 0 100px;
+            @media screen and  (max-width: 900px){
+                margin: 0 90px;
+            }
+            @media screen and  (max-width: 836px){
+                margin: 0 55px;
+            }
+            @media screen and  (max-width: 500px){
+                margin: 0 40px;
+            }
+          }
+          ul li a .fa {
+            font-size: 40px;
+            line-height: 80px;
+            transition: .5s;
+            @media screen and  (max-width: 836px){
+                line-height: 50px;
+            }
+            @media screen and  (max-width: 500px){
+                line-height: 40px;
+                font-size: 30px;
+            }
+          }
+          ul li:nth-child(1) .fa {
+            color: #333;
+          }
+          ul li:nth-child(2) .fa {
+            color: #205081;
+          }
+          ul li:nth-child(3) .fa {
+            color: #0077B5;
+          }
+          ul li:nth-child(4) .fa {
+            color: #e4405f;
+          }
+          ul li a {
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            text-align: center;
+            transform: perspective(1000px) rotate(-30deg) skew(25deg);
+            transition: .5s;
+            box-shadow: -20px 20px 10px rgba(0,0,0,.5);
+            @media screen and  (max-width: 836px){
+                width: 50px;
+                height: 50px;
+            }
+            @media screen and  (max-width: 500px){
+                width: 40px;
+                height: 40px;
+            }
+          }
+          ul li a::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -20px;
+            width: 20px;
+            height: 100%;
+            background: #b1b1b1;
+            transform: rotate(0deg) skewY(-45deg);
+            transition: .5s;
+          }
+          ul li a::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            bottom: -20px;
+            height: 20px;
+            width: 100%;
+            background: #b1b1b1;
+            transform: rotate(0deg) skewX(-45deg);
+            transition: .5s;
+          }
+          ul li a:hover {
+            transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
+            box-shadow: -50px 50px 10px rgba(0,0,0,.5);
+          }
+          ul li:hover .fa {
+            color: #fff;
+          }
+          ul li:hover:nth-child(1) a {
+            background: #333;
+          }
+          ul li:hover:nth-child(1) a::before {
+            background: #272222;
+          }
+          ul li:hover:nth-child(1) a::after {
+            background: #3c3b3b;
+          }
+          ul li:hover:nth-child(2) a {
+            background: #205081;
+          }
+          ul li:hover:nth-child(2) a::before {
+            background: #163a5f;
+          }
+          ul li:hover:nth-child(2) a::after {
+            background: #25598e;
+          }
+          ul li:hover:nth-child(3) a {
+            background: #0077B5;
+          }
+          ul li:hover:nth-child(3) a::before {
+            background: #004d75;
+          }
+          ul li:hover:nth-child(3) a::after {
+            background: #027fc1;
+          }
+          ul li:hover:nth-child(4) a {
+            background: #e4405f;
+          }
+          ul li:hover:nth-child(4) a::before {
+            background: #8c192f;
+          }
+          ul li:hover:nth-child(4) a::after {
+            background: #f75977;
+          }
+    }
+}

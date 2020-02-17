@@ -1,0 +1,116 @@
+@import '../utilities/Utilities';
+.home {
+    height: 100%;
+    width: 100%;
+    background-image: url('../../assets/logo(Red).png');
+    background-position: center;
+    background-size: 95%;
+    background-repeat: no-repeat;
+    -webkit-animation: fadeIn 3s ; /* Chrome, Safari, Opera */
+    animation: fadeIn 3s ;
+  }
+  ul {
+    position: absolute;
+    top:5%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    display: flex;
+  }
+  ul li {
+    list-style: none;
+    margin: 0 100px;
+  }
+  ul li a .fa {
+    font-size: 40px;
+    line-height: 80px;
+    transition: .5s;
+  }
+  ul li:nth-child(1) .fa {
+    color: #333;
+  }
+  ul li:nth-child(2) .fa {
+    color: #205081;
+  }
+  ul li:nth-child(3) .fa {
+    color: #0077B5;
+  }
+  ul li:nth-child(4) .fa {
+    color: #e4405f;
+  }
+  ul li a {
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    text-align: center;
+    transform: perspective(1000px) rotate(-30deg) skew(25deg);
+    transition: .5s;
+    box-shadow: -20px 20px 10px rgba(0,0,0,.5);
+  }
+  ul li a::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 20px;
+    height: 100%;
+    background: #b1b1b1;
+    transform: rotate(0deg) skewY(-45deg);
+    transition: .5s;
+  }
+  ul li a::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: -20px;
+    height: 20px;
+    width: 100%;
+    background: #b1b1b1;
+    transform: rotate(0deg) skewX(-45deg);
+    transition: .5s;
+  }
+  ul li a:hover {
+    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
+    box-shadow: -50px 50px 10px rgba(0,0,0,.5);
+  }
+  ul li:hover .fa {
+    color: #fff;
+  }
+  ul li:hover:nth-child(1) a {
+    background: #333;
+  }
+  ul li:hover:nth-child(1) a::before {
+    background: #272222;
+  }
+  ul li:hover:nth-child(1) a::after {
+    background: #3c3b3b;
+  }
+  ul li:hover:nth-child(2) a {
+    background: #205081;
+  }
+  ul li:hover:nth-child(2) a::before {
+    background: #163a5f;
+  }
+  ul li:hover:nth-child(2) a::after {
+    background: #25598e;
+  }
+  ul li:hover:nth-child(3) a {
+    background: #0077B5;
+  }
+  ul li:hover:nth-child(3) a::before {
+    background: #004d75;
+  }
+  ul li:hover:nth-child(3) a::after {
+    background: #027fc1;
+  }
+  ul li:hover:nth-child(4) a {
+    background: #e4405f;
+  }
+  ul li:hover:nth-child(4) a::before {
+    background: #8c192f;
+  }
+  ul li:hover:nth-child(4) a::after {
+    background: #f75977;
+  }
