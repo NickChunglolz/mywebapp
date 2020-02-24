@@ -8,14 +8,14 @@
             <div class="timeline">
                 <ul>
                     <li class="date" data-date="2019 July - 2019 August">
-                        <h1>Siemens' MindSphere World Taiwan & Japan</h1>
+                        <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/>&nbsp;&nbsp;MindSphere World</h1>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         </p>
                     </li>
                     <li class="date" data-date="2019 September - Present">
-                        <h1>Siemens</h1>
+                        <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/></h1>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
