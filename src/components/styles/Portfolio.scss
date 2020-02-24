@@ -1,0 +1,45 @@
+@import '../utilities/Utilities';
+.portfolio{
+    height: 100%;
+    width: 100%;
+    padding-top: 10%;
+    .portfolioItem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // margin: 0 10rem 5rem 10rem;
+        margin-bottom: 5rem;
+        .profileImg{
+            width: 50rem;
+            flex: 1;
+        }
+        .portfolioDescription{
+            flex: 1;
+            h1{
+                font-size: 3rem;
+                font-weight: 300;
+                margin: 1rem 0;
+            }
+            h6{
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                font-weight: 300;
+                opacity: 0.3;
+            }
+            .cta{
+                display: inline-block;
+                margin-top: 2.5rem;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                color: #3883ff;
+                color: 650ms;
+            }
+            .cta:hover{
+                color: #2f67cd;
+            }
+        }
+    }
+    .portfolioItem:last-child{
+        margin-bottom: 0;
+    }
+}
