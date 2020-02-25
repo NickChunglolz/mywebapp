@@ -21,6 +21,8 @@
           <Contact class="CONTACT" id="CONTACT"/>
         </div>
     </div>
+    <!-- Modal -->
+    <!-- <ChatModal/> -->
   </div>
 </template>
 
@@ -35,6 +37,10 @@ const Tech = () => import('./components/Tech.vue');
 const Portfolio = () => import('./components/Portfolio.vue');
 const Experience = () => import('./components/Experience.vue');
 const Contact = () => import('./components/Contact.vue');
+// Modals
+const ChatModal = () => import('./components/Chat.vue');
+//js
+const modal = () => import('./components/js/modal');
 
 export default {
   name: 'app',
@@ -45,7 +51,11 @@ export default {
     Tech,
     Portfolio,
     Experience,
-    Contact
+    Contact,
+    ChatModal
+  },
+  beforeCreate(){
+    modal();
   }
 }
 </script>

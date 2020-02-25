@@ -77,3 +77,12 @@ img{
         box-shadow: 0 0 0 0 rgba(253,87,191, 0);
     }
 }
+
+@keyframes modalopen {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}

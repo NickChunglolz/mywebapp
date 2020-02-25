@@ -4,7 +4,7 @@
             <h1 >Software&nbsp;Engineer</h1>
         </div>
         <div v-if="!mobileView">
-            <a class="navBtn" id="chatBox" href="#" ><i class="fa fa-comment"></i></a>
+            <a class="navBtn" id="chatBox" href="#"><i class="fa fa-comment"></i></a>
             <a class="navBtn" id="wordsLink" href="#CONTACT" >CONTACT</a>
             <a class="navBtn" id="wordsLink" href="#EXPER" >EXPERIENCES</a>
             <a class="navBtn" id="wordsLink" href="#PORT" >PORTFOLIO</a>
@@ -71,7 +71,7 @@ export default {
     beforeCreate(){
             $( window ).scroll(function() {
                 $('.NavBar').toggleClass('scrollBG', $(this).scrollTop() > $('.NavBar').height());
-            })
+            });
     },
     created() {
         this.handleView();
