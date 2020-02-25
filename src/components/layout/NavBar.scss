@@ -1,39 +1,47 @@
 @import '../utilities/Utilities';
-@import url(//db.onlinewebfonts.com/c/0923ee644c97a87d70269aa80a6f1e79?family=The+Historia+Demo);
+// @import url(//db.onlinewebfonts.com/c/0923ee644c97a87d70269aa80a6f1e79?family=The+Historia+Demo);
 
 .NavBar{
     width: 100%;
-    // background: none; 
-    background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135)) !important;
+    height: auto;
+    background: none; 
     position: fixed;
     z-index: 9999;
+    &.scrollBG{
+        background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135)) !important;
+        transition: background 200ms linear;
+    }
     .myName{
         float: left;
         margin: 0 0 0 5%;
         h1{
-            padding: 1%;
-            font-family: 'The Historia Demo', sans-serif;
+            padding: 0 1rem;
+            // font-family: 'The Historia Demo', sans-serif;
+            font-family: 'Mr Dafoe', sans-serif;
             font-size: 5rem;
             background: linear-gradient(to top, #ffe838, #fd57bf);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             -webkit-animation: fadeIn 3s ; /* Chrome, Safari, Opera */
             animation: fadeIn 3s ;
-            @media screen and (max-width: 600px){
+            @media screen and (max-width: 768px){
                 font-size: 4rem;
-                padding-top: 3%;
+                // padding-top: 3%;
             }
             @media screen and (max-width: 600px){
-                font-size: 4rem;
-                padding-top: 3%;
+                font-size: 3rem;
+                padding-top: .5rem;
+                padding-left: 0;
             }
             @media screen and (max-width: 480px){
-                font-size: 3rem;
-                padding-top: 3%;
+                font-size: 2.5rem;
+                padding-top: .5rem;
+                padding-left: 0;
             }
             @media screen and (max-width: 380px){
-                font-size: 2.5rem;
-                padding-top: 7%;
+                font-size: 2rem;
+                padding-top: .5rem;
+                padding-left: 0;
             }
         }
     }
@@ -47,16 +55,12 @@
         color: black;
         -webkit-animation: fadeIn 3s ; /* Chrome, Safari, Opera */
         animation: fadeIn 3s ;
+        
         i{
             color: white;
             margin: auto;
         }
     }
-}
-
-.NavBar.scrollBG{
-    background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135)) !important;
-    transition: background-color 200ms linear;
 }
 
 // title outfit
@@ -103,6 +107,10 @@
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
     transition: all 650ms cubic-bezier(1,0,0,1);
+    &.open{
+        top: 0;
+        border-radius: initial;
+    }
 }
 
 .navList{
@@ -118,7 +126,7 @@ ul{
     padding: 1rem;
 }
 li{
-    margin: 1.5rem;
+    margin: 1.2rem;
     a{
         color: white;
         text-decoration: none;
@@ -126,7 +134,8 @@ li{
 }
 
 .navLink{
-    font-family: 'The Historia Demo', sans-serif;
+    // font-family: 'The Historia Demo', sans-serif;
+    font-family: 'Mr Dafoe', sans-serif;
     font-size: 5rem;
     padding: 1rem;
     @media screen and (max-width: 415px){
@@ -141,11 +150,6 @@ li{
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-}
-
-.topNav.open{
-    top: 0;
-    border-radius: initial;
 }
 
 .menuToggler{
@@ -197,11 +201,13 @@ li{
 }
 
 .open{
-    .bar.start{
-        transform: rotate(-450deg) translateX(.8rem);
-    }
-    .bar.end{
-        transform: rotate(-450deg) translateX(-.8rem);
+    .bar{
+        &.start{
+            transform: rotate(-450deg) translateX(.8rem);
+        }
+        &.end{
+            transform: rotate(-450deg) translateX(-.8rem);
+        }
     }
 }
 

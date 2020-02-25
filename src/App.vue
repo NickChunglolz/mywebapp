@@ -14,7 +14,7 @@
         <div class="row" style="height:auto;">
           <Portfolio class="PORT" id="PORT"/>
         </div>
-        <div class="row">
+        <div class="row" style="height:auto;">
           <Experience class="EXPER" id="EXPER"/>
         </div>
         <div class="row">
@@ -50,37 +50,4 @@ export default {
 }
 </script>
 
-<style>
-* { 
-  margin: 0 ;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135));
-}
-.padding-0{
-    padding-right:0;
-    padding-left:0;
-}
-.row{
-  height:100%;
-  width:100%;
-  padding:0 5% 0 5%;
-  margin:auto; 
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  background: transparent;
-  height:100%;
-  width: 100%;
-  overflow-x: hidden;
-}
-</style>
+<style src="./App.scss" lang="scss"/>

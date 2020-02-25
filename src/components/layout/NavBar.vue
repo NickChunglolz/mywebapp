@@ -29,7 +29,7 @@
                         <a href="#TECH" class="navLink">Techniques</a>
                     </li>
                     <li>
-                        <a href="#PROT" class="navLink">Portfolio</a>
+                        <a href="#PORT" class="navLink">Portfolio</a>
                     </li>
                     <li>
                         <a href="#EXPER" class="navLink">Experiences</a>
@@ -69,9 +69,9 @@ export default {
         }
     },
     beforeCreate(){
-        $( window ).scroll(function() {
-            $('.NavBar').toggleClass('scrollBG', $(this).scrollTop() > $('.NavBar').height());
-        });
+            $( window ).scroll(function() {
+                $('.NavBar').toggleClass('scrollBG', $(this).scrollTop() > $('.NavBar').height());
+            })
     },
     created() {
         this.handleView();
