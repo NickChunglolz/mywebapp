@@ -14,10 +14,10 @@
         <div class="row" style="height:auto;">
           <Portfolio class="PORT" id="PORT"/>
         </div>
-        <div class="row" style="height:auto;">
+        <div class="row">
           <Experience class="EXPER" id="EXPER"/>
         </div>
-        <div class="row" style="height:auto;">
+        <div class="row">
           <Contact class="CONTACT" id="CONTACT"/>
         </div>
     </div>
