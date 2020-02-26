@@ -7,7 +7,7 @@
             </div>
             <div class="portfolioItem">
                 <div class="profileImg has-margin-right">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/barcode/Home.png')"/>
                 </div>
                 <div class="portfolioDescription">
                     <h6>MindSphere Web Development</h6>
@@ -35,7 +35,7 @@
             </div>
             <div class="portfolioItem">
                 <div class="profileImg has-margin-right">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/automationshow/MSP01.png')"/>
                 </div>
                 <div class="portfolioDescription">
                     <h6>MindSphere Web Development</h6>
@@ -58,12 +58,12 @@
                     <a href="https://bitbucket.org/mindspherelolz/kukademoapp/src/master/" class="cta">View Details</a>
                 </div>
                 <div class="profileImg">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/automationshow/KUKA01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
                 <div class="profileImg has-margin-right">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/taipower/01.png')"/>
                 </div>
                 <div class="portfolioDescription">
                     <h6>Web Development</h6>
@@ -86,12 +86,12 @@
                     <a href="#" class="cta">View Details</a>
                 </div>
                 <div class="profileImg">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/traffic/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
                 <div class="profileImg has-margin-right">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/handwriting/01.png')"/>
                 </div>
                 <div class="portfolioDescription">
                     <h6>Machine Learning</h6>
@@ -114,25 +114,14 @@
                     <a href="https://bitbucket.org/nickchungios/smack/src/master/" class="cta">View Details</a>
                 </div>
                 <div class="profileImg">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/smack/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
                 <div class="profileImg has-margin-right">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
+                    <img v-lazy="require('../assets/portfolio/yunapp/01.png')"/>
                 </div>
                 <div class="portfolioDescription">
-                    <h6>IOS Development</h6>
-                    <h1>Pixel City Map App</h1>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                    <a href="https://bitbucket.org/nickchungios/pixel-city/src/master/" class="cta">View Details</a>
-                </div>
-            </div>
-            <div class="portfolioItem">
-                <div class="portfolioDescription has-margin-right">
                     <h6>IOS Development</h6>
                     <h1>YunAPP</h1>
                     <p>
@@ -141,15 +130,9 @@
                     </p>
                     <a href="https://bitbucket.org/nickchungios/yunapp/src/master/" class="cta">View Details</a>
                 </div>
-                <div class="profileImg">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
-                </div>
             </div>
             <div class="portfolioItem">
-                <div class="profileImg has-margin-right">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
-                </div>
-                <div class="portfolioDescription">
+                <div class="portfolioDescription has-margin-right">
                     <h6>IOS Development</h6>
                     <h1>Food Truck</h1>
                     <p>
@@ -158,19 +141,22 @@
                     </p>
                     <a href="https://bitbucket.org/nickchungios/apipractice/src/master/" class="cta">View Details</a>
                 </div>
+                <div class="profileImg">
+                    <img v-lazy="require('../assets/portfolio/foodtruck/01.png')"/>
+                </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioDescription has-margin-right">
-                    <h6>Java OOP Development</h6>
+                <div class="profileImg has-margin-right">
+                    <img v-lazy="require('../assets/portfolio/ooshop/01.png')"/>
+                </div>
+                <div class="portfolioDescription">
+                    <h6>Java OOP & JSP Web Development</h6>
                     <h1>Oh!Oh!Shop</h1>
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     </p>
                     <a href="https://bitbucket.org/nickchungios/ooshop/src/master/" class="cta">View Details</a>
-                </div>
-                <div class="profileImg">
-                    <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
                 </div>
             </div>
         </div>
