@@ -4,7 +4,8 @@
 .NavBar{
     width: 100%;
     height: auto;
-    background: none; 
+    // background: none; 
+    background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135)) !important;
     position: fixed;
     z-index: 9999;
     &.scrollBG{
