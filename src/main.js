@@ -4,7 +4,10 @@ import router from './Router'
 import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueLazyload,{
-  preLoad:1.3
+  preLoad:1.3,
+  loading: 'dist/loading.gif',
+  attempt: 1,
+  listenEvents: [ 'scroll' ]
 });
 
 Vue.config.productionTip = false
