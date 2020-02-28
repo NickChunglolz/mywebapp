@@ -14,7 +14,8 @@
                     Last year summer I joined Siemens summer internship and duty on MindSphere, Siemens IIoT PaaS, I learned a lot about IIoT and experienced the Taipei automation show in this duration, it is a very cool experience for me.<br>                
                     After this internship, I working for Siemens' MindSphere World until now, make some applications and help our customer to develop their business by MindSphere.<br>
                     In addition, I also learned some different develop skills in my free time(like IOS applications, MQTT, WebSocket, front-end, and ML...), I am trying to be better and like different challenges.<br>
-                    I hope my skills can be helpful to you. 
+                    I hope my skills can be helpful to you. <br>
+                    <b style="font-size:18px;">These first two links are my personal and Siemens' MindSphere projects BitBucket(Git repository) link. </b>
                 </p>
             </div>
             <div class="socialMedia">
