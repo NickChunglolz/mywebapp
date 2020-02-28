@@ -20,6 +20,7 @@
                 <label for="subject">Subject:</label>
                 <textarea name="subject" id="subject" cols="10" rows="10"></textarea>
                 <input type="submit" value="Submit"/>
+                <button v-on:click="sendMail" >Submit</button>
             </div>
         </div>
         <footer class="copyright">
@@ -33,8 +34,27 @@
 
 <script>
 /* eslint-disable */
+// Services
+// const emailServices = import('@/services/email');
 export default {
     name: 'Contact',
+    // mixins: [emailServices]
+    methods: {
+        async sendMail(){
+            let body = {
+                    "userName": "NickChunglolz",
+                    "email": "b10523044@yuntech.org.tw",
+                    "title": "testing",
+                    "content": "testing"
+                }
+                try{
+                    let res = await this.$axios.post('/email',body);
+                    console.log(res.data);
+                }catch(e){
+                    console.log(e);
+                }
+        }
+    }
 }
 </script>
 
