@@ -5,7 +5,7 @@ import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueLazyload,{
   preLoad:1.3,
-  loading: 'dist/loading.gif',
+  loading: 'loading.gif',
   attempt: 1,
   listenEvents: [ 'scroll' ]
 });
