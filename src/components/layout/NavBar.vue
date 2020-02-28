@@ -57,7 +57,7 @@ export default {
             this.mobileView = window.innerWidth <= 1300;
             if(this.mobileView){
                 $(document).ready(function() {
-                    $('.menuToggler').on('click', function() {
+                    $(document).on('click','.menuToggler', function() {
                         $(this).toggleClass('open');
                         $('.topNav').toggleClass('open');
                     });
@@ -76,6 +76,9 @@ export default {
     created() {
         this.handleView();
         window.addEventListener('resize', this.handleView);
+    },
+    destroyed(){
+         window.removeEventListener('resize', this.handleResize);
     }
 }
 </script>
