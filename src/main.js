@@ -5,7 +5,7 @@ import router from './Router'
 import VueLazyload from 'vue-lazyload'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://api.nickchunglolz/portfolio/v1';
+axios.defaults.baseURL = 'https://api.nickchunglolz.com/portfolio/v1';
 Vue.prototype.$axios = axios;
 
 Vue.use(VueLazyload,{
