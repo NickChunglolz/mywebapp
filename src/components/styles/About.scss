@@ -139,7 +139,8 @@
             }
           }
           ul li:nth-child(1) .fa {
-            color: #333;
+            // color: #333;
+            color: #205081;
           }
           ul li:nth-child(2) .fa {
             color: #205081;
@@ -199,13 +200,16 @@
             color: #fff;
           }
           ul li:hover:nth-child(1) a {
-            background: #333;
+            // background: #333;
+            background: #205081;
           }
           ul li:hover:nth-child(1) a::before {
-            background: #272222;
+            // background: #272222;
+            background: #163a5f;
           }
           ul li:hover:nth-child(1) a::after {
-            background: #3c3b3b;
+            // background: #3c3b3b;
+            background: #25598e;
           }
           ul li:hover:nth-child(2) a {
             background: #205081;

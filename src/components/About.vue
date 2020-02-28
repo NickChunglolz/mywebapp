@@ -20,7 +20,8 @@
             <div class="socialMedia">
                 <ul>
                     <li>
-                        <a href="https://bitbucket.org/nickchungios/profile/projects/"><i class="fa fa-github"></i></a>
+                        <!-- <a href="https://bitbucket.org/nickchungios/profile/projects/"><i class="fa fa-github"></i></a> -->
+                        <a href="https://bitbucket.org/nickchungios/profile/projects/"><i class="fa fa-bitbucket"></i></a>
                     </li>
                     <li>
                         <a href="https://bitbucket.org/mindspherelolz/profile/projects/"><i class="fa fa-bitbucket"></i></a>
