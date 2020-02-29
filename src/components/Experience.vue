@@ -7,7 +7,7 @@
             </div>
             <div class="timeline">
                 <ul>
-                    <li class="date" data-date="2019 Sept. - Present">
+                    <li class="date" data-date="2019 Sep. - Present">
                         <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/>&nbsp;&nbsp;MindSphere World</h1>
                         <p>
                             <a href="https://siemens.mindsphere.io/en">Website</a> <br>
@@ -15,10 +15,17 @@
                         </p>
                     </li>
                     <li class="date" data-date="2019 July - 2019 August">
-                        <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/></h1>
+                        <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/>&nbsp;&nbsp;Siemens AG</h1>
                         <p>
                             <a href="https://www.mindsphereworld.tw">Website</a> <br>
                             Siemens Summer Internship - MindSphere IIoT 工業物聯網
+                        </p>
+                    </li>
+                    <li class="date" data-date="2019 Jan. - 2019 Feb.">
+                        <h1><img class="logo" v-lazy="require('../assets/chingjr.png')"/>&nbsp;&nbsp;Ching Jr Industrial Co., LTD.</h1>
+                        <p>
+                            <a href="https://chingjr.com">Website</a> <br>
+                            Part Time - Web Design and Manage (Wordpress)、Server Erection (SiteGround)
                         </p>
                     </li>
                 </ul>
