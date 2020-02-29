@@ -10,14 +10,14 @@
                     <li class="date" data-date="2019 Sep. - Present">
                         <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/>&nbsp;&nbsp;MindSphere World</h1>
                         <p>
-                            <a href="https://siemens.mindsphere.io/en">Website</a> <br>
+                            <a href="https://www.mindsphereworld.tw">Website</a> <br>
                             Software Engineer Intern - Siemens MindSphere IoT PoC Apps Development
                         </p>
                     </li>
                     <li class="date" data-date="2019 July - 2019 August">
                         <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/>&nbsp;&nbsp;Siemens AG</h1>
                         <p>
-                            <a href="https://www.mindsphereworld.tw">Website</a> <br>
+                            <a href="https://siemens.mindsphere.io/en">Website</a> <br>
                             Siemens Summer Internship - MindSphere IIoT 工業物聯網
                         </p>
                     </li>
