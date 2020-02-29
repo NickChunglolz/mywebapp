@@ -1,7 +1,7 @@
 @import '../utilities/Utilities';
 
 .experience{
-    height: 100%;
+    height:auto;
     width: 100%;
     padding-top: 10%;
     color: white;
@@ -64,5 +64,65 @@
             }
         }
 
+    }
+
+    @media screen and (max-width: 1200px){
+        .timeline {
+            ul{
+                width: 80%;
+                margin-right: 0;
+                padding-right: 1rem;
+            }
+        }
+    }
+    @media screen and (max-width: 990px){
+        .timeline {
+            ul{
+                width: 70%;
+            }
+        }
+    }
+    @media screen and (max-width: 768px){
+        .timeline {
+            ul{
+                width: 70%;
+            }
+            h1{
+                font-size: 1rem;
+                font-weight: 300;
+                margin-bottom: 1rem;
+                opacity: .3;
+                .logo{
+                    padding-top: 1rem;
+                    width:7rem;
+                    // background-color: white;
+                }
+            }
+            .date::before {
+                font-size: .5rem;
+                left: -19rem;
+            }
+        }
+    }
+    @media screen and (max-width: 560px){
+        .timeline {
+            ul{
+                width: 55%;
+                padding: 1rem;
+                h1{
+                    font-size: .9rem;
+                }
+            }
+            .date {
+                &::before{
+                    left: -14.1rem;
+                }
+                &::after{
+                    left: -1.7rem;
+                    height: 1rem;
+                    width: 1rem;
+                }
+            }
+        }
     }
 }

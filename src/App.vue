@@ -5,7 +5,7 @@
         <div class="row">
           <Home class="HOME" id="HOME"/>
         </div>
-        <div class="row">
+        <div class="row" style="height:auto;">
               <About class="ABOUT" id="ABOUT"/>
         </div>
         <div class="row" style="height:auto;">

@@ -18,6 +18,9 @@
     width:100%;
     padding:0 5% 0 5%;
     margin:auto; 
+    @media screen and(max-width:768px){
+      padding:0 1% 0 1%;
+    }
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -28,6 +31,6 @@
     background: transparent;
     height:100%;
     width: 100%;
-    // overflow-x: hidden;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
   }

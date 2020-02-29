@@ -6,7 +6,7 @@
                 <h6>Projects I made</h6>
             </div>
             <div class="portfolioItem">
-                <div class="profileImg has-margin-right">
+                <div class="portfolioImg has-margin-right">
                     <img v-lazy="require('../assets/portfolio/barcode/Home.png')"/>
                 </div>
                 <div class="portfolioDescription">
@@ -35,12 +35,12 @@
                     </p>
                     <a href="https://bitbucket.org/account/user/mindspherelolz/projects/GREEN" class="cta">View Details</a>
                 </div>
-                <div class="profileImg">
+                <div class="portfolioImg">
                     <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="profileImg has-margin-right">
+                <div class="portfolioImg has-margin-right">
                     <img v-lazy="require('../assets/portfolio/automationshow/MSP01.png')"/>
                 </div>
                 <div class="portfolioDescription">
@@ -69,12 +69,12 @@
                     </p>
                     <a href="https://bitbucket.org/mindspherelolz/kukademoapp/src/master/" class="cta">View Details</a>
                 </div>
-                <div class="profileImg">
+                <div class="portfolioImg">
                     <img v-lazy="require('../assets/portfolio/automationshow/KUKA01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="profileImg has-margin-right">
+                <div class="portfolioImg has-margin-right">
                     <img v-lazy="require('../assets/portfolio/taipower/01.png')"/>
                 </div>
                 <div class="portfolioDescription">
@@ -100,12 +100,12 @@
                     </p>
                     <a href="#" class="cta">View Details</a>
                 </div>
-                <div class="profileImg">
+                <div class="portfolioImg">
                     <img v-lazy="require('../assets/portfolio/traffic/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="profileImg has-margin-right">
+                <div class="portfolioImg has-margin-right">
                     <img v-lazy="require('../assets/portfolio/handwriting/01.png')"/>
                 </div>
                 <div class="portfolioDescription">
@@ -133,12 +133,12 @@
                     </p>
                     <a href="https://bitbucket.org/nickchungios/smack/src/master/" class="cta">View Details</a>
                 </div>
-                <div class="profileImg">
+                <div class="portfolioImg">
                     <img v-lazy="require('../assets/portfolio/smack/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="profileImg has-margin-right">
+                <div class="portfolioImg has-margin-right">
                     <img v-lazy="require('../assets/portfolio/yunapp/01.png')"/>
                 </div>
                 <div class="portfolioDescription">
@@ -165,12 +165,12 @@
                     </p>
                     <a href="https://bitbucket.org/nickchungios/apipractice/src/master/" class="cta">View Details</a>
                 </div>
-                <div class="profileImg">
+                <div class="portfolioImg">
                     <img v-lazy="require('../assets/portfolio/foodtruck/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="profileImg has-margin-right">
+                <div class="portfolioImg has-margin-right">
                     <img v-lazy="require('../assets/portfolio/ooshop/01.png')"/>
                 </div>
                 <div class="portfolioDescription">

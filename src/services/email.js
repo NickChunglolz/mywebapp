@@ -1,16 +1,16 @@
 /* eslint-disable */
 export default {
+    data(){
+        return {
+            emailBody: {}
+        }
+    },
     methods: {
-        async sendMail(){
-            let body = {
-                    "userName": "NickChunglolz",
-                    "email": "b10523044@yuntech.org.tw",
-                    "title": "testing",
-                    "content": "testing"
-                }
+        async sendMail(body){
                 try{
                     let res = await this.$axios.post('/email',body);
-                    console.log(res.data);
+                    alert("Send mail successfully.");
+                    return res.data;
                 }catch(e){
                     console.log(e);
                 }

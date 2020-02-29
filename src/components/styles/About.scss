@@ -1,7 +1,7 @@
 @import '../utilities/Utilities';
 
 .about{
-    height: 100%;
+    height: auto;
     width: 100%;
     // background: black;
     color: white;
@@ -40,6 +40,17 @@
     
     .detail{
         flex: 1;
+        margin-top: 5rem;
+        margin-bottom: 15rem;
+        @media screen and (max-height: 900px) and (max-width: 958px){
+            min-width: 40%;
+        }
+        @media screen and (min-width: 600px) and (max-width: 836px){
+            margin-top: 15rem;
+        }
+        @media screen and (max-width: 600px){
+          margin-top: 12rem;
+      }
         .head{
             text-align: center;
             text-transform: uppercase;
@@ -49,6 +60,9 @@
             }
             @media screen and (max-height: 840px) and (max-width: 958px){
                 margin-bottom: 2.5rem;
+            }
+            @media screen and (max-height: 836px){
+              // margin-top:10rem;
             }
             @media screen and (max-height: 900px) and (max-width: 958px){
                 margin-bottom: 1.8rem;
@@ -92,25 +106,28 @@
         overflow: hidden;
         ul {
             position: absolute;
-            top:85%;
+            top:78%;
             left:50%;
             transform: translate(-50%, -50%);
             margin: 0;
+            margin-top: 1rem;
+
             display: flex;
+            @media screen and  (max-width: 1300px){
+                left:45%;
+            }
             @media screen and  (max-width: 900px){
                 left:45%;
             }
             @media screen and (max-width: 836px){
-                top:87%;
+                top:70%;
+                left:43.6%;
             }
             @media screen and (max-width:375px){
                 top:90%;
             }
-            @media screen and (max-width:350px){
-                left:43.6%;
-            }
             @media screen and (max-height: 900px){
-                top:85%;
+                top:75%;
             }
           }
           ul li {

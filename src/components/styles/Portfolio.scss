@@ -4,15 +4,30 @@
     height: 100%;
     width: 100%;
     padding-top: 10%;
+    // overflow-x: hidden;
     .portfolioItem{
         display: flex;
         align-items: center;
         justify-content: center;
         // margin: 0 10rem 5rem 10rem;
         margin-bottom: 5rem;
-        .profileImg{
+        .portfolioImg{
             width: 50rem;
             flex: 1;
+            img{
+                @media screen and (max-width: 660px){
+                        width: 500px;
+                }
+                @media screen and (max-width: 500px){
+                        width: 400px;
+                }
+                @media screen and (max-width: 400px){
+                        width: 350px;
+                }
+                @media screen and (max-width: 350px){
+                        width: 300px;
+                }
+            }
         }
         .portfolioDescription{
             flex: 1;
@@ -42,5 +57,21 @@
     }
     .portfolioItem:last-child{
         margin-bottom: 0;
+    }
+    @media screen and (max-width: 768px){
+        .portfolioItem {
+            flex-direction: column;
+        }
+        .portfolioImg{
+            margin: 0 0 2rem 0;
+            order: 1;
+            img{
+                width: 40rem;
+            }
+        }
+        .portfolioDescription{
+            margin: 0;
+            order: 2;
+        }
     }
 }

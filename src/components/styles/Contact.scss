@@ -1,10 +1,12 @@
 @import '../utilities/Utilities';
 
 .contact{
-    height: 100%;
+    height: auto;
     width: 100%;
-    padding-top: 10%;
-    margin-top: 5%;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
     background-color: #221e3f;
     .form{
         width: 70%;

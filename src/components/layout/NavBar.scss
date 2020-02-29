@@ -12,6 +12,9 @@
         background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135)) !important;
         transition: background 200ms linear;
     }
+    @media screen and (max-width: 380px){
+        padding-bottom: 1rem;
+    }
     .myName{
         float: left;
         margin: 0 0 0 5%;

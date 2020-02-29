@@ -7,7 +7,7 @@
             </div>
             <div class="timeline">
                 <ul>
-                    <li class="date" data-date="2019 September - Present">
+                    <li class="date" data-date="2019 Sept. - Present">
                         <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/>&nbsp;&nbsp;MindSphere World</h1>
                         <p>
                             <a href="https://siemens.mindsphere.io/en">Website</a> <br>
