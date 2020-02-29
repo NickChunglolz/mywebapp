@@ -96,6 +96,7 @@
                         <b style="float:left;"><i class="fas fa-code"></i> CircleCI(CI/CD)</b><br>
                         <b style="float:left;"><i class="fab fa-docker"></i> Docker(Deploy)</b><br>
                         <b style="float:left;"><i class="fas fa-cloud-upload-alt"></i> Cloud Foundry (Deploy)</b>
+                        <b style="float:left;"><i class="fab fa-aws"></i> AWS (S3 Lambda、Amplify)</b>
                     </p>
                 </div>
             </div>
