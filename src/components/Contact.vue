@@ -12,10 +12,10 @@
                 <input type="text" v-model="emailBody.email" id="email" name="email" placeholder="Enter your email..." required/>
                 <label for="services">Services:</label>
                 <select v-model="emailBody.title" name="services" id="services">
-                    <option value="">Full-Stack Development</option>
-                    <option value="">Front-End Development</option>
-                    <option value="">Back-End Development</option>
-                    <option value="">Other</option>
+                    <option value="Full-Stack Development">Full-Stack Development</option>
+                    <option value="Front-End Development">Front-End Development</option>
+                    <option value="Back-End Development">Back-End Development</option>
+                    <option value="Other">Other</option>
                 </select>
                 <label for="subject">Subject:</label>
                 <textarea v-model="emailBody.content" name="subject" id="subject" cols="10" rows="10"></textarea>
