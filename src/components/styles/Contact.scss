@@ -7,12 +7,17 @@
     padding-bottom: 1rem;
     margin-top: 4rem;
     margin-bottom: 1rem;
-    background-color: #221e3f;
+    // background-color: #221e3f;
+    background-color: none;
     .form{
         width: 70%;
         margin: 0 auto;
+        font-weight: bold;
         label{
             font-size: 1.5rem;
+        }
+        @media screen and (max-width:768px){
+            width: 100%;
         }
     }
     input,
@@ -20,7 +25,7 @@
     textarea{
         width: 100%;
         padding: 1rem;
-        margin-bottom: 5px;
+        margin-bottom: 1rem;
         border: none;
         outline-color: #fb57bf;
     }
@@ -37,32 +42,32 @@
             background-color: #ffe838;
         }
     }
-    .copyright{
-        width: 100%;
-        text-align: center;
-        background-color: #16162d;
-        padding: 2rem 0;
-        position: relative;
-        p{
-            font-size: 1rem;
-        }
-    }
-    .up{
-        position: absolute;
-        width: 5rem;
-        height: 5rem;
-        background-color: #eee;
-        top: -2.5rem;
-        right: 5rem;
-        border-radius: 100%;
-        display: flex;
-        cursor: pointer;
-        animation: pulse 2s infinite;
-        i{
-            color: #16162d;
-            font-size: 2rem;
-            margin: auto;
-        }
-    }
+    // .copyright{
+    //     width: 100%;
+    //     text-align: center;
+    //     background-color: #16162d;
+    //     padding: 2rem 0;
+    //     position: relative;
+    //     p{
+    //         font-size: 1rem;
+    //     }
+    // }
+    // .up{
+    //     position: absolute;
+    //     width: 5rem;
+    //     height: 5rem;
+    //     background-color: #eee;
+    //     top: -2.5rem;
+    //     right: 5rem;
+    //     border-radius: 100%;
+    //     display: flex;
+    //     cursor: pointer;
+    //     animation: pulse 2s infinite;
+    //     i{
+    //         color: #16162d;
+    //         font-size: 2rem;
+    //         margin: auto;
+    //     }
+    // }
 }
 

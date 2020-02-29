@@ -1,3 +1,5 @@
+@import './components/utilities/Utilities';
+
 * { 
     margin: 0 ;
     padding: 0;
@@ -33,4 +35,36 @@
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  .copyright{
+      width: 100%;
+      text-align: center;
+      // background-color: #16162d;
+      background-color:none;
+      padding: 2rem 0;
+      position: relative;
+      p{
+          font-size: 1rem;
+      }
+  }
+  .up{
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      background-color: #eee;
+      top: -2.5rem;
+      right: 5rem;
+      border-radius: 100%;
+      display: flex;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      i{
+          color: #16162d;
+          font-size: 2rem;
+          margin: auto;
+      }
+      @media screen and (max-width: 768px){
+          right: 2rem;
+      }
   }
