@@ -6,10 +6,10 @@
                 <h6>Projects I made</h6>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioImg has-margin-right">
+                <div class="portfolioImg has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <img v-lazy="require('../assets/portfolio/barcode/Home.png')"/>
                 </div>
-                <div class="portfolioDescription">
+                <div class="portfolioDescription" data-aos="fade-left" data-aos-delay="600">
                     <h6>MindSphere Web Development</h6>
                     <h1>Barcode Shipping IoT Demonstration Applicaion</h1>
                     <p align="left">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioDescription has-margin-right">
+                <div class="portfolioDescription has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <h6>MindSphere Web Development</h6>
                     <h1>Smart Building IoT Demonstration Application</h1>
                     <p align="left">
@@ -35,15 +35,15 @@
                     </p>
                     <a href="https://bitbucket.org/account/user/mindspherelolz/projects/GREEN" class="cta">View Details</a>
                 </div>
-                <div class="portfolioImg">
+                <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
                     <img v-lazy="require('../assets/portfolio/smartbuilding/Home.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioImg has-margin-right">
+                <div class="portfolioImg has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <img v-lazy="require('../assets/portfolio/automationshow/MSP01.png')"/>
                 </div>
-                <div class="portfolioDescription">
+                <div class="portfolioDescription" data-aos="fade-left" data-aos-delay="600">
                     <h6>MindSphere Web Development</h6>
                     <h1>MindSphere Dashboard for 2019 Taipei Automation Show</h1>
                     <p align="left">
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioDescription has-margin-right">
+                <div class="portfolioDescription has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <h6>MindSphere Web Development</h6>
                     <h1>Dashboard of Kuka Arm for 2019 Taipei Automation Show</h1>
                     <p align="left">
@@ -69,15 +69,15 @@
                     </p>
                     <a href="https://bitbucket.org/mindspherelolz/kukademoapp/src/master/" class="cta">View Details</a>
                 </div>
-                <div class="portfolioImg">
+                <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
                     <img v-lazy="require('../assets/portfolio/automationshow/KUKA01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioImg has-margin-right">
+                <div class="portfolioImg has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <img v-lazy="require('../assets/portfolio/taipower/01.png')"/>
                 </div>
-                <div class="portfolioDescription">
+                <div class="portfolioDescription" data-aos="fade-left" data-aos-delay="600">
                     <h6>Web Development</h6>
                     <h1>Taiwan Power Data Grabbing Application</h1>
                     <p align="left">
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioDescription has-margin-right">
+                <div class="portfolioDescription has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <h6>Machine Learning</h6>
                     <h1>Traffic Identification</h1>
                     <p align="left">
@@ -100,15 +100,15 @@
                     </p>
                     <a href="#" class="cta">View Details</a>
                 </div>
-                <div class="portfolioImg">
+                <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
                     <img v-lazy="require('../assets/portfolio/traffic/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioImg has-margin-right">
+                <div class="portfolioImg has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <img v-lazy="require('../assets/portfolio/handwriting/01.png')"/>
                 </div>
-                <div class="portfolioDescription">
+                <div class="portfolioDescription" data-aos="fade-left" data-aos-delay="600">
                     <h6>Machine Learning</h6>
                     <h1>Handwriting Application</h1>
                     <p align="left">
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioDescription has-margin-right">
+                <div class="portfolioDescription has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <h6>IOS Development</h6>
                     <h1>Smack Chat Application</h1>
                     <p align="left">
@@ -133,15 +133,15 @@
                     </p>
                     <a href="https://bitbucket.org/nickchungios/smack/src/master/" class="cta">View Details</a>
                 </div>
-                <div class="portfolioImg">
+                <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
                     <img v-lazy="require('../assets/portfolio/smack/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioImg has-margin-right">
+                <div class="portfolioImg has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <img v-lazy="require('../assets/portfolio/yunapp/01.png')"/>
                 </div>
-                <div class="portfolioDescription">
+                <div class="portfolioDescription" data-aos="fade-left" data-aos-delay="600">
                     <h6>IOS Development</h6>
                     <h1>YunAPP</h1>
                     <p align="left">
@@ -153,7 +153,7 @@
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioDescription has-margin-right">
+                <div class="portfolioDescription has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <h6>IOS Development</h6>
                     <h1>Food Truck</h1>
                     <p align="left">
@@ -165,20 +165,20 @@
                     </p>
                     <a href="https://bitbucket.org/nickchungios/apipractice/src/master/" class="cta">View Details</a>
                 </div>
-                <div class="portfolioImg">
+                <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
                     <img v-lazy="require('../assets/portfolio/foodtruck/01.png')"/>
                 </div>
             </div>
             <div class="portfolioItem">
-                <div class="portfolioImg has-margin-right">
+                <div class="portfolioImg has-margin-right" data-aos="fade-right" data-aos-delay="300">
                     <img v-lazy="require('../assets/portfolio/ooshop/01.png')"/>
                 </div>
-                <div class="portfolioDescription">
+                <div class="portfolioDescription" data-aos="fade-left" data-aos-delay="600">
                     <h6>Java OOP & JSP Web Development</h6>
                     <h1>Oh!Oh!Shop</h1>
                     <p align="left">
                         <b>Front：</b>JSP、Bootstrap<br>
-                        <b>Back：</b>Java(MVC)<br>
+                        <b>Back：</b>Java Servlet(MVC)<br>
                         <b>Techniques：</b>Design Pattern<br>
                         <b>Description:</b><br> A shopping website for the OOP course project.
                     </p>

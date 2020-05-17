@@ -5,7 +5,7 @@
                 <h1>Work Experience</h1>
                 <h6>Pass and current jobs</h6>
             </div>
-            <div class="timeline">
+            <div class="timeline" data-aos="fade-down" data-aos-delay="300">
                 <ul>
                     <li class="date" data-date="2019 Sep. - Present">
                         <h1><img class="logo" v-lazy="require('../assets/siemens.svg')"/>&nbsp;&nbsp;MindSphere World</h1>

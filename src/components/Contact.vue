@@ -5,7 +5,7 @@
                 <h1>Contact</h1>
                 <h6>Let's connect to each other</h6>
             </div>
-            <div class="form">
+            <div class="form" data-aos="fade-up" data-aos-delay="300">
                 <label for="name">Name:</label>
                 <input type="text" v-model="emailBody.userName" id="name" name="name" placeholder="Enter your name..." required/>
                 <label for="email">Email:</label>

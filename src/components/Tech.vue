@@ -6,7 +6,7 @@
                 <h6>What I can do</h6>
             </div>
             <div class="mySkills">
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="300">
                     <div class="iconContainer">
                         <i class="fas fa-file-code"></i>
                     </div>
@@ -18,7 +18,7 @@
                         <b style="float:left;"><i class="fab fa-swift"></i> Swift</b>
                     </p>
                 </div>
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="600">
                     <div class="iconContainer">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
@@ -31,7 +31,7 @@
                         <b style="float:left;"><i class="fab fa-java"></i> Java(Android)</b>
                     </p>
                 </div>
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="900">
                     <div class="iconContainer">
                         <i class="fas fa-server"></i>
                     </div>
@@ -42,7 +42,7 @@
                         <b style="float:left;"><i class="fab fa-java"></i>Java(MVC)</b>
                     </p>
                 </div>
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="300">
                     <div class="iconContainer">
                         <i class="fas fa-wifi"></i>
                     </div>
@@ -53,7 +53,7 @@
                         <b style="float:left;"><i class="fas fa-network-wired"></i> MQTT</b>
                     </p>
                 </div>
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="600">
                     <div class="iconContainer">
                         <i class="fas fa-database"></i>
                     </div>
@@ -63,7 +63,7 @@
                         <b style="float:left;"><i class="fas fa-database"></i> MySQL(SQL)</b><br>
                     </p>
                 </div>
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="900">
                     <div class="iconContainer">
                         <i class="fab fa-python"></i>
                     </div>
@@ -74,7 +74,7 @@
                         <b style="float:left;"><i class="fab fa-python"></i> YOLO</b><br>
                     </p>
                 </div>
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="300">
                     <div class="iconContainer">
                         <i class="fas fa-desktop"></i>
                     </div>
@@ -86,7 +86,7 @@
                         <b style="float:left;"><i class="fab fa-windows"></i> Windows</b>
                     </p>
                 </div>
-                <div class="skill">
+                <div class="skill" data-aos="fade-in" data-aos-delay="600">
                     <div class="iconContainer">
                         <i class="fas fa-code"></i>
                     </div>
