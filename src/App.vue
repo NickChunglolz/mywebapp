@@ -20,7 +20,7 @@
         <div class="row">
           <Contact class="CONTACT" id="CONTACT"/>
         </div>
-        <div class="row" style="height:auto;padding:0;margin:0;">
+        <!-- <div class="row" style="height:auto;padding:0;margin:0;">
           <footer class="copyright">
             <a href="#HOME">
               <div class="up" id="up">
@@ -29,7 +29,7 @@
             </a>
             <p>&copy; 2020 Nick Chung</p>
         </footer>
-        </div>
+        </div> -->
     </div>
     <!-- Modal -->
     <!-- <ChatModal/> -->

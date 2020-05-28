@@ -23,12 +23,14 @@
                 <!-- <button v-on:click="sendMail(emailBody)" >Submit</button> -->
             </div>
         </div>
-        <!-- <footer class="copyright">
-          <div class="up" id="up">
-            <i class="fas fa-chevron-up"></i>
-          </div>
+        <footer class="copyright">
+            <a href="#HOME">
+            <div class="up" id="up">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            </a>
           <p>&copy; 2020 Nick Chung</p>
-        </footer> -->
+        </footer>
     </div>
 </template>
 
