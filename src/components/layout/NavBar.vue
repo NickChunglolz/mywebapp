@@ -55,14 +55,6 @@ export default {
     methods:{
         handleView() {
             this.mobileView = window.innerWidth <= 1300;
-            if(this.mobileView){
-                $(document).ready(function() {
-                    $(document).on('click','.menuToggler', function() {
-                        $(this).toggleClass('open');
-                        $('.topNav').toggleClass('open');
-                    });
-                });
-            }
         },
         closeNav(event){
             this.showNav = false;
@@ -77,7 +69,7 @@ export default {
         this.handleView();
         window.addEventListener('resize', this.handleView);
     },
-    destroyed(){
+    beforeDestroy(){
          window.removeEventListener('resize', this.handleResize);
     }
 }

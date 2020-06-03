@@ -16,6 +16,13 @@ window.onload = function(){
         once: true
     });
 
+    $(document).ready(function() {
+      $(document).on('click','.menuToggler', function() {
+          $(this).toggleClass('open');
+          $('.topNav').toggleClass('open');
+      });
+  });
+
 }
 
 // Open
