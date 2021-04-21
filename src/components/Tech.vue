@@ -16,7 +16,6 @@
             <b style="float: left"><i class="fab fa-java"></i> Java</b><br />
             <b style="float: left"><i class="fab fa-python"></i> Python</b
             ><br />
-            <b style="float: left"><i class="fab fa-swift"></i> Swift</b>
           </p>
         </div>
         <div class="skill" data-aos="fade-in" data-aos-delay="600">
@@ -25,7 +24,6 @@
           </div>
           <h1>Front-End Development</h1>
           <p>
-            <b><i class="fas fa-desktop"></i> Web</b><br />
             <b style="float: left"
               ><i class="fab fa-vuejs"></i> Vue.js(
               <i class="fab fa-sass"></i> SASS &
@@ -33,10 +31,6 @@
             ><br />
             <b style="float: left"><i class="fab fa-react"></i> React.js</b
             ><br />
-            <b><i class="fas fa-mobile-alt"></i> Mobile</b><br />
-            <b style="float: left"><i class="fab fa-swift"></i> Swift(IOS)</b
-            ><br />
-            <b style="float: left"><i class="fab fa-java"></i> Java(Android)</b>
           </p>
         </div>
         <div class="skill" data-aos="fade-in" data-aos-delay="900">
@@ -96,10 +90,7 @@
           <p>
             <b style="float: left"><i class="fab fa-python"></i> Pytorch</b
             ><br />
-            <b style="float: left"><i class="fab fa-python"></i> OpenCV</b
-            ><br />
-            <b style="float: left"><i class="fab fa-python"></i> Keras</b><br />
-            <b style="float: left"><i class="fab fa-python"></i> YOLO</b><br />
+            <b style="float: left"><i class="fab fa-python"></i> NLTK</b><br />
           </p>
         </div>
         <div class="skill" data-aos="fade-in" data-aos-delay="300">
@@ -117,7 +108,6 @@
               ><i class="fab fa-linux"></i> Linux(
               <i class="fab fa-ubuntu"></i> Ubuntu)</b
             ><br />
-            <b style="float: left"><i class="fab fa-windows"></i> Windows</b>
           </p>
         </div>
         <div class="skill" data-aos="fade-in" data-aos-delay="600">
@@ -135,7 +125,7 @@
             ><br />
             <b style="float: left"
               ><i class="fas fa-cloud-upload-alt"></i> Cloud Foundry (Deploy)</b
-            >
+            ><br />
             <b style="float: left"><i class="fab fa-aws"></i> AWS</b>
           </p>
         </div>
