@@ -12,9 +12,11 @@
           data-aos-delay="300"
         >
           <h6>Machine Learning && Web Dev.</h6>
+          <h1>My Chat Application (In Dev.)</h1>
           <h1>
-            My Chat Application (In Dev.)<br />
-            <a href="https://chatapp.nickchunglolz.com/">TRY ME! </a>
+            <a class="badge" href="https://chatapp.nickchunglolz.com/"
+              >TRY ME!
+            </a>
           </h1>
           <p align="left">
             <b>Platform：</b>AWS<br />
@@ -28,7 +30,7 @@
           </p>
           <a
             href="https://bitbucket.org/nickchungios/workspace/projects/MYW"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -62,7 +64,7 @@
           </p>
           <a
             href="https://bitbucket.org/account/user/mindspherelolz/projects/BAR"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -86,7 +88,7 @@
           </p>
           <a
             href="https://bitbucket.org/account/user/mindspherelolz/projects/GREEN"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -122,7 +124,7 @@
           </p>
           <a
             href="https://bitbucket.org/mindspherelolz/mindspherebooth/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -146,7 +148,7 @@
           </p>
           <a
             href="https://bitbucket.org/mindspherelolz/kukademoapp/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -183,7 +185,7 @@
           </p>
           <a
             href="https://bitbucket.org/mindspherelolz/taipowerdata/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -203,7 +205,7 @@
             A violation identification application that develops for our origin
             expert topic, red line, object, car plate identification.
           </p>
-          <a href="#" class="cta">View Details</a>
+          <a href="#" class="cta badge">View Details</a>
         </div>
         <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
           <img v-lazy="require('../assets/portfolio/traffic/01.png')" />
@@ -233,7 +235,7 @@
           </p>
           <a
             href="https://bitbucket.org/nickchungios/handwritingapp/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -257,7 +259,7 @@
           </p>
           <a
             href="https://bitbucket.org/nickchungios/smack/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -289,7 +291,7 @@
           </p>
           <a
             href="https://bitbucket.org/nickchungios/yunapp/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -313,7 +315,7 @@
           </p>
           <a
             href="https://bitbucket.org/nickchungios/apipractice/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>
@@ -345,7 +347,7 @@
           </p>
           <a
             href="https://bitbucket.org/nickchungios/ooshop/src/master/"
-            class="cta"
+            class="cta badge"
             >View Details</a
           >
         </div>

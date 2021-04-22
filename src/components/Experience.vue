@@ -14,14 +14,15 @@
                 v-lazy="require('../assets/beyondsoft.png')"
               />&nbsp;&nbsp;Beyondsoft
             </h1>
-            <p>
-              <a href="http://www.beyondsoft.com/">Website</a> <br />
+            <a class="badge" href="http://www.beyondsoft.com/">Website</a>
+            <a
+              class="badge"
+              href="https://www.adobe.io/apis/creativecloud/photo-imaging-api.html"
+              >Adobe.io - Photoshop API</a
+            >
+            <p class="job_desc">
               Software Engineer - Cooperate with the U.S company
               (JavaScript/Python as the main usages)
-              <br />Product:&nbsp;<a
-                href="https://www.adobe.io/apis/creativecloud/photo-imaging-api.html"
-                >Link</a
-              >
             </p>
           </li>
           <li class="date" data-date="2019 Sep. - 2020 July">
@@ -31,8 +32,13 @@
                 v-lazy="require('../assets/siemens.svg')"
               />&nbsp;&nbsp;MindSphere World
             </h1>
-            <p>
-              <a href="https://www.mindsphereworld.tw">Website</a> <br />
+            <a class="badge" href="https://mindsphereworld.org/japan-tw/"
+              >Website</a
+            >
+            <a class="badge" href="https://siemens.mindsphere.io/en"
+              >MindSphere</a
+            >
+            <p class="job_desc">
               Software Engineer Intern - Siemens MindSphere IoT PoC Apps
               Development
             </p>
@@ -44,8 +50,13 @@
                 v-lazy="require('../assets/siemens.svg')"
               />&nbsp;&nbsp;Siemens AG
             </h1>
-            <p>
-              <a href="https://siemens.mindsphere.io/en">Website</a> <br />
+            <a class="badge" href="https://www.siemens.com/global/en.html"
+              >Website</a
+            >
+            <a class="badge" href="https://siemens.mindsphere.io/en"
+              >MindSphere</a
+            >
+            <p class="job_desc">
               Siemens Summer Internship - MindSphere IIoT 工業物聯網
             </p>
           </li>
@@ -56,8 +67,8 @@
                 v-lazy="require('../assets/chingjr.png')"
               />&nbsp;&nbsp;Ching Jr Industrial Co., LTD.
             </h1>
-            <p>
-              <a href="https://chingjr.com">Website</a> <br />
+            <a class="badge" href="https://chingjr.com">Website</a>
+            <p class="job_desc">
               Part Time - Web Design and Manage (Wordpress)、Server Erection
               (SiteGround)
             </p>

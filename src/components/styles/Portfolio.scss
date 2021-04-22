@@ -47,11 +47,13 @@
                 margin-top: 2.5rem;
                 font-size: 1.5rem;
                 text-transform: uppercase;
-                color: #3883ff;
+                // color: #3883ff;
+                color: purple;
                 color: 650ms;
-            }
-            .cta:hover{
-                color: #2f67cd;
+                &:hover{
+                    // color: #2f67cd;
+                    color: #ffe838;
+                }
             }
         }
     }

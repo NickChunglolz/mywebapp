@@ -12,11 +12,38 @@
           </div>
           <h1>Programming Language</h1>
           <p>
-            <b><i class="fab fa-js-square"></i> JavaScript</b><br />
-            <b style="float: left"><i class="fab fa-java"></i> Java</b><br />
-            <b style="float: left"><i class="fab fa-python"></i> Python</b
-            ><br />
+            <b
+              ><i class="fab fa-js-square"></i> JavaScript
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-complete"><span>Experience</span></li>
+                <li class="is-active"><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b>
+              <i class="fab fa-python"></i> Python
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-active"><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b>
+              <i class="fab fa-java"></i> Java
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-active"><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
           </p>
+          <section></section>
         </div>
         <div class="skill" data-aos="fade-in" data-aos-delay="600">
           <div class="iconContainer">
@@ -24,13 +51,28 @@
           </div>
           <h1>Front-End Development</h1>
           <p>
-            <b style="float: left"
+            <b
               ><i class="fab fa-vuejs"></i> Vue.js(
               <i class="fab fa-sass"></i> SASS &
-              <i class="fas fa-mobile"></i> RWD)</b
-            ><br />
-            <b style="float: left"><i class="fab fa-react"></i> React.js</b
-            ><br />
+              <i class="fas fa-mobile"></i> RWD)
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-active"><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b
+              ><i class="fab fa-react"></i> React.js
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-active"><span>Familiar</span></li>
+                <li><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
           </p>
         </div>
         <div class="skill" data-aos="fade-in" data-aos-delay="900">
@@ -39,12 +81,36 @@
           </div>
           <h1>Back-End Development</h1>
           <p>
-            <b style="float: left"
-              ><i class="fab fa-node"></i>Node.js(Express)</b
-            ><br />
-            <b style="float: left"><i class="fab fa-python"></i>Python(Flask)</b
-            ><br />
-            <b style="float: left"><i class="fab fa-java"></i>Java(MVC)</b>
+            <b>
+              <i class="fab fa-node"></i>Node.js(Express)
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-complete"><span>Experience</span></li>
+                <li class="is-active"><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b>
+              <i class="fab fa-python"></i>Python(Flask)
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-active"><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b>
+              <i class="fab fa-java"></i>Java(MVC)
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-active"><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
           </p>
         </div>
         <div class="skill" data-aos="fade-in" data-aos-delay="300">
@@ -70,15 +136,16 @@
             <b style="float: left"
               ><i class="fas fa-database"></i> MongoDB(NoSQL)</b
             ><br />
-            <b style="float: left"><i class="fas fa-database"></i> MySQL(SQL)</b
-            ><br />
             <b style="float: left"
               ><i class="fas fa-database"></i> DynamoDB(NoSQL)</b
             ><br />
             <b style="float: left"
-              ><i class="fas fa-database"></i> SQLite(SQL)</b
+              ><i class="fas fa-database"></i> Redis(NoSQL)</b
             ><br />
-            <b style="float: left"><i class="fas fa-database"></i> Redis(SQL)</b
+            <b style="float: left"><i class="fas fa-database"></i> MySQL(SQL)</b
+            ><br />
+            <b style="float: left"
+              ><i class="fas fa-database"></i> SQLite(SQL)</b
             ><br />
           </p>
         </div>
