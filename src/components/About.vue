@@ -20,13 +20,13 @@
           Technology. ( About one year )<br />
           My first job is an internship position from Siemens AG and duty on
           MindSphere, Siemens IIoT PaaS, I learned a lot about IIoT and
-          experienced the Taipei automation show in this duration, and few
-          activates for promoting our IoT services, it is a very cool experience
-          for me.<br />
+          experienced the Taipei automation show in this duration, and a few
+          activities for promoting our IoT services, it is a very cool
+          experience for me.<br />
           After the internship, totally about one year, I am working for an
           outsourcing company Beyondsoft currently, we work with a top imaging
           services company from the States, helping them to build their imaging
-          web services, that based on the microservice structures.<br />
+          web services, that based on the Microservices structures.<br />
           In addition, I also learned some different development skills in my
           free time(like IOS applications, MQTT, WebSocket, front-end, and
           ML...), I am trying to be better and like different challenges, btw,
