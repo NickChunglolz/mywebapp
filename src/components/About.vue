@@ -24,9 +24,10 @@
           activities for promoting our IoT services, it is a very cool
           experience for me.<br />
           After the internship, totally about one year, I am working for an
-          outsourcing company Beyondsoft currently, we work with a top imaging
-          services company from the States, helping them to build their imaging
-          web services, that based on the Microservices structures.<br />
+          outsourcing(solutions) company Beyondsoft currently, we work with a
+          top imaging services company from the States, helping them to build
+          their imaging web services, that based on the Microservices
+          structures.<br />
           In addition, I also learned some different development skills in my
           free time(like IOS applications, MQTT, WebSocket, front-end, and
           ML...), I am trying to be better and like different challenges, btw,
