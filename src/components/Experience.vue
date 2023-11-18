@@ -7,7 +7,23 @@
       </div>
       <div class="timeline" data-aos="fade-down" data-aos-delay="300">
         <ul>
-          <li class="date" data-date="2020 July. - 2020 Present">
+          <li class="date" data-date="2021 Sep. - At Present.">
+            <h1>
+              <img
+                class="logo"
+                v-lazy="require('../assets/ibm.png')"
+              />&nbsp;&nbsp;IBM
+            </h1>
+            <a class="badge" href="https://www.ibm.com/">Website</a>
+            <a class="badge" href="https://www.ibm.com/consulting"
+              >IBM Consulting</a
+            >
+            <p class="job_desc">
+              Application Consultant - Solve and Deliver the Client's'
+              Requirements of Application
+            </p>
+          </li>
+          <li class="date" data-date="2020 July. - 2021 July">
             <h1>
               <img
                 class="logo"

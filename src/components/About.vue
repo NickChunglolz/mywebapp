@@ -17,21 +17,24 @@
         <p align="left">
           Hi! I am Nick Chung. Graduated from the Information Management
           department at the National Yunlin University of Science and
-          Technology. ( About one year )<br />
+          Technology.<br />
           My first job is an internship position from Siemens AG and duty on
           MindSphere, Siemens IIoT PaaS, I learned a lot about IIoT and
           experienced the Taipei automation show in this duration, and a few
           activities for promoting our IoT services, it is a very cool
           experience for me.<br />
           After the internship, totally about one year, I am working for an
-          outsourcing(solutions) company Beyondsoft currently, we work with a
-          top imaging services company from the States, helping them to build
-          their imaging web services, that based on the Microservices
-          structures.<br />
-          In addition, I also learned some different development skills in my
-          free time(like IOS applications, MQTT, WebSocket, front-end, and
-          ML...), I am trying to be better and like different challenges, btw,
-          ML(Pytorch) is the prior stuff at my learning stack at present.<br />
+          consulting company Beyondsoft currently, we work with a top imaging
+          services company from the States, helping them to build their imaging
+          web services, that based on the Microservices structures.<br />
+          Currently, I am working at IBM Consulting, which is the consulting
+          brand of IBM, aid in solving different kinds of technical problems for
+          our clients, with advanced technology and know-how, and I am the
+          application consultant in the business, that mainly develops the
+          applications for helping our clients to transform the legacy
+          on-premise systems with the modern microservices technologies. In
+          addition, I also learned some different development skills in my free
+          time, I am trying to be better and like different challenges.<br />
           I hope my skills can be helpful to you. <br />
           <b style="font-size: 18px"
             >These first two links are my personal and Siemens' MindSphere
