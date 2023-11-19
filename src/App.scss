@@ -1,70 +1,79 @@
 @import './components/utilities/Utilities';
 
-* { 
-    margin: 0 ;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(75, 185, 185), rgb(0, 95, 135));
+}
+
+.padding-0 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.row {
+  height: 100%;
+  width: 100%;
+  padding: 0 5% 0 5%;
+  margin: auto;
+
+  // @media screen and(max-width:768px) {
+  //   padding: 0 1% 0 1%;
+  // }
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  // overflow-x: hidden;
+  // overflow-y: auto;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  // background-color: #16162d;
+  background-color: none;
+  padding: 2rem 0;
+  position: relative;
+
+  p {
+    font-size: 1rem;
   }
-  
-  html, body {
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(90deg,rgb(75,185,185), rgb(0,95,135));
-  }
-  .padding-0{
-      padding-right:0;
-      padding-left:0;
-  }
-  .row{
-    height:100%;
-    width:100%;
-    padding:0 5% 0 5%;
-    margin:auto; 
-    @media screen and(max-width:768px){
-      padding:0 1% 0 1%;
-    }
-  }
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    background: transparent;
-    height:100%;
-    width: 100%;
-    // overflow-x: hidden;
-    // overflow-y: auto;
+}
+
+.up {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background-color: #eee;
+  top: -2.5rem;
+  right: 5rem;
+  border-radius: 100%;
+  display: flex;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+
+  i {
+    color: #16162d;
+    font-size: 2rem;
+    margin: auto;
   }
 
-  .copyright{
-      width: 100%;
-      text-align: center;
-      // background-color: #16162d;
-      background-color:none;
-      padding: 2rem 0;
-      position: relative;
-      p{
-          font-size: 1rem;
-      }
-  }
-  .up{
-      position: absolute;
-      width: 5rem;
-      height: 5rem;
-      background-color: #eee;
-      top: -2.5rem;
-      right: 5rem;
-      border-radius: 100%;
-      display: flex;
-      cursor: pointer;
-      animation: pulse 2s infinite;
-      i{
-          color: #16162d;
-          font-size: 2rem;
-          margin: auto;
-      }
-      @media screen and (max-width: 768px){
-          right: 2rem;
-      }
-  }
+  // @media screen and (max-width: 768px) {
+  //   right: 2rem;
+  // }
+}
