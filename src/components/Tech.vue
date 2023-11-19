@@ -144,6 +144,11 @@
             <b style="float: left"><i class="fas fa-network-wired"></i> HTTP</b
             ><br />
             <b style="float: left"
+              ><i class="fas fa-network-wired"></i> Event Driven</b
+            ><br />
+            <b style="float: left"><i class="fas fa-network-wired"></i> Saga</b
+            ><br />
+            <b style="float: left"
               ><i class="fas fa-network-wired"></i> WebSocket</b
             ><br />
             <b style="float: left"><i class="fas fa-network-wired"></i> MQTT</b>
