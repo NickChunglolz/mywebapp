@@ -43,7 +43,7 @@
               </ol>
             </b>
             <b>
-              <i class="fab fa-java"></i> Java
+              <i class="fab fa-java"></i> Python
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
