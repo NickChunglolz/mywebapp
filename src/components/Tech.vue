@@ -12,8 +12,8 @@
           </div>
           <h1>Programming Language</h1>
           <p>
-            <b
-              ><i class="fab fa-js-square"></i> JavaScript
+            <b>
+              <i class="fab fa-java"></i> Java
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
@@ -22,13 +22,23 @@
                 <li><span>Master</span></li>
               </ol>
             </b>
-            <b>
-              <i class="fab fa-python"></i> Python
+            <b
+              ><i class="fab fa-js-square"></i> TypeScript
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
-                <li class="is-active"><span>Experience</span></li>
-                <li><span>Advanced</span></li>
+                <li class="is-complete"><span>Experience</span></li>
+                <li class="is-active"><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b
+              ><i class="fab fa-js-square"></i> JavaScript
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-complete"><span>Experience</span></li>
+                <li class="is-active"><span>Advanced</span></li>
                 <li><span>Master</span></li>
               </ol>
             </b>
@@ -52,14 +62,26 @@
           <h1>Front-End Development</h1>
           <p>
             <b
+              ><i class="fab fa-angular"></i> Angular.js(
+              <i class="fab fa-sass"></i> SASS &
+              <i class="fas fa-mobile"></i> RWD)
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-complete"><span>Experience</span></li>
+                <li class="is-active"><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b
               ><i class="fab fa-vuejs"></i> Vue.js(
               <i class="fab fa-sass"></i> SASS &
               <i class="fas fa-mobile"></i> RWD)
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
-                <li class="is-active"><span>Experience</span></li>
-                <li><span>Advanced</span></li>
+                <li class="is-complete"><span>Experience</span></li>
+                <li class="is-active"><span>Advanced</span></li>
                 <li><span>Master</span></li>
               </ol>
             </b>
@@ -82,6 +104,16 @@
           <h1>Back-End Development</h1>
           <p>
             <b>
+              <i class="fab fa-java"></i>Java(Spring Boot)
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-complete"><span>Familiar</span></li>
+                <li class="is-complete"><span>Experience</span></li>
+                <li class="is-active"><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b>
               <i class="fab fa-node"></i>Node.js(Express)
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
@@ -93,16 +125,6 @@
             </b>
             <b>
               <i class="fab fa-python"></i>Python(Flask)
-              <ol class="progress-bar">
-                <li class="is-complete"><span>Fresh</span></li>
-                <li class="is-complete"><span>Familiar</span></li>
-                <li class="is-active"><span>Experience</span></li>
-                <li><span>Advanced</span></li>
-                <li><span>Master</span></li>
-              </ol>
-            </b>
-            <b>
-              <i class="fab fa-java"></i>Java(MVC)
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
@@ -134,18 +156,13 @@
           <h1>Database</h1>
           <p>
             <b style="float: left"
-              ><i class="fas fa-database"></i> MongoDB(NoSQL)</b
+              ><i class="fas fa-database"></i> SQL: MSSQL, PostgreSQL, MySQL</b
             ><br />
             <b style="float: left"
-              ><i class="fas fa-database"></i> DynamoDB(NoSQL)</b
+              ><i class="fas fa-database"></i> NoSQL: DynamoDB, MongoDB</b
             ><br />
             <b style="float: left"
-              ><i class="fas fa-database"></i> Redis(NoSQL)</b
-            ><br />
-            <b style="float: left"><i class="fas fa-database"></i> MySQL(SQL)</b
-            ><br />
-            <b style="float: left"
-              ><i class="fas fa-database"></i> SQLite(SQL)</b
+              ><i class="fas fa-database"></i> Cache: Redis, SQLite</b
             ><br />
           </p>
         </div>
@@ -166,14 +183,17 @@
           </div>
           <h1>Operation System</h1>
           <p>
-            <b style="float: left"
-              ><i class="fas fa-cloud-upload-alt"></i> MindSphere(IIoT & Cloud
-              Foundry)</b
-            ><br />
             <b style="float: left"><i class="fab fa-apple"></i> MacOS</b><br />
             <b style="float: left"
               ><i class="fab fa-linux"></i> Linux(
               <i class="fab fa-ubuntu"></i> Ubuntu)</b
+            ><br />
+            <b style="float: left"
+              ><i class="fab fa-redhat"></i> OpenShift(Kubernetes)</b
+            ><br />
+            <b style="float: left"
+              ><i class="fas fa-cloud-upload-alt"></i> MindSphere(IIoT & Cloud
+              Foundry)</b
             ><br />
           </p>
         </div>
@@ -184,16 +204,18 @@
           <h1>Development Tools</h1>
           <p>
             <b style="float: left"><i class="fab fa-git"></i> Git</b><br />
-            <b style="float: left"
-              ><i class="fas fa-code"></i> CircleCI(CI/CD)</b
+            <b style="float: left"><i class="fab fa-jenkins"></i> Jenkins</b
             ><br />
-            <b style="float: left"
-              ><i class="fab fa-docker"></i> Docker(Deploy)</b
-            ><br />
-            <b style="float: left"
-              ><i class="fas fa-cloud-upload-alt"></i> Cloud Foundry (Deploy)</b
+            <b style="float: left"><i class="fab fa-docker"></i> Docker</b
             ><br />
             <b style="float: left"><i class="fab fa-aws"></i> AWS</b>
+            <br />
+            <b style="float: left"
+              ><i class="fas fa-cloud-upload-alt"></i> Kafka</b
+            ><br />
+            <b style="float: left"
+              ><i class="fas fa-cloud-upload-alt"></i> Cloud Foundry</b
+            ><br />
           </p>
         </div>
       </div>
