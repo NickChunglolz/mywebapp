@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.23.3",
+    "@vue/babel-preset-app": "^5.0.8",
     "axios": "^1.6.2",
     "core-js": "^2.6.12",
     "sass": "^1.69.5",
@@ -17,7 +19,6 @@
     "vue-router": "^3.6.5"
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.54.0",
