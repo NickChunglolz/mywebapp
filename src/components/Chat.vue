@@ -16,7 +16,6 @@
                         <div class="email">Email:&nbsp;zxc87523@gmail.com</div>
                     </div>
                     <span class="closeBtn"><i class="fas fa-times-circle"></i></span>
-                    <!-- <i class="fas fa-info-circle"></i> -->
                 </div>
                 <div class="modal-body">
                     <div class="msg-inbox">

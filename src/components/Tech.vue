@@ -13,7 +13,8 @@
           <h1>Programming Language</h1>
           <p>
             <b>
-              <i class="fab fa-java"></i> Java
+              <i class="fab fa-java"></i> Java</br>
+              <i class="fab fa-js-square"></i> TypeScript / JavaScript </br>
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
@@ -23,31 +24,22 @@
               </ol>
             </b>
             <b
-              ><i class="fab fa-js-square"></i> TypeScript
-              <ol class="progress-bar">
-                <li class="is-complete"><span>Fresh</span></li>
-                <li class="is-complete"><span>Familiar</span></li>
-                <li class="is-complete"><span>Experience</span></li>
-                <li class="is-active"><span>Advanced</span></li>
-                <li><span>Master</span></li>
-              </ol>
-            </b>
-            <b
-              ><i class="fab fa-js-square"></i> JavaScript
-              <ol class="progress-bar">
-                <li class="is-complete"><span>Fresh</span></li>
-                <li class="is-complete"><span>Familiar</span></li>
-                <li class="is-complete"><span>Experience</span></li>
-                <li class="is-active"><span>Advanced</span></li>
-                <li><span>Master</span></li>
-              </ol>
-            </b>
-            <b>
-              <i class="fab fa-java"></i> Python
+              ><i class="fa-brands fa-golang"></i> Golang
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
                 <li class="is-active"><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b>
+              <i class="fab fa-python"></i> Python</br>
+              <i class="fab fa-java"></i> Scala
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-active"><span>Familiar</span></li>
+                <li><span>Experience</span></li>
                 <li><span>Advanced</span></li>
                 <li><span>Master</span></li>
               </ol>
@@ -62,7 +54,7 @@
           <h1>Front-End Development</h1>
           <p>
             <b
-              ><i class="fab fa-angular"></i> Angular.js(
+              ><i class="fab fa-angular"></i> Angular(
               <i class="fab fa-sass"></i> SASS &
               <i class="fas fa-mobile"></i> RWD)
               <ol class="progress-bar">
@@ -74,7 +66,7 @@
               </ol>
             </b>
             <b
-              ><i class="fab fa-vuejs"></i> Vue.js(
+              ><i class="fab fa-vuejs"></i> Vue(
               <i class="fab fa-sass"></i> SASS &
               <i class="fas fa-mobile"></i> RWD)
               <ol class="progress-bar">
@@ -86,7 +78,7 @@
               </ol>
             </b>
             <b
-              ><i class="fab fa-react"></i> React.js
+              ><i class="fab fa-react"></i> React
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-active"><span>Familiar</span></li>
@@ -104,7 +96,7 @@
           <h1>Back-End Development</h1>
           <p>
             <b>
-              <i class="fab fa-java"></i>Java(Spring Boot)
+              <i class="fab fa-java"></i> Java(Spring Boot)
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
@@ -114,7 +106,7 @@
               </ol>
             </b>
             <b>
-              <i class="fab fa-node"></i>Node.js(Express)
+              <i class="fab fa-node"></i> Node.js(Express)
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
@@ -124,11 +116,21 @@
               </ol>
             </b>
             <b>
-              <i class="fab fa-python"></i>Python(Flask)
+              <i class="fa-brands fa-golang"></i> Golang(Fiber)
               <ol class="progress-bar">
                 <li class="is-complete"><span>Fresh</span></li>
                 <li class="is-complete"><span>Familiar</span></li>
                 <li class="is-active"><span>Experience</span></li>
+                <li><span>Advanced</span></li>
+                <li><span>Master</span></li>
+              </ol>
+            </b>
+            <b>
+              <i class="fab fa-python"></i> Python(Flask)
+              <ol class="progress-bar">
+                <li class="is-complete"><span>Fresh</span></li>
+                <li class="is-active"><span>Familiar</span></li>
+                <li><span>Experience</span></li>
                 <li><span>Advanced</span></li>
                 <li><span>Master</span></li>
               </ol>
@@ -192,6 +194,9 @@
             <b style="float: left"
               ><i class="fab fa-linux"></i> Linux(
               <i class="fab fa-ubuntu"></i> Ubuntu)</b
+            ><br />
+            <b style="float: left"
+              ><i class="fa-brands fa-suse"></i> Rancher(Kubernetes) / NeuVector(Container Secutiry)</b
             ><br />
             <b style="float: left"
               ><i class="fab fa-redhat"></i> OpenShift(Kubernetes)</b

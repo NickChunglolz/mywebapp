@@ -2,12 +2,7 @@
   <div class="about">
     <div class="container">
       <div class="profileImg">
-        <img
-          v-lazy="require('../assets/NickChung.jpg')"
-          alt=""
-          data-aos="fade-right"
-          data-aos-delay="300"
-        />
+        <img v-lazy="require('../assets/NickChung.jpg')" alt="" data-aos="fade-right" data-aos-delay="300" />
       </div>
       <div class="detail" data-aos="fade-left" data-aos-delay="600">
         <div class="head">
@@ -15,55 +10,31 @@
           <h6>Myself</h6>
         </div>
         <p align="left">
-          Hi! I am Nick Chung. Graduated from the Information Management
-          department at the National Yunlin University of Science and
-          Technology.<br />
-          My first job is an internship position from Siemens AG and duty on
-          MindSphere, Siemens IIoT PaaS, I learned a lot about IIoT and
-          experienced the Taipei automation show in this duration, and a few
-          activities for promoting our IoT services, it is a very cool
-          experience for me.<br />
-          After the internship, totally about one year, I am working for an
-          consulting company Beyondsoft currently, we work with a top imaging
-          services company from the States, helping them to build their imaging
-          web services, that based on the Microservices structures.<br />
-          Currently, I am working at IBM Consulting, which is the consulting
-          brand of IBM, aid in solving different kinds of technical problems for
-          our clients, with advanced technology and know-how, and I am the
-          application consultant in the business, that mainly develops the
-          applications for helping our clients to transform the legacy
-          on-premise systems with the modern microservices technologies. In
-          addition, I also learned some different development skills in my free
-          time, I am trying to be better and like different challenges.<br />
-          I hope my skills can be helpful to you. <br />
-          <b style="font-size: 18px"
-            >These first two links are my personal and Siemens' MindSphere
-            projects BitBucket(Git repository) link.
+          Hi! I'm Nick Chung, a senior software engineer with a full-stack skillset honed by years of experience leading and collaborating on diverse projects across various companies. </br>
+          This well-rounded experience allows me to consult, analyze requirements, and deliver solutions – all within the SDLC framework. <br />
+          <b style="font-size: 18px">These links are my personal and Siemens' MindSphere
+            projects'(Git repositories) and social medias' links.
           </b>
         </p>
       </div>
       <div class="socialMedia">
         <ul>
           <li data-aos="fade-up" data-aos-delay="900">
-            <!-- <a href="https://bitbucket.org/nickchungios/profile/projects/"><i class="fa fa-github"></i></a> -->
-            <a href="https://bitbucket.org/nickchungios/profile/projects/"
-              ><i class="fa fa-bitbucket"></i
+          <a href="https://github.com/NickChunglolz?tab=repositories">
+              <i class="fa fa-github"></i
             ></a>
           </li>
           <li data-aos="fade-up" data-aos-delay="900">
-            <a href="https://bitbucket.org/mindspherelolz/profile/projects/"
-              ><i class="fa fa-bitbucket"></i
-            ></a>
+            <a href="https://bitbucket.org/nickchungios/profile/projects/"><i class="fa fa-bitbucket"></i></a>
           </li>
           <li data-aos="fade-up" data-aos-delay="900">
-            <a href="https://www.linkedin.com/in/nickchunglolz/"
-              ><i class="fa fa-linkedin"></i
-            ></a>
+            <a href="https://bitbucket.org/mindspherelolz/profile/projects/"><i class="fa fa-bitbucket"></i></a>
           </li>
           <li data-aos="fade-up" data-aos-delay="900">
-            <a href="https://www.instagram.com/nickchunglolz/"
-              ><i class="fa fa-instagram"></i
-            ></a>
+            <a href="https://www.linkedin.com/in/nickchunglolz/"><i class="fa fa-linkedin"></i></a>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="900">
+            <a href="https://www.instagram.com/nickchunglolz/"><i class="fa fa-instagram"></i></a>
           </li>
         </ul>
       </div>
@@ -78,4 +49,4 @@ export default {
 };
 </script>
 
-<style src="./styles/About.scss" lang="scss" scoped/>
+<style src="./styles/About.scss" lang="scss" scoped />

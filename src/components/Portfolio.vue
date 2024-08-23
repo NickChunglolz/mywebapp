@@ -11,13 +11,67 @@
           data-aos="fade-right"
           data-aos-delay="300"
         >
+          <h6>Golang</h6>
+          <h2>Currency Converter (In Dev.)</h2>
+          <p align="left">
+            <b>Platform：</b>Terminal<br />
+            <b>Front：</b>Huh <br />
+            <b>Back：</b>Golang<br />
+            <b>Techniques：</b>Golang、Huh<br />
+            <b>Tools：</b>Huh<br />
+            <b>Description:</b><br />
+            Golang terminal application for converting currencies from different countries.
+          </p>
+          <a
+            href="https://github.com/NickChunglolz/currency-converter"
+            class="cta badge"
+            >View Details</a
+          >
+        </div>
+        <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
+          <img v-lazy="require('../assets/portfolio/currencyconverter/image.png')" />
+        </div>
+      </div>
+      <div class="portfolioItem">
+        <div
+          class="portfolioDescription has-margin-right"
+          data-aos="fade-right"
+          data-aos-delay="300"
+        >
+          <h6>Golang & Python & Microservices</h6>
+          <h2>Stock Advisor (In Dev.)</h2>
+          <p align="left">
+            <b>Platform：</b>AWS<br />
+            <b>Front：</b>HTMX、Templ <br />
+            <b>Back：</b>Golang、Fiber、Pyhon、Flask、Redis、Postgres<br />
+            <b>Techniques：</b>REST、Event-Driven Programming、CQRS、Clean Architecture、Cron Job、Machine Leanring<br />
+            <b>Tools：</b>Huh<br />
+            <b>Description:</b><br />
+            Golang & Python microservices for querying differnt countries' stocks and giving advice from setting strategy with notifications.
+          </p>
+          <a
+            href="https://github.com/NickChunglolz/stock-advisor"
+            class="cta badge"
+            >View Details</a
+          >
+        </div>
+        <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
+          <img v-lazy="require('../assets/portfolio/stockadvisor/image.png')" />
+        </div>
+      </div>
+      <div class="portfolioItem">
+        <div
+          class="portfolioDescription has-margin-right"
+          data-aos="fade-right"
+          data-aos-delay="300"
+        >
           <h6>Machine Learning && Web Dev.</h6>
-          <h1>My Chat Application (In Dev.)</h1>
-          <h1>
+          <h2>My Chat Application (In Dev.)</h2></br>
+          <h2>
             <a class="badge" href="https://chatapp.nickchunglolz.com/"
               >TRY ME!
             </a>
-          </h1>
+          </h2>
           <p align="left">
             <b>Platform：</b>AWS<br />
             <b>Front：</b>React.js <br />
@@ -52,7 +106,7 @@
           data-aos-delay="600"
         >
           <h6>MindSphere Web Development</h6>
-          <h1>Barcode Shipping IoT Demonstration Applicaion</h1>
+          <h2>Barcode Shipping IoT Demonstration Applicaion</h2>
           <p align="left">
             <b>Platform：</b>MindSphere<br />
             <b>Front：</b>Vue.js <br />
@@ -76,7 +130,7 @@
           data-aos-delay="300"
         >
           <h6>MindSphere Web Development</h6>
-          <h1>Smart Building IoT Demonstration Application</h1>
+          <h2>Smart Building IoT Demonstration Application</h2>
           <p align="left">
             <b>Platform：</b>MindSphere<br />
             <b>Front：</b>Vue.js <br />
@@ -112,7 +166,7 @@
           data-aos-delay="600"
         >
           <h6>MindSphere Web Development</h6>
-          <h1>MindSphere Dashboard for 2019 Taipei Automation Show</h1>
+          <h2>MindSphere Dashboard for 2019 Taipei Automation Show</h2>
           <p align="left">
             <b>Platform：</b>MindSphere<br />
             <b>Front：</b>Vue.js <br />
@@ -136,7 +190,7 @@
           data-aos-delay="300"
         >
           <h6>MindSphere Web Development</h6>
-          <h1>Dashboard of Kuka Arm for 2019 Taipei Automation Show</h1>
+          <h2>Dashboard of Kuka Arm for 2019 Taipei Automation Show</h2>
           <p align="left">
             <b>Platform：</b>MindSphere<br />
             <b>Front：</b>Vue.js <br />
@@ -172,7 +226,7 @@
           data-aos-delay="600"
         >
           <h6>Web Development</h6>
-          <h1>Taiwan Power Data Grabbing Application</h1>
+          <h2>Taiwan Power Data Grabbing Application</h2>
           <p align="left">
             <b>Platform：</b>Heroku || MindSphere<br />
             <b>Front：</b>Vue.js <br />
@@ -197,7 +251,7 @@
           data-aos-delay="300"
         >
           <h6>Machine Learning</h6>
-          <h1>Traffic Identification</h1>
+          <h2>Traffic Identification</h2>
           <p align="left">
             <b>Tools：</b>Python、Yolo、OpenCV、Numpy、Matplotlib、Google
             Vision<br />
@@ -225,7 +279,7 @@
           data-aos-delay="600"
         >
           <h6>Machine Learning</h6>
-          <h1>Handwriting Application</h1>
+          <h2>Handwriting Application</h2>
           <p align="left">
             <b>Platform：</b>IOS<br />
             <b>Front：</b>Swift、Vision、CoreML<br />
@@ -247,7 +301,7 @@
           data-aos-delay="300"
         >
           <h6>IOS Development</h6>
-          <h1>Smack Chat Application</h1>
+          <h2>Smack Chat Application</h2>
           <p align="left">
             <b>Platform：</b>IOS<br />
             <b>Front：</b>Swift<br />
@@ -281,7 +335,7 @@
           data-aos-delay="600"
         >
           <h6>IOS Development</h6>
-          <h1>YunAPP</h1>
+          <h2>YunAPP</h2>
           <p align="left">
             <b>Platform：</b>IOS<br />
             <b>Front：</b>Swift<br />
@@ -303,7 +357,7 @@
           data-aos-delay="300"
         >
           <h6>IOS Development</h6>
-          <h1>Food Truck</h1>
+          <h2>Food Truck</h2>
           <p align="left">
             <b>Platform：</b>IOS<br />
             <b>Front：</b>Swift、IOS map<br />
@@ -337,7 +391,7 @@
           data-aos-delay="600"
         >
           <h6>Java OOP & JSP Web Development</h6>
-          <h1>Oh!Oh!Shop</h1>
+          <h2>Oh!Oh!Shop</h2>
           <p align="left">
             <b>Front：</b>JSP、Bootstrap<br />
             <b>Back：</b>Java Servlet(MVC)<br />
