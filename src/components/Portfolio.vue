@@ -12,7 +12,7 @@
           data-aos-delay="300"
         >
           <h6>Golang</h6>
-          <h2>Currency Converter (In Dev.)</h2>
+          <h2>Currency Converter</h2>
           <p align="left">
             <b>Platform：</b>Terminal<br />
             <b>Front：</b>Huh <br />
@@ -34,11 +34,18 @@
       </div>
       <div class="portfolioItem">
         <div
-          class="portfolioDescription has-margin-right"
+          class="portfolioImg has-margin-right"
           data-aos="fade-right"
           data-aos-delay="300"
         >
-          <h6>Golang & Python & Microservices</h6>
+          <img v-lazy="require('../assets/portfolio/stockadvisor/image.png')" />
+        </div>
+        <div
+          class="portfolioDescription"
+          data-aos="fade-left"
+          data-aos-delay="600"
+        >
+        <h6>Golang & Python & Microservices</h6>
           <h2>Stock Advisor (In Dev.)</h2>
           <p align="left">
             <b>Platform：</b>AWS<br />
@@ -54,9 +61,6 @@
             class="cta badge"
             >View Details</a
           >
-        </div>
-        <div class="portfolioImg" data-aos="fade-left" data-aos-delay="600">
-          <img v-lazy="require('../assets/portfolio/stockadvisor/image.png')" />
         </div>
       </div>
       <div class="portfolioItem">
