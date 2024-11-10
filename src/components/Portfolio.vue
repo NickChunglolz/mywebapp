@@ -7,6 +7,37 @@
       </div>
       <div class="portfolioItem">
         <div
+          class="portfolioImg has-margin-right"
+          data-aos="fade-right"
+          data-aos-delay="300"
+        >
+          <img v-lazy="require('../assets/portfolio/urlshortener/image.png')" />
+        </div>
+        <div
+          class="portfolioDescription"
+          data-aos="fade-left"
+          data-aos-delay="600"
+        >
+        <h6>Golang & TypeScript & Microservices</h6>
+          <h2>URL Shortener (In Dev.)</h2>
+          <p align="left">
+            <b>Platform：</b>AWS<br />
+            <b>Front：</b>TypeScript、Next.js <br />
+            <b>Back：</b>Golang、Fiber、Redis、Postgres<br />
+            <b>Techniques：</b>REST、CQRS、Clean Architecture<br />
+            <b>Tools：</b>TBD<br />
+            <b>Description:</b><br />
+            Golang & Python microservices for querying differnt countries' stocks and giving advice from setting strategy with notifications.
+          </p>
+          <a
+            href="https://github.com/NickChunglolz/stock-advisor"
+            class="cta badge"
+            >View Details</a
+          >
+        </div>
+      </div>
+      <div class="portfolioItem">
+        <div
           class="portfolioDescription has-margin-right"
           data-aos="fade-right"
           data-aos-delay="300"
@@ -52,7 +83,7 @@
             <b>Front：</b>HTMX、Templ <br />
             <b>Back：</b>Golang、Fiber、Pyhon、Flask、Redis、Postgres<br />
             <b>Techniques：</b>REST、Event-Driven Programming、CQRS、Clean Architecture、Cron Job、Machine Leanring<br />
-            <b>Tools：</b>Huh<br />
+            <b>Tools：</b>TBD<br />
             <b>Description:</b><br />
             Golang & Python microservices for querying differnt countries' stocks and giving advice from setting strategy with notifications.
           </p>
