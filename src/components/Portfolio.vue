@@ -22,7 +22,7 @@
           <h2>URL Shortener (In Dev.)</h2>
           <p align="left">
             <b>Platform：</b>AWS<br />
-            <b>Front：</b>TypeScript、gNext.js <br />
+            <b>Front：</b>TypeScript、Next.js <br />
             <b>Back：</b>Golang、Fiber、Redis、Postgres<br />
             <b>Techniques：</b>REST、CQRS、Clean Architecture<br />
             <b>Tools：</b>TBD<br />
