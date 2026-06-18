@@ -14,6 +14,7 @@ type Role = {
 const ROLES: Role[] = [
   {
     company: "Instacart — Caper Backend Platform",
+    logo: "/img/companies/caper.png",
     role: "Senior Software Developer, Backend Platform",
     period: "Present",
     link: "https://www.caper.ai/",
@@ -95,7 +96,7 @@ export default function Work() {
             <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div className="flex items-center gap-3">
                 {r.logo && (
-                  <div className="w-12 h-12 shrink-0 rounded-lg bg-white/95 p-2 flex items-center justify-center ring-1 ring-border">
+                  <div className="w-12 h-12 shrink-0 flex items-center justify-center">
                     <Image
                       src={r.logo}
                       alt={`${r.company} logo`}
