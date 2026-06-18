@@ -88,19 +88,19 @@ const ROLES: Role[] = [
 
 export default function Work() {
   return (
-    <Section id="work" label="experience" title="Where I've worked">
+    <Section id="work" index={2} label="experience" title="Where I've worked">
       <ol className="space-y-5">
         {ROLES.map((r) => (
           <li key={r.company} className="card p-6">
             <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div className="flex items-center gap-3">
                 {r.logo && (
-                  <div className="w-10 h-10 shrink-0 rounded bg-white/90 p-1.5 flex items-center justify-center">
+                  <div className="w-12 h-12 shrink-0 rounded-lg bg-white/95 p-2 flex items-center justify-center ring-1 ring-border">
                     <Image
                       src={r.logo}
                       alt={`${r.company} logo`}
-                      width={40}
-                      height={40}
+                      width={48}
+                      height={48}
                       className="max-w-full max-h-full object-contain"
                     />
                   </div>

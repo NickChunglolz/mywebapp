@@ -9,7 +9,7 @@ const LINKS = [
 
 export default function Contact() {
   return (
-    <Section id="contact" label="contact" title="Say hi">
+    <Section id="contact" index={5} label="contact" title="Say hi">
       <p className="text-muted mb-6 max-w-2xl">
         Best way to reach me is GitHub or LinkedIn. I&apos;m always up to talk about backend
         systems, smart-cart edge cases, IoT platforms, or how to wring more out of Claude Code.

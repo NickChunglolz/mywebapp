@@ -1,7 +1,7 @@
 import Section from "./Section";
 
 const GROUPS = [
-  { label: "Languages", items: ["Go", "TypeScript", "Java", "Python", "SQL", "Scala", "Bash"] },
+  { label: "Languages", items: ["Go", "TypeScript", "JavaScript", "Java", "Kotlin", "Python", "SQL", "Scala"] },
   { label: "Backend", items: ["gRPC / Protobuf", "Spring Boot", "REST", "Event-driven", "DDD / SAGA", "Postgres", "Redis"] },
   { label: "Frontend", items: ["Next.js", "React", "Angular", "Vue", "Tailwind", "SASS"] },
   { label: "Infra & Cloud", items: ["GCP", "AWS", "Terraform", "Docker", "Kubernetes", "Jenkins", "GitHub Actions"] },
@@ -11,7 +11,7 @@ const GROUPS = [
 
 export default function Skills() {
   return (
-    <Section id="skills" label="skills" title="Tools I reach for">
+    <Section id="skills" index={4} label="skills" title="Tools I reach for">
       <div className="grid sm:grid-cols-2 gap-4">
         {GROUPS.map((g) => (
           <div key={g.label} className="card p-5">

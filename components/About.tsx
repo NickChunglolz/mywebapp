@@ -3,7 +3,7 @@ import Section from "./Section";
 
 export default function About() {
   return (
-    <Section id="about" label="about" title="A few things about me">
+    <Section id="about" index={1} label="about" title="A few things about me">
       <div className="grid sm:grid-cols-[200px_1fr] gap-8 items-start">
         <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border border-border ring-1 ring-accent/20">
           <Image

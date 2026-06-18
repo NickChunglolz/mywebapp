@@ -37,7 +37,7 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <Section id="projects" label="projects" title="Things I've built">
+    <Section id="projects" index={3} label="projects" title="Things I've built">
       <div className="grid sm:grid-cols-2 gap-4">
         {PROJECTS.map((p) => (
           <a
