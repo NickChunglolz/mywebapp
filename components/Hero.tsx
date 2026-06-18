@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TypedHeadline from "./TypedHeadline";
 
 export default function Hero() {
   return (
@@ -14,14 +15,17 @@ export default function Hero() {
           </p>
         </div>
 
-        <h1 className="text-5xl sm:text-7xl font-semibold tracking-tighter leading-[1.05]">
-          Hi, I&apos;m Nick.
-          <br />
-          I build the backends that
-          <br />
-          <span className="bg-gradient-to-r from-accent via-teal-400 to-accent-2 bg-clip-text text-transparent">
-            keep smart carts smart.
-          </span>
+        <h1 className="text-5xl sm:text-7xl font-semibold tracking-tighter leading-[1.05] min-h-[18rem] sm:min-h-[24rem]">
+          <TypedHeadline
+            lines={[
+              { text: "Hi, I’m Nick." },
+              { text: "I build the backends that" },
+              {
+                text: "keep smart carts smart.",
+                className: "bg-gradient-to-r from-accent via-teal-400 to-accent-2 bg-clip-text text-transparent",
+              },
+            ]}
+          />
         </h1>
 
         <p className="mt-8 text-lg sm:text-xl text-muted max-w-2xl leading-relaxed">

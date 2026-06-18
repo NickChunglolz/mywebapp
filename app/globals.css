@@ -2,13 +2,17 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #14161b;
+  --background: #1c1f26;
   --foreground: #f4f4f5;
-  --muted: #9ca3af;
-  --border: #262830;
+  --muted: #a1a1aa;
+  --border: #2e313a;
   --accent: #10b981;   /* emerald 500 */
   --accent-2: #f59e0b; /* amber 500 */
   --accent-3: #14b8a6; /* teal 500 — bridge in gradients */
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 @theme inline {
