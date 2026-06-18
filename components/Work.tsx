@@ -14,9 +14,9 @@ type Role = {
 const ROLES: Role[] = [
   {
     company: "Instacart — Caper R&D",
-    role: "Software Engineer, PODS team",
+    role: "Senior Software Developer, Backend Platform",
     period: "Present",
-    link: "https://www.instacart.com/company/caper-cart/",
+    link: "https://www.caper.ai/",
     points: [
       "Backend services behind Caper's AI-powered smart shopping carts: catalog ingestion, store onboarding, item-view sync pipelines.",
       "Go services in a large monorepo, gRPC + protobuf, Postgres, Terraform-managed infra on GCP.",
