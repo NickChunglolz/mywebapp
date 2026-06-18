@@ -13,7 +13,7 @@ type Role = {
 
 const ROLES: Role[] = [
   {
-    company: "Instacart — Caper Backend Platform",
+    company: "Instacart — Caper.ai",
     logo: "/img/companies/caper.png",
     role: "Senior Software Developer, Backend Platform",
     period: "Present",
