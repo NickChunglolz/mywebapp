@@ -3,7 +3,6 @@ import Section from "./Section";
 const LINKS = [
   { label: "GitHub", href: "https://github.com/NickChunglolz", handle: "@NickChunglolz" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/nickchunglolz/", handle: "/in/nickchunglolz" },
-  { label: "Bitbucket", href: "https://bitbucket.org/nickchungios/profile/projects/", handle: "@nickchungios" },
   { label: "Instagram", href: "https://www.instagram.com/nickchunglolz/", handle: "@nickchunglolz" },
 ];
 
