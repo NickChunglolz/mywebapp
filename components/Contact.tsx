@@ -1,14 +1,15 @@
 import Section from "./Section";
 
 const LINKS = [
-  { label: "GitHub", href: "https://github.com/NickChunglolz", handle: "@NickChunglolz" },
+  { label: "Email", href: "mailto:zxc87523@gmail.com", handle: "zxc87523@gmail.com" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/nickchunglolz/", handle: "/in/nickchunglolz" },
+  { label: "GitHub", href: "https://github.com/NickChunglolz", handle: "@NickChunglolz" },
   { label: "Instagram", href: "https://www.instagram.com/nickchunglolz/", handle: "@nickchunglolz" },
 ];
 
 export default function Contact() {
   return (
-    <Section id="contact" index={5} label="contact" title="Say hi">
+    <Section id="contact" index={6} label="contact" title="Say hi">
       <p className="text-muted mb-6 max-w-2xl">
         Best way to reach me is GitHub or LinkedIn. I&apos;m always up to talk about backend
         systems, smart-cart edge cases, IoT platforms, or how to wring more out of Claude Code.

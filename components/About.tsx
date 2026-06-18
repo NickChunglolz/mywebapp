@@ -17,25 +17,30 @@ export default function About() {
         </div>
         <div className="text-muted leading-relaxed space-y-4">
           <p>
-            I&apos;m a senior software engineer with a full-stack skillset honed across
-            consulting, big tech, and industrial-IoT shops. Today I work on{" "}
-            <span className="text-foreground">Caper Backend Platform at Instacart</span>, building
-            the services behind Caper&apos;s computer-vision-enabled smart shopping carts — catalog sync, store onboarding, item-recognition pipelines.
+            I&apos;m a senior software engineer based in{" "}
+            <span className="text-foreground">Markham, Ontario</span>, with 6+ years
+            designing and scaling high-traffic distributed systems. Expert in microservices
+            architecture, performance engineering, and operational modernization.
           </p>
           <p>
-            Before Instacart I shipped a railway-scale microservices migration at IBM
-            Consulting (190K daily reservations, Java + DDD + SAGA), modernized NeuVector&apos;s
-            open-source container security UI at SUSE, tuned AWS services behind Adobe&apos;s
-            Photoshop API at Beyondsoft, and built industrial IoT apps on Siemens MindSphere.
+            Today I work on <span className="text-foreground">Caper.ai at Instacart</span>,
+            architecting backend microservices (Java&nbsp;21 / Kotlin, gRPC, Temporal,
+            PostgreSQL) that keep real-time cart processing humming at 99.9% uptime across
+            global retailer integrations.
           </p>
           <p>
-            Outside of work I build small products end-to-end. <span className="text-foreground">Drip</span>{" "}
-            is a Canadian-focused subscription tracker; <span className="text-foreground">claude-toolkit</span>{" "}
-            is a marketplace of Claude Code agents and skills I use daily.
+            Before Instacart I shipped Taiwan High-Speed Rail&apos;s booking platform at IBM
+            Consulting (~200K daily passengers, DDD + SAGA + event-driven), modernized
+            NeuVector&apos;s security stack at SUSE (Angular / Vue / Scala&nbsp;+&nbsp;Pekko),
+            tuned AWS services behind Adobe&apos;s Photoshop API at Beyondsoft, and built
+            industrial IoT apps on Siemens MindSphere.
           </p>
           <p>
-            I&apos;m biased toward the shortest path to working software — fewer files,
-            boring stdlib, deletions over additions. If a one-liner solves it, that&apos;s the line.
+            Outside of work I build small products end-to-end — <span className="text-foreground">Drip</span> (Canadian
+            subscription tracker) and <span className="text-foreground">claude-toolkit</span>{" "}
+            (a marketplace of Claude Code agents and skills I use daily). I&apos;m biased
+            toward the shortest path to working software — fewer files, boring stdlib,
+            deletions over additions.
           </p>
         </div>
       </div>

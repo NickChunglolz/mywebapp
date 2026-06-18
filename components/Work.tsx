@@ -3,9 +3,11 @@ import Section from "./Section";
 
 type Role = {
   company: string;
+  unit?: string;
   logo?: string;
   role: string;
   period: string;
+  location?: string;
   points: string[];
   stack: string[];
   link?: string;
@@ -13,77 +15,78 @@ type Role = {
 
 const ROLES: Role[] = [
   {
-    company: "Instacart — Caper.ai",
+    company: "Instacart",
+    unit: "Caper.ai",
     logo: "/img/companies/caper.png",
-    role: "Senior Software Developer, Backend Platform",
-    period: "Present",
+    role: "Senior Software Developer",
+    period: "Mar 2025 – Present",
+    location: "Remote · Toronto, Canada",
     link: "https://www.caper.ai/",
     points: [
-      "Backend services behind Caper's AI-powered smart shopping carts: catalog ingestion, store onboarding, item-view sync pipelines.",
-      "Go services in a large monorepo, gRPC + protobuf, Postgres, Terraform-managed infra on GCP.",
-      "Lead ERD reviews and cross-team alignment for new ingestion pipelines. On-call for production sync jobs across hundreds of stores.",
+      "Led the design and architecture of a next-generation catalog system, replacing legacy workflows with high-performance infrastructure that delivered >90% faster performance and enabled more frequent, reliable data updates.",
+      "Spearheaded internal and external self-serve management systems (incentives, NOF item management), empowering operators and partners to resolve issues independently and reducing manual operational overhead by 80%+.",
+      "Architected and scaled backend microservices using Java 21 / Kotlin, gRPC, Temporal, PostgreSQL, and distributed caching, ensuring >99.9% uptime for real-time cart processing across global retailer integrations.",
+      "Drove operational excellence by automating onboarding workflows (−50% time), decreasing MTTR via Datadog observability, and optimizing Snowflake query performance to cut latency and costs by 30%.",
     ],
-    stack: ["Go", "gRPC", "Postgres", "Terraform", "GCP"],
+    stack: ["Java 21", "Kotlin", "gRPC", "Temporal", "PostgreSQL", "Snowflake", "Datadog"],
   },
   {
-    company: "SUSE — NeuVector",
+    company: "SUSE",
+    unit: "SUSE Security",
     logo: "/img/companies/suse.svg",
     role: "Senior Web Developer",
-    period: "Jul 2024 – 2025",
+    period: "Jul 2024 – Dec 2025",
+    location: "Remote · Toronto, Canada & Taipei, Taiwan",
     link: "https://www.suse.com/products/neuvector/",
     points: [
-      "Revamped NeuVector's open-source container security UI, improving load times and rearchitecting components for better performance and scalability.",
-      "Owned frontend architecture decisions across the open-source product.",
+      "Optimized NeuVector web app performance by 50% via frontend architecture upgrades (Angular / Vue) across NeuVector, Harvester, and Kubewarden.",
+      "Orchestrated architectural modernization and major version upgrades for Scala / Pekko services, establishing standardized design patterns that significantly bolstered system security and reduced technical debt.",
+      "Introduced event-sourcing for security operations using Java 17, Spring Boot, Axon, and OpenTelemetry.",
     ],
-    stack: ["Angular", "TypeScript", "Kubernetes", "Container security"],
+    stack: ["Angular", "Vue", "Scala", "Pekko", "Java 17", "Spring Boot", "Axon", "OpenTelemetry"],
   },
   {
-    company: "IBM Consulting",
+    company: "IBM",
+    unit: "IBM Consulting",
     logo: "/img/companies/ibm.png",
-    role: "Application Consultant",
-    period: "Sep 2021 – 2024",
+    role: "Application Consultant — Software Engineer",
+    period: "Sep 2021 – Jul 2024",
+    location: "Taipei, Taiwan",
     link: "https://www.ibm.com/consulting",
     points: [
-      "Led a major railway client's transformation from legacy mainframe to modern microservices — core reservation systems serving 190,000 daily inbound requests.",
-      "Designed large-scale distributed apps with Java, DDD, SAGA, and event-driven architecture, applying clean-architecture principles.",
-      "Owned stress-testing strategy, batch-job design, and full-stack delivery with Java + Angular. Hosted maintenance and training sessions for the client team.",
+      "Led full-stack delivery of the Taiwan High-Speed Rail booking platform, architecting the critical scheduling and reservation domains serving ~200K+ daily passengers using DDD, SAGA, and event-driven microservices.",
+      "Engineered high-performance batch workflows and stress-testing strategies, resulting in a 70%+ improvement in system throughput and operational efficiency.",
+      "Spearheaded the rollout of strategic railway management systems, streamlining nationwide operations and driving an 80%+ boost in daily operational efficiency.",
     ],
     stack: ["Java", "Spring Boot", "Angular", "DDD", "SAGA", "Event-driven"],
   },
   {
     company: "Beyondsoft",
+    unit: "Photoshop API",
     logo: "/img/companies/beyondsoft.png",
-    role: "Software Engineer (Adobe Photoshop API)",
+    role: "Software Engineer",
     period: "Jul 2020 – Jul 2021",
+    location: "Taipei, Taiwan",
     link: "https://www.adobe.io/apis/creativecloud/photo-imaging-api.html",
     points: [
-      "Built and tuned AWS microservices behind Adobe's Photoshop API — JavaScript, Python, and some Go.",
-      "Strengthened CI/CD with containerized builds and Jenkins pipelines; wrote integration tests against the public API surface.",
+      "Enhanced service-driven microservices for Adobe Photoshop APIs using Go, Python, and AWS.",
+      "Implemented CI/CD pipelines (Jenkins, Docker) for scalable delivery.",
     ],
-    stack: ["JavaScript", "Python", "Go", "AWS", "Docker", "Jenkins"],
+    stack: ["Go", "Python", "AWS", "Jenkins", "Docker"],
   },
   {
-    company: "Siemens — MindSphere",
+    company: "Siemens",
+    unit: "MindSphere",
     logo: "/img/companies/siemens.svg",
-    role: "IoT Web Developer Intern",
+    role: "IoT Web Developer",
     period: "Jul 2019 – Jun 2020",
+    location: "Taipei, Taiwan",
     link: "https://siemens.mindsphere.io/en",
     points: [
-      "Full-stack web applications on MindSphere, Siemens' industrial IoT PaaS.",
-      "Demoed MindSphere at the 2019 Taipei Automation Show; lectured at the 2019 MindSphere World Taiwan IoT Camp in Taoyuan.",
+      "Developed IoT web applications on Siemens MindSphere, the industrial IoT PaaS.",
+      "Presented solutions at the 2019 Taipei Automation Show and the 2019 MindSphere World Taiwan IoT Camp in Taoyuan.",
     ],
     stack: ["Vue", "Node.js", "IoT", "MindSphere"],
-  },
-  {
-    company: "Ching Jr Industrial Co., Ltd.",
-    logo: "/img/companies/chingjr.png",
-    role: "Web Developer (part-time)",
-    period: "Jan – Feb 2019",
-    link: "https://chingjr.com",
-    points: [
-      "Designed and managed the company website (WordPress); set up hosting on SiteGround.",
-    ],
-    stack: ["WordPress", "PHP"],
   },
 ];
 
@@ -111,12 +114,17 @@ export default function Work() {
                     {r.link ? (
                       <a href={r.link} target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">
                         {r.company}
+                        {r.unit && <span className="text-muted"> — {r.unit}</span>}
                       </a>
                     ) : (
-                      r.company
+                      <>
+                        {r.company}
+                        {r.unit && <span className="text-muted"> — {r.unit}</span>}
+                      </>
                     )}
                   </h3>
                   <p className="text-sm text-muted">{r.role}</p>
+                  {r.location && <p className="text-xs text-muted/70 mt-0.5">{r.location}</p>}
                 </div>
               </div>
               <span className="mono text-xs text-muted shrink-0 mt-1">{r.period}</span>

@@ -10,7 +10,7 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
           </span>
           <p className="mono text-sm text-muted">
-            Senior Software Developer · <span className="text-foreground">Caper Backend Platform</span> · Instacart
+            Senior Software Developer · <span className="text-foreground">Instacart Caper.ai</span> · Toronto
           </p>
         </div>
 
@@ -25,17 +25,18 @@ export default function Hero() {
         </h1>
 
         <p className="mt-8 text-lg sm:text-xl text-muted max-w-2xl leading-relaxed">
-          I work on Instacart&apos;s Caper Backend Platform — the services behind the
-          AI-powered shopping carts that recognize what you drop in. Off-hours I ship
-          side projects end-to-end because taste needs reps.
+          Senior software engineer with 6+ years designing and scaling high-traffic,
+          mission-critical distributed systems. Today I&apos;m building the backend
+          platform behind <span className="text-foreground">Caper.ai</span> at Instacart —
+          previously shipped impact at IBM Consulting and SUSE.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
-            href="/#projects"
+            href="/#work"
             className="px-6 py-3 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition shadow-lg shadow-accent/20"
           >
-            See projects →
+            See experience →
           </Link>
           <Link
             href="/#contact"
@@ -55,10 +56,10 @@ export default function Hero() {
 
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
           {[
+            { k: ">90%", v: "catalog perf gain" },
+            { k: "99.9%", v: "uptime, cart processing" },
+            { k: "200k+", v: "daily rail passengers" },
             { k: "6+", v: "years shipping" },
-            { k: "190k", v: "daily req. at IBM" },
-            { k: "4", v: "side projects live" },
-            { k: "1", v: "smart-cart fleet" },
           ].map((s) => (
             <div key={s.v} className="bg-background px-4 py-5">
               <div className="text-2xl sm:text-3xl font-semibold tracking-tight">{s.k}</div>
