@@ -6,7 +6,7 @@ const GROUPS = [
   { label: "Frontend", items: ["Next.js", "React", "Angular", "Vue", "Tailwind", "SASS"] },
   { label: "Infra & Cloud", items: ["GCP", "AWS", "Terraform", "Docker", "Kubernetes", "Jenkins", "GitHub Actions"] },
   { label: "Domains", items: ["IoT (MindSphere)", "Container security (NeuVector)", "Mainframe → microservices", "Computer-vision retail"] },
-  { label: "AI / Tooling", items: ["Claude Code", "MCP servers", "Custom agents & skills"] },
+  { label: "AI / Tooling", items: ["Claude Code", "Cursor", "MCP servers", "Custom agents & skills"] },
 ];
 
 export default function Skills() {
