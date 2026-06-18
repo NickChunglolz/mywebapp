@@ -19,9 +19,8 @@ export default function About() {
           <p>
             I&apos;m a senior software engineer with a full-stack skillset honed across
             consulting, big tech, and industrial-IoT shops. Today I work on{" "}
-            <span className="text-foreground">Caper R&amp;D at Instacart</span>, where my
-            team (PODS) builds the platform services behind Caper&apos;s computer-vision-enabled
-            smart shopping carts — catalog sync, store onboarding, item-recognition pipelines.
+            <span className="text-foreground">Caper Backend Platform at Instacart</span>, building
+            the services behind Caper&apos;s computer-vision-enabled smart shopping carts — catalog sync, store onboarding, item-recognition pipelines.
           </p>
           <p>
             Before Instacart I shipped a railway-scale microservices migration at IBM

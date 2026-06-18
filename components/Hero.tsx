@@ -19,7 +19,7 @@ export default function Hero() {
           <br />
           I build the backends that
           <br />
-          <span className="bg-gradient-to-r from-accent via-fuchsia-400 to-accent-2 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-accent via-teal-400 to-accent-2 bg-clip-text text-transparent">
             keep smart carts smart.
           </span>
         </h1>

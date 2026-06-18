@@ -2,12 +2,13 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #07070a;
+  --background: #08090a;
   --foreground: #f4f4f5;
-  --muted: #8a8a93;
-  --border: #1c1c22;
-  --accent: #818cf8;
-  --accent-2: #22d3ee;
+  --muted: #71717a;
+  --border: #1f2024;
+  --accent: #10b981;   /* emerald 500 */
+  --accent-2: #f59e0b; /* amber 500 */
+  --accent-3: #14b8a6; /* teal 500 — bridge in gradients */
 }
 
 @theme inline {
@@ -28,9 +29,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   background-image:
-    radial-gradient(60rem 30rem at 80% -10%, rgba(129,140,248,0.18), transparent 60%),
-    radial-gradient(40rem 22rem at -10% 5%, rgba(34,211,238,0.12), transparent 60%),
-    radial-gradient(50rem 28rem at 50% 110%, rgba(217,70,239,0.10), transparent 60%);
+    radial-gradient(60rem 30rem at 80% -10%, rgba(16,185,129,0.18), transparent 60%),
+    radial-gradient(40rem 22rem at -10% 5%, rgba(20,184,166,0.13), transparent 60%),
+    radial-gradient(50rem 28rem at 50% 110%, rgba(245,158,11,0.10), transparent 60%);
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
@@ -62,9 +63,9 @@ body::before {
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(129,140,248,0.5);
+  border-color: rgba(16,185,129,0.5);
   background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
   box-shadow:
-    0 0 0 1px rgba(129,140,248,0.15),
-    0 12px 40px -12px rgba(129,140,248,0.35);
+    0 0 0 1px rgba(16,185,129,0.18),
+    0 12px 40px -12px rgba(16,185,129,0.35);
 }
