@@ -55,7 +55,7 @@ export default function Hero() {
 
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
           {[
-            { k: "5+", v: "years shipping" },
+            { k: "6+", v: "years shipping" },
             { k: "190k", v: "daily req. at IBM" },
             { k: "4", v: "side projects live" },
             { k: "1", v: "smart-cart fleet" },
