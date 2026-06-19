@@ -5,7 +5,7 @@ type Role = {
   company: string;
   unit?: string;
   logo?: string;
-  logoBg?: string; // tailwind bg class; default light chip
+  logoBg?: string;
   role: string;
   period: string;
   location?: string;
