@@ -114,10 +114,23 @@ export default function Chat() {
       )}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-foreground text-background shadow-xl shadow-accent/30 hover:scale-105 transition flex items-center justify-center"
-        aria-label={open ? "Close chat" : "Open chat with Nick"}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full overflow-hidden shadow-xl shadow-accent/30 hover:scale-105 transition ring-2 ring-accent/40 hover:ring-accent flex items-center justify-center bg-foreground text-background"
+        aria-label={open ? "Close chat" : "Chat with Nick"}
       >
-        {open ? "✕" : "💬"}
+        {open ? (
+          <span className="text-xl">✕</span>
+        ) : (
+          <>
+            <img
+              src="/img/me/avatar.svg"
+              alt=""
+              width={56}
+              height={56}
+              className="w-full h-full object-cover bg-white"
+            />
+            <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-background" />
+          </>
+        )}
       </button>
     </>
   );

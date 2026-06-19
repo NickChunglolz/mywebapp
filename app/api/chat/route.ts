@@ -1,44 +1,54 @@
-import Anthropic from "@anthropic-ai/sdk";
+import OpenAI from "openai";
 import { buildSystemPrompt } from "@/lib/persona";
 
 export const runtime = "nodejs";
 
-const client = new Anthropic();
+const useGroq = !!process.env.GROQ_API_KEY;
+
+const client = useGroq
+  ? new OpenAI({
+      apiKey: process.env.GROQ_API_KEY,
+      baseURL: "https://api.groq.com/openai/v1",
+    })
+  : new OpenAI({
+      apiKey: "ollama",
+      baseURL: process.env.OLLAMA_URL ?? "http://localhost:11434/v1",
+    });
+
+const MODEL = useGroq
+  ? process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile"
+  : process.env.OLLAMA_MODEL ?? "llama3.1:8b";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: Request) {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return new Response("ANTHROPIC_API_KEY not configured", { status: 500 });
-  }
-
   const { messages } = (await req.json()) as { messages: Msg[] };
   if (!Array.isArray(messages) || messages.length === 0) {
     return new Response("messages required", { status: 400 });
   }
 
-  const stream = await client.messages.stream({
-    model: "claude-opus-4-8",
+  const stream = await client.chat.completions.create({
+    model: MODEL,
+    stream: true,
     max_tokens: 1024,
-    thinking: { type: "adaptive" },
-    system: buildSystemPrompt(),
-    messages: messages.slice(-20).map((m) => ({ role: m.role, content: m.content })),
+    messages: [
+      { role: "system", content: buildSystemPrompt() },
+      ...messages.slice(-20).map((m) => ({ role: m.role, content: m.content })),
+    ],
   });
 
   const encoder = new TextEncoder();
   const body = new ReadableStream({
     async start(controller) {
       try {
-        for await (const event of stream) {
-          if (
-            event.type === "content_block_delta" &&
-            event.delta.type === "text_delta"
-          ) {
-            controller.enqueue(encoder.encode(event.delta.text));
-          }
+        for await (const chunk of stream) {
+          const text = chunk.choices[0]?.delta?.content;
+          if (text) controller.enqueue(encoder.encode(text));
         }
       } catch (err) {
-        controller.enqueue(encoder.encode(`\n\n[error: ${(err as Error).message}]`));
+        controller.enqueue(
+          encoder.encode(`\n\n[error: ${(err as Error).message}]`),
+        );
       } finally {
         controller.close();
       }
