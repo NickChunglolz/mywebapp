@@ -5,6 +5,7 @@ type Role = {
   company: string;
   unit?: string;
   logo?: string;
+  logoBg?: string; // tailwind bg class; default light chip
   role: string;
   period: string;
   location?: string;
@@ -23,7 +24,7 @@ const ROLES: Role[] = [
     location: "Remote · Toronto, Canada",
     link: "https://www.caper.ai/",
     points: [
-      "Led the design and architecture of a next-generation catalog system, replacing legacy workflows with high-performance infrastructure that delivered >90% faster performance and enabled more frequent, reliable data updates.",
+      "Led the design and architecture of a next-generation catalog system syncing 100M+ items hourly across 1,000+ retail stores (each carrying ~1M SKUs), replacing legacy workflows with high-performance infrastructure that delivered >90% faster syncs and enabled more frequent, reliable updates.",
       "Spearheaded internal and external self-serve management systems (incentives, NOF item management), empowering operators and partners to resolve issues independently and reducing manual operational overhead by 80%+.",
       "Architected and scaled backend microservices using Java 21 / Kotlin, gRPC, Temporal, PostgreSQL, and distributed caching, ensuring >99.9% uptime for real-time cart processing across global retailer integrations.",
       "Drove operational excellence by automating onboarding workflows (−50% time), decreasing MTTR via Datadog observability, and optimizing Snowflake query performance to cut latency and costs by 30%.",
@@ -34,6 +35,7 @@ const ROLES: Role[] = [
     company: "SUSE",
     unit: "SUSE Security",
     logo: "/img/companies/suse.svg",
+    logoBg: "bg-[#173f35]",
     role: "Senior Web Developer",
     period: "Jul 2024 – Dec 2025",
     location: "Remote · Toronto, Canada & Taipei, Taiwan",
@@ -99,7 +101,7 @@ export default function Work() {
             <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div className="flex items-center gap-3">
                 {r.logo && (
-                  <div className="w-12 h-12 shrink-0 flex items-center justify-center">
+                  <div className={`w-12 h-12 shrink-0 flex items-center justify-center rounded p-1 ${r.logoBg ?? "bg-white/85"}`}>
                     <Image
                       src={r.logo}
                       alt={`${r.company} logo`}

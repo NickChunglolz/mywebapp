@@ -38,7 +38,7 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <Section id="projects" index={3} label="projects" title="Things I've built">
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-4 mb-6">
         {PROJECTS.map((p) => (
           <a
             key={p.name}
@@ -63,6 +63,14 @@ export default function Projects() {
           </a>
         ))}
       </div>
+      <a
+        href="https://github.com/NickChunglolz?tab=repositories"
+        target="_blank"
+        rel="noreferrer"
+        className="mono text-sm text-muted hover:text-accent transition-colors"
+      >
+        more on github →
+      </a>
     </Section>
   );
 }

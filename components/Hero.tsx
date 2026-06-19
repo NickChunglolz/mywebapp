@@ -15,7 +15,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <h1 className="text-5xl sm:text-7xl font-semibold tracking-tighter leading-[1.05] min-h-[18rem] sm:min-h-[24rem]">
+        <h1 className="text-5xl sm:text-7xl font-semibold tracking-tighter leading-[1.05] min-h-[11rem] sm:min-h-[16rem]">
           <TypedHeadline
             lines={[
               { text: "Hi, I’m Nick." },
@@ -29,10 +29,12 @@ export default function Hero() {
         </h1>
 
         <p className="mt-8 text-lg sm:text-xl text-muted max-w-2xl leading-relaxed">
-          Senior software engineer with 6+ years designing and scaling high-traffic,
-          mission-critical distributed systems. Today I&apos;m building the backend
-          platform behind <span className="text-foreground">Caper.ai</span> at Instacart —
-          previously shipped impact at IBM Consulting and SUSE.
+          Senior software engineer with 6+ years shipping high-traffic,
+          mission-critical distributed systems —{" "}
+          <span className="text-foreground">born and raised in Taiwan</span>, started my
+          career in Taipei (IBM Consulting, SUSE), and{" "}
+          <span className="text-foreground">now in Toronto</span> building the backend
+          platform behind <span className="text-foreground">Caper.ai</span> at Instacart.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-3">
