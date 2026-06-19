@@ -1,29 +1,33 @@
-# mypage
+# nick-portfolio
 
-## Project setup
-```
+Personal site for Nick Chung — software engineer at Instacart Caper R&D.
+
+Built with **Next.js 16 · React 19 · Tailwind v4 · TypeScript**.
+
+## Develop
+
+```bash
 npm install
+npm run dev
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+Open http://localhost:3000.
+
+## Add a blog post
+
+Drop a `.md` file in `content/posts/`:
+
+```markdown
+---
+title: "Post title"
+date: "YYYY-MM-DD"
+summary: "One line."
+tags: ["tag1", "tag2"]
+---
+
+Body here. Standard markdown + GFM.
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Deploy
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+One-click on Vercel — no env vars needed.
