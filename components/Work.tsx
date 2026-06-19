@@ -56,7 +56,7 @@ const ROLES: Role[] = [
     location: "Taipei, Taiwan",
     link: "https://www.ibm.com/consulting",
     points: [
-      "Led full-stack delivery of the Taiwan High-Speed Rail booking platform, architecting the critical scheduling and reservation domains serving ~200K+ daily passengers using DDD, SAGA, and event-driven microservices.",
+      "Led full-stack delivery of a national high-speed rail booking platform, architecting the critical Schedule, Inventory, Pricing, and Reservation domains serving ~200K+ daily passengers using DDD, SAGA, and event-driven microservices.",
       "Engineered high-performance batch workflows and stress-testing strategies, resulting in a 70%+ improvement in system throughput and operational efficiency.",
       "Spearheaded the rollout of strategic railway management systems, streamlining nationwide operations and driving an 80%+ boost in daily operational efficiency.",
     ],

@@ -29,7 +29,7 @@ export default function About() {
             global retailer integrations.
           </p>
           <p>
-            Before Instacart I shipped Taiwan High-Speed Rail&apos;s booking platform at IBM
+            Before Instacart I shipped a national high-speed rail booking platform at IBM
             Consulting (~200K daily passengers, DDD + SAGA + event-driven), modernized
             NeuVector&apos;s security stack at SUSE (Angular / Vue / Scala&nbsp;+&nbsp;Pekko),
             tuned AWS services behind Adobe&apos;s Photoshop API at Beyondsoft, and built
