@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import ChatMarkdown from "./ChatMarkdown";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -84,7 +85,19 @@ export default function Chat() {
                     : "mr-auto max-w-[90%] rounded-2xl bg-white/5 border border-border px-3 py-2 text-foreground/90 whitespace-pre-wrap"
                 }
               >
-                {m.content || (busy && i === messages.length - 1 ? "…" : "")}
+                {m.role === "assistant" && m.content ? (
+                  <ChatMarkdown>{m.content}</ChatMarkdown>
+                ) : m.content ? (
+                  m.content
+                ) : busy && i === messages.length - 1 ? (
+                  <span className="inline-flex gap-1 items-center py-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-bounce [animation-delay:-0.3s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-bounce [animation-delay:-0.15s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-bounce" />
+                  </span>
+                ) : (
+                  ""
+                )}
               </div>
             ))}
           </div>
@@ -114,21 +127,23 @@ export default function Chat() {
       )}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full overflow-hidden shadow-xl shadow-accent/30 hover:scale-105 transition ring-2 ring-accent/40 hover:ring-accent flex items-center justify-center bg-foreground text-background"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-xl shadow-accent/30 hover:scale-105 transition ring-2 ring-accent/40 hover:ring-accent flex items-center justify-center bg-foreground text-background"
         aria-label={open ? "Close chat" : "Chat with Nick"}
       >
         {open ? (
           <span className="text-xl">✕</span>
         ) : (
           <>
-            <img
-              src="/img/me/avatar.svg"
-              alt=""
-              width={56}
-              height={56}
-              className="w-full h-full object-cover bg-white"
-            />
-            <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-background" />
+            <span className="absolute inset-0 rounded-full overflow-hidden bg-white">
+              <img
+                src="/img/me/avatar.svg"
+                alt=""
+                width={56}
+                height={56}
+                className="w-full h-full object-cover"
+              />
+            </span>
+            <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-background z-10" />
           </>
         )}
       </button>

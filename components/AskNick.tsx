@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import ChatMarkdown from "./ChatMarkdown";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -83,7 +84,19 @@ export default function AskNick() {
                     : "mr-auto max-w-[90%] rounded-2xl bg-white/5 border border-border px-3 py-2 text-foreground/90 whitespace-pre-wrap"
                 }
               >
-                {m.content || (busy && i === messages.length - 1 ? "…" : "")}
+                {m.role === "assistant" && m.content ? (
+                  <ChatMarkdown>{m.content}</ChatMarkdown>
+                ) : m.content ? (
+                  m.content
+                ) : busy && i === messages.length - 1 ? (
+                  <span className="inline-flex gap-1 items-center py-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-bounce [animation-delay:-0.3s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-bounce [animation-delay:-0.15s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-bounce" />
+                  </span>
+                ) : (
+                  ""
+                )}
               </div>
             ))}
           </div>

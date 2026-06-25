@@ -27,15 +27,24 @@ export async function POST(req: Request) {
     return new Response("messages required", { status: 400 });
   }
 
-  const stream = await client.chat.completions.create({
-    model: MODEL,
-    stream: true,
-    max_tokens: 1024,
-    messages: [
-      { role: "system", content: buildSystemPrompt() },
-      ...messages.slice(-20).map((m) => ({ role: m.role, content: m.content })),
-    ],
-  });
+  let stream;
+  try {
+    stream = await client.chat.completions.create({
+      model: MODEL,
+      stream: true,
+      max_tokens: 1024,
+      messages: [
+        { role: "system", content: buildSystemPrompt() },
+        ...messages.slice(-20).map((m) => ({ role: m.role, content: m.content })),
+      ],
+    });
+  } catch (err) {
+    const provider = useGroq ? "groq" : `ollama (${MODEL})`;
+    return new Response(
+      `Provider error from ${provider}: ${(err as Error).message}`,
+      { status: 502 },
+    );
+  }
 
   const encoder = new TextEncoder();
   const body = new ReadableStream({
