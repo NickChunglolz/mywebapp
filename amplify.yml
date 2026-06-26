@@ -4,9 +4,7 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        - node -e 'console.log("secrets-keys:", Object.keys(JSON.parse(process.env.secrets||"{}")).join(",")||"NONE")'
-        - echo "GEMINI_API_KEY=$(node -pe 'JSON.parse(process.env.secrets||"{}").GEMINI_API_KEY||""')" >> .env.production
-        - 'echo "bake-length=$(wc -c < .env.production)"'
+        - echo "GEMINI_API_KEY=$GEMINI_API_KEY" >> .env.production
     build:
       commands:
         - npm run build
