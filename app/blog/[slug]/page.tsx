@@ -4,6 +4,7 @@ import { isValidElement, type ReactElement } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Mermaid from "@/components/Mermaid";
+import Robot from "@/components/Robot";
 import { getAllPosts, getPost } from "@/lib/posts";
 
 export function generateStaticParams() {
@@ -68,6 +69,27 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
+            img: ({ src, alt }) => {
+              if (src === "/avatar.png") {
+                return (
+                  <span className="not-prose flex justify-center my-10">
+                    <span className="relative inline-flex flex-col items-center">
+                      <span className="relative inline-flex items-center justify-center w-36 h-36 rounded-2xl border border-accent/40 bg-black/60 shadow-[0_0_30px_-5px] shadow-accent/40 overflow-hidden">
+                        <Robot className="w-28 h-32 text-accent drop-shadow-[0_0_8px_rgba(16,185,129,0.45)]" />
+                        <span className="absolute top-1.5 left-2 mono text-[8px] uppercase tracking-widest text-accent/70">● online</span>
+                      </span>
+                      <span className="mt-3 mono text-[9px] uppercase tracking-[0.25em] text-muted/70">
+                        nick · v1.0
+                      </span>
+                    </span>
+                  </span>
+                );
+              }
+              return (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={src} alt={alt ?? ""} className="rounded-lg mx-auto" />
+              );
+            },
             pre: ({ children, ...rest }) => {
               const child = Array.isArray(children) ? children[0] : children;
               if (

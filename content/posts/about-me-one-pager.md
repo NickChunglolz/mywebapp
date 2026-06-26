@@ -13,15 +13,15 @@ I run side projects in parallel with the day job — usually three or four in fl
 
 ## How I work
 
-**Move first, refine later.** A session starts by pushing something out, not by planning what to push. Most of my best work goes through ten commits before it's the version I'd defend.
+Honestly, kind of messily. I rarely plan a session before starting one — I push something half-formed out and react to it. Most of what I'd defend in my work took ten commits to get to that shape, and the first draft is almost never right. I've stopped expecting it to be.
 
-**Parallel everything.** Never one thing in flight. In a single hour I'll bounce between blog writing, infra debugging, and a spec for a different project. I trust myself to pick threads back up.
+I run three or four projects in parallel because I get bored on any single thread for too long. The cost is that nothing moves at maximum speed; the upside is that when one project hits a wall I switch instead of staring at it. A surprising number of bugs solve themselves when you walk away for two days.
 
-**Default to deletion.** Single-project assumptions. Explicit "not doing" lists in every design doc. Most of my code is *less code than was there before*. Smallest working version until proven otherwise.
+I delete more than I add. Almost every PR I open shrinks the file I'm editing. Single-project assumptions, explicit "not doing" lists, features I haven't bothered to scaffold — those are choices, not gaps. The default move when I read any diff is *can this be shorter*.
 
-**Action over planning, honest in retrospect.** I skip the ERD on side projects and ship — then I name the cost of skipping it. Both moves matter; pretending only one happened is theater.
+I skip the ERD on side projects all the time, and then lose half a day to something the ERD would have caught — an Amplify Secrets quirk, an IAM gap, a rate-limit assumption. The upfront cost feels real; the cost of skipping feels theoretical, right up until it isn't. I keep doing it anyway. I write about it partly so future-me has to look at it.
 
-**Voice over polish.** If a paragraph reads like AI, it gets rewritten — even if it's technically correct. I'd rather sound like me with a typo than like a marketing page that's grammatically perfect.
+If a paragraph I wrote sounds like a LinkedIn post or a generic engineering blog, I rewrite it — even if it's technically right. The bar isn't "is this correct," it's "does this sound like me." This section took four attempts.
 
 ## How I think about AI
 
