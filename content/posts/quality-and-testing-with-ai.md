@@ -46,19 +46,17 @@ Four things, in roughly this order of leverage:
 - **Choosing what to mock.** Defaults to "mock everything," which is how you ship green tests around broken integrations. The rule I follow: mock the boundary of *external* trust (third-party APIs, network) and *only* that boundary. Anything inside the system runs for real.
 - **Deciding whether a test is needed at all.** Trivial one-liners don't need tests. YAGNI applies to tests too. The model will write 12 tests for a 3-line function if you let it. The right test count is often zero.
 
-## A small ritual that has saved me hours
+## A test strategy that survives
 
-For non-trivial logic in any project, I leave **one runnable check** colocated with the code — the smallest thing that fails if the logic breaks. Same idea in every language I work in:
+Per-language recipes are a Google away. What's harder — and what AI is no help with — is knowing **what to test, at what level, with how much depth.** Three rules that decide the rest:
 
-- **Python** — `if __name__ == "__main__":` block at the bottom with two or three `assert` lines, or a single `test_*.py` next door.
-- **Go** — a `_test.go` file with one `TestX` and two table rows. `go test ./pkg` and you're done.
-- **TypeScript / Node** — a `*.test.ts` with Vitest, or for one-off scripts a `node --test` block. For the truly trivial: a `.ts` file you run with `tsx` and `assert.equal()`.
-- **Java / Spring Boot** — one JUnit method colocated with the new class; resist the urge to scaffold a whole `@SpringBootTest` if the logic is pure.
-- **Bash / scripts** — a single `set -e; OUT=$(./script foo); [[ "$OUT" == "bar" ]] || exit 1` at the bottom of the file.
+**1. Test at the boundary that matters, not the unit you wrote.** A handler that calls three internal services and then a DB doesn't need four unit tests with mocks; it needs *one* integration test that hits the real DB and proves the whole chain works. The most expensive bugs I've shipped live between the units, not inside them — the prod migration where mocked tests stayed green and real tables failed; the SQS retry path where every handler unit-tested fine but the visibility-timeout interaction was wrong. The rule I follow: **mock the boundary of external trust (third-party APIs, network, the clock) and only that boundary.** Anything inside the system runs for real.
 
-No fixtures, no shared setup, no CI integration. Just a thing I can run with one command and know in two seconds whether the logic still holds. It's the lazy version of TDD that actually survives contact with a real release schedule — side project or work — because the cost of *adding* a check is nearly zero, so I actually do it.
+**2. Risk-weight the depth; uniform coverage is a lie.** Not every line deserves the same test budget. Money paths and auth get deep tests with failure-mode coverage. CRUD-with-no-rules gets one smoke test that proves the wiring. Pure functions get one table-driven assert and move on. The mistake I keep watching teams make — and the one CI coverage badges actively encourage — is uniform coverage. 80% across the codebase looks great on a dashboard and tells you nothing about whether the parts that *can ruin your week* are tested at all. The right question isn't "what's our coverage?" — it's "if this specific path breaks, who pays?"
 
-The principle is language-agnostic: every non-trivial branch leaves *one* runnable check behind. The smaller it is, the more likely it survives the next refactor.
+**3. ML and data systems are a different paradigm; don't drag web-service testing patterns over.** For [stock-advisor](https://github.com/NickChunglolz) the backtest *is* the unit test. The assertions are Sharpe, AUC, drawdown vs SPY. Writing pytest fixtures for the prediction function is missing the point — the question isn't "does the function return a float" but "does the model meaningfully beat baseline." Tests at the wrong altitude for the system you're building create the *illusion* of coverage and protect you from nothing. Same for the catalog pipeline at the day job: the test that matters is "does end-to-end throughput stay above N items/sec on a representative shard," not "does this regex function return the right groups."
+
+The per-language part — `if __name__ == "__main__":`, `_test.go`, `*.test.ts`, JUnit, bash assert — is the easy part. Reach for whichever your project already uses, colocate it with the code, run it in one command. The decision that actually matters is **what to put inside the test, not where to put it.**
 
 ## What I'd tell someone starting
 
