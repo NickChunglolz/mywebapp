@@ -2,7 +2,7 @@
 title: "Shipping projects E2E with AI in 2026 — the mindset, not the tools"
 date: "2026-06-25"
 summary: "What I've learned starting projects with AI across side projects and a day job on a catalog pipeline doing 100M+ items a day. The tools change every quarter; the mindset doesn't. Start from the product, refuse to pick tools first, hold the decisions AI defaults to wrong."
-tags: ["claude-code", "ai-engineering", "engineering-practice"]
+tags: ["work-with-ai", "ai-engineering", "engineering-practice"]
 ---
 
 I've started a lot of projects with AI in the last year — the portfolio you're reading, a stock-advisor pipeline I'm trying to turn into something more, a CLI agent I use every day, a few work features at the day job on a catalog pipeline doing 100M+ items a day. Different stacks, different audiences, different stakes.

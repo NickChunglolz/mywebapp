@@ -2,7 +2,7 @@
 title: "Quality and testing when AI writes most of the code"
 date: "2026-06-26"
 summary: "The follow-up: if the model can write the feature, can it write the tests? Yes — and that's the problem. What actually catches bugs in AI-generated code, what AI defaults to that you should rip out, and why one runnable check beats five theatrical ones."
-tags: ["claude-code", "ai-engineering", "testing", "quality"]
+tags: ["work-with-ai", "ai-engineering", "testing", "quality"]
 ---
 
 After the [last post](/blog/shipping-with-ai) the question I kept getting is the obvious one: if the model writes the feature, can it also write the tests? Technically yes. Practically, that's where most AI-assisted projects quietly rot.
