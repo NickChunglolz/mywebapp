@@ -11,7 +11,21 @@ The thing that surprised me is how little the tools matter. The mindset transfer
 
 This is what I've landed on.
 
-## Start from the product, not the tool
+## The loop I run, every time
+
+Whether it's a side project or a feature at work, the shape is the same: **PRD → ERD → impl → test → deliver**. Five stages. AI's role changes at every one.
+
+- **PRD** — *pure human.* What is this for, who reads it, what's the smallest proof it works. AI is bad here because it has no skin in the game and no taste for *your* users. Don't let it write this.
+- **ERD** — *mostly human, AI as critic.* How will it be built, what are the risks, what are we explicitly *not* doing. AI is great as a second pair of eyes ("what's a failure mode I missed?"), bad as the author.
+- **Impl** — *mostly AI.* Scaffolding, refactor, fixtures, the third feature-flag wrapper. This is where the 10x lives.
+- **Test** — *hybrid.* AI is great at writing the test for a bug you just fixed, mediocre at choosing what to assert. (Whole post on this: [Quality and testing when AI writes most of the code](/blog/quality-and-testing-with-ai).)
+- **Deliver** — *mostly human, AI as log reader.* Deploy on day one, watch the build, iterate from there.
+
+The single biggest trap is collapsing all five into one ("type a prompt, review a PR") and letting AI do the PRD + ERD inside the impl chat. That's where time goes — not the typing, the skipped thinking.
+
+The rest of this post is the same five stages, in order.
+
+## PRD — start from the product, not the tool
 
 The first instinct, mine included, is to ask the model "what stack should I use?" That's the wrong question, and the model will happily answer it — confidently, in detail, with a five-step migration plan if you push.
 
@@ -23,7 +37,20 @@ Before any of that, I now spend 10 minutes writing down — in the repo, not in 
 
 That's the entire upfront cost. No architecture diagram, no library decision, no story breakdown. Once those three answers exist, the tool choice mostly picks itself, and AI is excellent at executing on it.
 
-## Then let it propose the scaffold
+## ERD — sketch the smallest proof, then have AI try to break it
+
+Even on a side project I now do a quick "ERD-lite" before any code. Half a page in the repo, four headings:
+
+1. **Approach.** Two paragraphs on how this will be built. "Next.js on Amplify with an SSR API route that calls Gemini; secrets via Hosting Env vars." Skip diagrams. If you can't say the approach in two paragraphs, the PRD isn't tight enough yet.
+2. **Risks.** Three bullets, max. "Amplify Hosting SSR has weird env-var rules. Gemini free tier might rate-limit during launch. Mobile chrome breaks tall flexbox in old iOS." Name them so they don't surprise you in delivery.
+3. **What we're not doing.** This list is more important than the approach. "No auth. No DB. No multi-user. No analytics." Future-you will try to add all of these; the explicit "not doing" list is what makes "no" easy later.
+4. **Smallest proof.** Same proof from the PRD, but now described as a checkable thing. "`curl /api/chat` returns a streamed response." Concrete enough to write the test for, not yet the test itself.
+
+Then I paste the whole thing into the AI and ask one question: *"What's a failure mode I haven't named?"* This is AI at its best — a second pair of eyes with no political stake. It'll catch the IAM gap, the rate-limit math, the cold-start latency, the migration ordering problem. Half the time it surfaces something I'd have spent a day learning the hard way.
+
+At work the ERD is a real doc with reviewers and a sign-off; for side projects it's a single markdown file in the repo. The format doesn't matter. **Writing it before any code matters.** AI lets me skip this step, and every time I let it, I pay for it in the impl stage.
+
+## Impl — let the model scaffold; you read diffs
 
 After the product is clear, I let the model pick. "Take this Vue 2 scaffold and turn it into a Next.js 16 site with a chatbot in the corner." One paragraph of intent, no file list. The model is faster at picking structure than I am at writing one.
 
@@ -31,7 +58,7 @@ I read the diff, not the plan. If I disagree with a choice — Tailwind v4 over 
 
 This is the part that's actually 10x faster than it used to be. Routing, type checks, deploy targets, repository-pattern CRUD, the third instance of a feature flag wrapper, splitting a 400-line component into three — all of it. The kind of work I used to put off for a quarter at $dayjob now happens between meetings.
 
-## What I delegate vs what I hold
+### What I delegate vs what I hold (at the impl stage)
 
 | Delegated | Held |
 |-----------|------|
@@ -41,6 +68,16 @@ This is the part that's actually 10x faster than it used to be. Routing, type ch
 | The 14-step deploy recipe | Whether I'm even on the right deploy path |
 
 The pattern: **AI is great at execution under a clear constraint. It's mediocre at choosing the constraint.** I keep the framing; it does the typing.
+
+## Test — covered in the next post
+
+Whole post on this: [Quality and testing when AI writes most of the code](/blog/quality-and-testing-with-ai). Short version: AI will write you 14 plausible tests in 30 seconds, and most of them assert what the code does instead of what the requirement says. Choosing what to assert stays with you.
+
+## Deliver — run the deploy on day one
+
+Before the hero animation, before the chatbot, before the boot loader. At work: before the real handler, before the schema migration, before the new metrics. If the platform is going to hate you, you want it to start hating you while the surface area is small.
+
+Once a stub is shipping, the deliver loop is: small change → push → watch the build → curl the endpoint → repeat. AI is excellent at the second half of that loop (reading build logs, parsing failure traces, suggesting the next change). It's mediocre at the first half (knowing which small change is worth shipping right now). I let it own the log reading; I own the queue.
 
 ## What AI gets confidently wrong (the part I keep underestimating)
 
@@ -60,13 +97,11 @@ The fix isn't to distrust AI. It's to **always have one signal that proves which
 
 **Ship the lazy version and question it in the same PR.** I should have shipped the plain Environment variable on day one and asked "is the Secret feature worth the dance?" Instead I built a wrapper, found the IAM gap, fixed it, found the runtime gap, fixed *that*, then realized the answer was always to delete the wrapper. The wrong question, well-engineered, is still the wrong question. This rule applies to design docs and ERDs too: the most expensive mistake is a perfectly-executed solution to a problem you didn't have.
 
-**Run the deploy on day one. Always.** Before the hero animation, before the chatbot, before the boot loader. At work: before the real handler, before the schema migration, before the new metrics. If the platform is going to hate you, you want it to start hating you while the surface area is small.
-
 ## What I'd say to someone starting
 
 The temptation with AI is to skip the slow upfront thinking and go straight to "type a prompt, review a PR." It feels productive. It usually isn't.
 
-Spend the first 10 minutes on what this thing is *for* and what it has to be *right* about. Spend the next 50 letting the model scaffold the entire thing. From there it's a series of one-session-per-feature loops, and the bottleneck moves from typing to deciding — which is exactly where it should be.
+Spend the first 10 minutes on the PRD. Spend the next 20 on the ERD-lite and let AI try to break it. Spend the next 30 letting the model scaffold the entire impl. Ship a deploy before you've written the real handler. From there it's a series of one-session-per-feature loops, and the bottleneck moves from typing to deciding — which is exactly where it should be.
 
 The model will follow whatever ambient definition of "right" the docs and the prompt collectively imply. Pinning down what *enough* looks like up front saves more time than any clever scaffold, any clever harness, any clever model.
 
