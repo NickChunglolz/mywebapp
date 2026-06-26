@@ -4,7 +4,7 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        - node -e 'const s=JSON.parse(process.env.secrets||"{}");require("fs").writeFileSync(".env.production",Object.entries(s).map(([k,v])=>`${k}=${v}`).join("\n")+"\n");console.log("baked:",Object.keys(s).join(",")||"NONE")'
+        - echo "GEMINI_API_KEY=$(node -pe 'JSON.parse(process.env.secrets||"{}").GEMINI_API_KEY||""')" >> .env.production
     build:
       commands:
         - npm run build
