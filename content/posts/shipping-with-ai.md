@@ -11,19 +11,17 @@ The thing that surprised me is how little the tools matter. The mindset transfer
 
 This is what I've landed on.
 
-## The loop I run, every time
+## The loop, named honestly
 
-Whether it's a side project or a feature at work, the shape is the same: **PRD → ERD → impl → test → deliver**. Five stages. AI's role changes at every one.
+The discipline I'm supposed to run is **PRD → ERD → impl → test → deliver**. Five stages, each with a different split between me and the model. Here's what each one actually looks like in my work — and then the honest part, which is the stages I keep skipping.
 
-- **PRD** — *pure human.* What is this for, who reads it, what's the smallest proof it works. AI is bad here because it has no skin in the game and no taste for *your* users. Don't let it write this.
-- **ERD** — *mostly human, AI as critic.* How will it be built, what are the risks, what are we explicitly *not* doing. AI is great as a second pair of eyes ("what's a failure mode I missed?"), bad as the author.
-- **Impl** — *mostly AI.* Scaffolding, refactor, fixtures, the third feature-flag wrapper. This is where the 10x lives.
-- **Test** — *hybrid.* AI is great at writing the test for a bug you just fixed, mediocre at choosing what to assert. (Whole post on this: [Quality and testing when AI writes most of the code](/blog/quality-and-testing-with-ai).)
-- **Deliver** — *mostly human, AI as log reader.* Deploy on day one, watch the build, iterate from there.
+- **PRD — only mine.** The portfolio is for a hiring manager with 90 seconds. Stock-advisor is for me first, then maybe paying users, who care whether the model actually beats SPY. The eng-agent CLI is for me when I'm context-switching between Jira tickets. AI can't write this because it can't tell me what *I'm* trying to do. The PRD doesn't have to be a doc — half the time it's three lines in the repo README. It just has to exist before any code.
+- **ERD — mine, AI as critic.** Two paragraphs of approach, three risks, an explicit "not doing" list. Once it's written I paste it back into the model and ask *"what failure mode did I miss?"* This is where AI is at its best at the design stage: no political stake, no fear of looking dumb, will happily list the IAM gap or the rate-limit math I glossed over. At work this is a real ERD with reviewers; for side projects it's a markdown file in the repo. Same exercise either way.
+- **Impl — mostly AI.** The portfolio went from a Vue 2 scaffold to a Next.js 16 cockpit in a weekend, mostly via diffs I reviewed but didn't write. The eng-agent's tool-routing layer is 80% generated. At $dayjob, refactors I used to put off for a quarter happen between meetings now. I read the diff, not the plan.
+- **Test — hybrid.** AI is great at writing the regression test for a bug I just fixed (it has both states in front of it). It's mediocre at choosing what to assert from scratch. Whole post on this: [Quality and testing when AI writes most of the code](/blog/quality-and-testing-with-ai).
+- **Deliver — mine, AI as log reader.** Push, watch the build, paste the failure trace back into the model, iterate. AI parses a 600-line Amplify build log or a stack trace faster than I can. I own the queue ("what should we ship next"); it owns the parsing.
 
-The single biggest trap is collapsing all five into one ("type a prompt, review a PR") and letting AI do the PRD + ERD inside the impl chat. That's where time goes — not the typing, the skipped thinking.
-
-The rest of this post is the same five stages, in order.
+**Now the honest part.** I skip PRD on side projects all the time. I skip ERD even more. The Amplify Secrets dance you're about to read was me skipping ERD — went from "I want Gemini chat" straight to "add a wrapper," and paid for it for a day. Almost every "wait, why doesn't this work" session this year traces back to a stage I skipped at the front. The lesson isn't *never skip*; it's that **skipping is cheap on a one-paragraph blog post and expensive on anything that touches more than one system boundary** (auth, IAM, schema, third-party API). The cost of writing a 200-word ERD is 10 minutes. The cost of skipping it on the wrong project is the rest of your day.
 
 ## PRD — start from the product, not the tool
 
