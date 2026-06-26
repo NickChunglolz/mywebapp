@@ -4,20 +4,6 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        - |
-          node -e '
-            const fs = require("fs");
-            const out = {};
-            for (const [k, v] of Object.entries(process.env)) {
-              if (/^(GEMINI|GROQ|OLLAMA)_/.test(k)) out[k] = v;
-            }
-            if (process.env.secrets) {
-              try { Object.assign(out, JSON.parse(process.env.secrets)); }
-              catch (e) { console.error("secrets parse failed:", e.message); }
-            }
-            fs.writeFileSync(".env.production", Object.entries(out).map(([k,v])=>`${k}=${v}`).join("\n") + "\n");
-            console.log("env.production baked keys:", Object.keys(out).join(", ") || "NONE — chat will fall through to Ollama");
-          '
     build:
       commands:
         - npm run build
