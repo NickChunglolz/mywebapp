@@ -15,6 +15,27 @@ Every diagram you've ever seen of Clean Architecture, Onion, Hexagonal, or DDD l
 
 > **The domain sits at the center. Dependencies point inward. The database, the HTTP framework, the message broker — they depend on the domain, not the other way around.**
 
+```mermaid
+flowchart TB
+    subgraph outer["infrastructure / frameworks"]
+        HTTP[HTTP / CLI]
+        DB[(Database)]
+        MQ[Message broker]
+    end
+    subgraph mid["application"]
+        APP[Use cases / services]
+    end
+    subgraph core["domain"]
+        DOM[Entities · Rules · Invariants]
+    end
+    HTTP --> APP
+    APP --> DOM
+    DB --> APP
+    MQ --> APP
+```
+
+Arrows point inward. Every style enforces this; only the labels change.
+
 That's it. Every other rule (use ports, define entities, separate use cases, draw a hexagon) is a different way of enforcing this one constraint. The dependency rule is the invariant. The shapes and vocabulary are aesthetics.
 
 If you understand *why* the rule matters — that domain logic outlives infrastructure choices, that you want to swap Postgres for DynamoDB without rewriting the business rules, that test-ability comes from being able to instantiate the domain without booting Spring — then the choice of style mostly stops mattering.

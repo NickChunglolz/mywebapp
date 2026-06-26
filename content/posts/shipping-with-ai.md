@@ -13,7 +13,20 @@ This is what I've landed on.
 
 ## The loop, named honestly
 
-The discipline I'm supposed to run is **PRD → ERD → impl → test → deliver**. Five stages, each with a different split between me and the model. Here's what each one actually looks like in my work — and then the honest part, which is the stages I keep skipping.
+The discipline I'm supposed to run is **PRD → ERD → impl → test → deliver**. Five stages, each with a different split between me and the model.
+
+```mermaid
+flowchart LR
+    PRD([PRD<br/>mine]) --> ERD([ERD<br/>mine, AI critiques])
+    ERD --> IMPL([Impl<br/>mostly AI])
+    IMPL --> TEST([Test<br/>hybrid])
+    TEST --> DELIVER([Deliver<br/>mine, AI reads logs])
+    DELIVER -.->|new requirement| PRD
+    DELIVER -.->|bug| TEST
+    IMPL -.->|design gap| ERD
+```
+
+Here's what each one actually looks like in my work — and then the honest part, which is the stages I keep skipping.
 
 - **PRD — only mine.** The portfolio is for a hiring manager with 90 seconds. Stock-advisor is for me first, then maybe paying users, who care whether the model actually beats SPY. The eng-agent CLI is for me when I'm context-switching between Jira tickets. AI can't write this because it can't tell me what *I'm* trying to do. The PRD doesn't have to be a doc — half the time it's three lines in the repo README. It just has to exist before any code.
 - **ERD — mine, AI as critic.** Two paragraphs of approach, three risks, an explicit "not doing" list. Once it's written I paste it back into the model and ask *"what failure mode did I miss?"* This is where AI is at its best at the design stage: no political stake, no fear of looking dumb, will happily list the IAM gap or the rate-limit math I glossed over. At work this is a real ERD with reviewers; for side projects it's a markdown file in the repo. Same exercise either way.
