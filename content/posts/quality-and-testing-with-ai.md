@@ -48,9 +48,17 @@ Four things, in roughly this order of leverage:
 
 ## A small ritual that has saved me hours
 
-For non-trivial logic in side projects, I leave one runnable check next to the code — a `__main__` block with assert statements, or a single `test_*.py` file with two real-world inputs and one edge case. No fixtures, no test framework setup, no CI integration. Just a thing I can run with `python file.py` or `go test ./...` and know in two seconds whether the logic still holds.
+For non-trivial logic in any project, I leave **one runnable check** colocated with the code — the smallest thing that fails if the logic breaks. Same idea in every language I work in:
 
-The principle: every non-trivial branch leaves *one* runnable check behind, the smallest thing that fails if the logic breaks. It's the lazy version of TDD that actually survives contact with a side-project release schedule.
+- **Python** — `if __name__ == "__main__":` block at the bottom with two or three `assert` lines, or a single `test_*.py` next door.
+- **Go** — a `_test.go` file with one `TestX` and two table rows. `go test ./pkg` and you're done.
+- **TypeScript / Node** — a `*.test.ts` with Vitest, or for one-off scripts a `node --test` block. For the truly trivial: a `.ts` file you run with `tsx` and `assert.equal()`.
+- **Java / Spring Boot** — one JUnit method colocated with the new class; resist the urge to scaffold a whole `@SpringBootTest` if the logic is pure.
+- **Bash / scripts** — a single `set -e; OUT=$(./script foo); [[ "$OUT" == "bar" ]] || exit 1` at the bottom of the file.
+
+No fixtures, no shared setup, no CI integration. Just a thing I can run with one command and know in two seconds whether the logic still holds. It's the lazy version of TDD that actually survives contact with a real release schedule — side project or work — because the cost of *adding* a check is nearly zero, so I actually do it.
+
+The principle is language-agnostic: every non-trivial branch leaves *one* runnable check behind. The smaller it is, the more likely it survives the next refactor.
 
 ## What I'd tell someone starting
 
