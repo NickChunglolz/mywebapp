@@ -7,7 +7,7 @@ tags: ["work-with-ai", "ai-engineering", "testing", "quality"]
 
 After the [last post](/blog/shipping-with-ai) the question I kept getting is the obvious one: if the model writes the feature, can it also write the tests? Technically yes. Practically, that's where most AI-assisted projects quietly rot.
 
-Here's what I've landed on after a year of shipping side projects this way, and the same patterns at the day job where I work on a catalog pipeline that processes 100M+ items/day.
+Here's what I've landed on after years of shipping side projects this way, and the same patterns at the day job where I work on a catalog pipeline that processes 100M+ items/day.
 
 ## What AI defaults to (and why most of it is theater)
 

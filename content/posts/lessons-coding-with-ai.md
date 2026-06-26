@@ -1,7 +1,7 @@
 ---
-title: "Lessons from a year of coding with AI"
+title: "Lessons from years of coding with AI"
 date: "2026-06-28"
-summary: "Scar-tissue notes from a year of shipping AI-assisted code across side projects and a 100M+ items/day catalog pipeline. The rules I now follow are the ones earned by losing a day to a confidently-wrong answer, a green test that mocked the bug, or a polished diff that wasn't actually done."
+summary: "Scar-tissue notes from years of shipping AI-assisted code across side projects and a 100M+ items/day catalog pipeline. The rules I now follow are the ones earned by losing a day to a confidently-wrong answer, a green test that mocked the bug, or a polished diff that wasn't actually done."
 tags: ["work-with-ai", "ai-engineering", "engineering-practice"]
 ---
 
@@ -55,7 +55,7 @@ Every project I run now has an external task tracker, no exceptions. At $dayjob 
 
 ## 8. AI always proposes additions, never deletions
 
-Run a year of features through any model and the file tree grows monotonically. The model has no concept that *fewer files is better*; it has no concept that the right move for a 200-line component is to delete 150 of them. Deletion is a human instinct AI hasn't picked up.
+Run years of features through any model and the file tree grows monotonically. The model has no concept that *fewer files is better*; it has no concept that the right move for a 200-line component is to delete 150 of them. Deletion is a human instinct AI hasn't picked up.
 
 **Rule:** every few features, one session whose only allowed verb is "delete." Walk the tree, find the unused exports, the abstractions with one caller, the helpers that wrap a one-liner. The model is excellent at *executing* deletions when given the target. It will never propose them.
 
