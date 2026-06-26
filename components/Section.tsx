@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 export default function Section({
   id,
   index,
@@ -12,14 +16,46 @@ export default function Section({
   children: React.ReactNode;
 }) {
   const idx = String(index).padStart(2, "0");
+  const ref = useRef<HTMLElement>(null);
+  const [seen, setSeen] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setSeen(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section id={id} className="max-w-5xl mx-auto px-6 py-20 scroll-mt-20">
-      <div className="flex items-center gap-4 mb-3">
-        <span className="mono text-xs text-accent">{idx}</span>
-        <span className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
+    <section
+      ref={ref}
+      id={id}
+      data-section-label={label}
+      className="max-w-5xl mx-auto px-6 py-24 scroll-mt-20"
+    >
+      <div className="flex items-baseline gap-3 mb-4 mono text-[10px] uppercase tracking-[0.25em]">
+        <span className="text-accent/70">┌</span>
+        <span className="text-accent">PLATE {idx}</span>
+        <span className="relative h-px flex-1 bg-border overflow-hidden">
+          <span
+            className="absolute inset-0 bg-accent origin-left transition-transform duration-700 ease-out"
+            style={{ transform: `scaleX(${seen ? 1 : 0})` }}
+          />
+        </span>
+        <span className="text-muted">{label}</span>
+        <span className="text-accent/70">┐</span>
       </div>
-      <p className="mono text-xs text-muted mb-2 uppercase tracking-widest">{label}</p>
-      <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter mb-10">{title}</h2>
+      <h2 className="glitch text-4xl sm:text-6xl font-semibold tracking-[-0.04em] leading-[0.95] mb-12">
+        {title}
+      </h2>
       {children}
     </section>
   );

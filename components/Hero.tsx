@@ -1,5 +1,7 @@
 import Link from "next/link";
 import TypedHeadline from "./TypedHeadline";
+import CountUp from "./CountUp";
+import MagneticButton from "./MagneticButton";
 import { yearsShipping } from "@/lib/stats";
 
 export default function Hero() {
@@ -16,7 +18,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <h1 className="text-5xl sm:text-7xl font-semibold tracking-tighter leading-[1.05] min-h-[11rem] sm:min-h-[16rem]">
+        <h1 className="text-5xl sm:text-7xl lg:text-[5.5rem] font-semibold tracking-[-0.045em] leading-[1.02] min-h-[11rem] sm:min-h-[16rem]">
           <TypedHeadline
             lines={[
               { text: "Hi, I’m Nick." },
@@ -39,37 +41,43 @@ export default function Hero() {
         </p>
 
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            href="/#work"
-            className="px-6 py-3 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition shadow-lg shadow-accent/20"
-          >
-            See experience →
-          </Link>
-          <Link
-            href="/#contact"
-            className="px-6 py-3 rounded-full border border-border hover:border-accent/60 hover:bg-white/5 transition"
-          >
-            Get in touch
-          </Link>
-          <a
-            href="https://github.com/NickChunglolz"
-            target="_blank"
-            rel="noreferrer"
-            className="px-6 py-3 rounded-full border border-border hover:border-accent/60 hover:bg-white/5 transition mono text-sm"
-          >
-            github ↗
-          </a>
+          <MagneticButton>
+            <Link
+              href="/#work"
+              className="inline-block px-6 py-3 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition shadow-lg shadow-accent/20"
+            >
+              See experience →
+            </Link>
+          </MagneticButton>
+          <MagneticButton>
+            <Link
+              href="/#contact"
+              className="inline-block px-6 py-3 rounded-full border border-border hover:border-accent/60 hover:bg-white/5 transition"
+            >
+              Get in touch
+            </Link>
+          </MagneticButton>
+          <MagneticButton>
+            <a
+              href="https://github.com/NickChunglolz"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block px-6 py-3 rounded-full border border-border hover:border-accent/60 hover:bg-white/5 transition mono text-sm"
+            >
+              github ↗
+            </a>
+          </MagneticButton>
         </div>
 
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
           {[
-            { k: ">90%", v: "catalog perf gain" },
-            { k: "99.9%", v: "uptime, cart processing" },
-            { k: "200k+", v: "daily rail passengers" },
-            { k: `${yearsShipping}+`, v: "years shipping" },
+            { node: <><CountUp to={90} prefix=">" suffix="%" /></>, v: "catalog perf gain" },
+            { node: <CountUp to={99.9} decimals={1} suffix="%" />, v: "uptime, cart processing" },
+            { node: <CountUp to={200} suffix="k+" />, v: "daily rail passengers" },
+            { node: <CountUp to={yearsShipping} suffix="+" />, v: "years shipping" },
           ].map((s) => (
             <div key={s.v} className="bg-background px-4 py-5">
-              <div className="text-2xl sm:text-3xl font-semibold tracking-tight">{s.k}</div>
+              <div className="text-2xl sm:text-3xl font-semibold tracking-tight">{s.node}</div>
               <div className="mono text-xs text-muted mt-1">{s.v}</div>
             </div>
           ))}
