@@ -4,6 +4,10 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Chat from "@/components/Chat";
+import HUD from "@/components/HUD";
+import CursorGlow from "@/components/CursorGlow";
+import BootLoader from "@/components/BootLoader";
+import CommandPalette from "@/components/CommandPalette";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -24,10 +28,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+        <CursorGlow />
         <Nav />
+        <HUD />
         <main className="flex-1">{children}</main>
         <Footer />
         <Chat />
+        <CommandPalette />
+        <BootLoader />
       </body>
     </html>
   );

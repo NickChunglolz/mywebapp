@@ -17,10 +17,17 @@ export default function Nav() {
         <Link href="/" className="mono text-sm tracking-tight">
           <span className="text-accent">nick</span>.chung()
         </Link>
-        <nav className="hidden sm:flex gap-6 text-sm text-muted">
-          {LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-foreground transition-colors">
-              {l.label}
+        <nav className="hidden sm:flex items-center gap-5 mono text-[11px] uppercase tracking-[0.18em] text-muted">
+          {LINKS.map((l, i) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="group flex items-baseline gap-1.5 hover:text-foreground transition-colors"
+            >
+              <span className="text-accent/60 group-hover:text-accent transition-colors">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span>{l.label}</span>
             </Link>
           ))}
         </nav>

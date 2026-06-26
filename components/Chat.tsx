@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import ChatMarkdown from "./ChatMarkdown";
+import RobotIcon from "./RobotIcon";
+import Robot from "./Robot";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -11,12 +13,108 @@ const GREETING: Msg = {
     "Hey — I'm Nick (well, a chatbot version of me). Ask about my work at Caper.ai, the rail booking platform at IBM, side projects, or anything else on this site.",
 };
 
+const QUIPS = [
+  "hey there",
+  "ask me about nick",
+  "i know things",
+  "let's chat",
+  "boop me",
+  "still scrolling?",
+];
+
+let audioCtx: AudioContext | null = null;
+function getCtx(): AudioContext | null {
+  if (typeof window === "undefined") return null;
+  if (audioCtx) return audioCtx;
+  const Ctor = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+  if (!Ctor) return null;
+  audioCtx = new Ctor();
+  return audioCtx;
+}
+
+function beep(ctx: AudioContext, freq: number, duration: number, when: number, type: OscillatorType = "square") {
+  const t0 = ctx.currentTime + when;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, t0);
+  osc.frequency.exponentialRampToValueAtTime(freq * (0.7 + Math.random() * 0.6), t0 + duration);
+  gain.gain.setValueAtTime(0, t0);
+  gain.gain.linearRampToValueAtTime(0.12, t0 + 0.008);
+  gain.gain.exponentialRampToValueAtTime(0.0008, t0 + duration);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(t0);
+  osc.stop(t0 + duration + 0.02);
+}
+
+function robotSpeak(text: string) {
+  const ctx = getCtx();
+  if (!ctx) return;
+  if (ctx.state === "suspended") ctx.resume();
+  const words = text.split(/\s+/).filter(Boolean);
+  let t = 0;
+  const types: OscillatorType[] = ["square", "triangle", "sawtooth"];
+  for (const w of words) {
+    const syllables = Math.max(1, Math.min(4, Math.ceil(w.length / 2.5)));
+    for (let i = 0; i < syllables; i++) {
+      const freq = 260 + Math.random() * 540;
+      const dur = 0.07 + Math.random() * 0.09;
+      const type = types[Math.floor(Math.random() * types.length)];
+      beep(ctx, freq, dur, t, type);
+      t += dur * 0.85 + 0.02;
+    }
+    t += 0.09;
+  }
+}
+
 export default function Chat() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([GREETING]);
+  const [quip, setQuip] = useState(0);
+  const [showQuip, setShowQuip] = useState(false);
+  const [voiceOn, setVoiceOn] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const voiceOnRef = useRef(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("bot-voice");
+    if (stored === "1") setVoiceOn(true);
+  }, []);
+
+  useEffect(() => {
+    voiceOnRef.current = voiceOn;
+  }, [voiceOn]);
+
+  useEffect(() => {
+    if (open) {
+      setShowQuip(false);
+      return;
+    }
+    let timer: ReturnType<typeof setTimeout>;
+    const cycle = () => {
+      setShowQuip(true);
+      if (voiceOn) robotSpeak(QUIPS[quip]);
+      timer = setTimeout(() => {
+        setShowQuip(false);
+        timer = setTimeout(() => {
+          setQuip((q) => (q + 1) % QUIPS.length);
+          cycle();
+        }, 4500);
+      }, 3500);
+    };
+    timer = setTimeout(cycle, 2000);
+    return () => clearTimeout(timer);
+  }, [open, voiceOn, quip]);
+
+  const toggleVoice = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const next = !voiceOn;
+    setVoiceOn(next);
+    localStorage.setItem("bot-voice", next ? "1" : "0");
+    if (next) robotSpeak("online");
+  };
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
@@ -29,6 +127,34 @@ export default function Chat() {
     const next: Msg[] = [...messages, { role: "user", content: text }];
     setMessages([...next, { role: "assistant", content: "" }]);
     setBusy(true);
+    const types: OscillatorType[] = ["square", "triangle", "sawtooth"];
+    let cursor = 0;
+    const bleepChunk = (text: string) => {
+      if (!voiceOnRef.current) return;
+      const ctx = getCtx();
+      if (!ctx) return;
+      if (ctx.state === "suspended") ctx.resume();
+      const words = text.split(/\s+/).filter((w) => /[a-z0-9]/i.test(w));
+      if (!words.length) return;
+      const now = ctx.currentTime;
+      let when = Math.max(cursor, now);
+      for (const w of words) {
+        const syllables = Math.max(1, Math.min(4, Math.ceil(w.length / 2.5)));
+        for (let i = 0; i < syllables; i++) {
+          const dur = 0.07 + Math.random() * 0.07;
+          beep(
+            ctx,
+            260 + Math.random() * 520,
+            dur,
+            when - now,
+            types[Math.floor(Math.random() * types.length)],
+          );
+          when += dur * 0.85 + 0.02;
+        }
+        when += 0.06;
+      }
+      cursor = when;
+    };
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -42,8 +168,10 @@ export default function Chat() {
       for (;;) {
         const { value, done } = await reader.read();
         if (done) break;
-        acc += decoder.decode(value, { stream: true });
+        const chunk = decoder.decode(value, { stream: true });
+        acc += chunk;
         setMessages([...next, { role: "assistant", content: acc }]);
+        bleepChunk(chunk);
       }
     } catch (err) {
       setMessages([
@@ -61,11 +189,9 @@ export default function Chat() {
         <div className="fixed bottom-24 right-6 z-50 w-[22rem] max-w-[calc(100vw-3rem)] h-[28rem] flex flex-col rounded-2xl border border-border bg-background shadow-2xl shadow-black/40">
           <div className="flex items-center justify-between px-4 py-3 border-b border-border">
             <div className="flex items-center gap-2">
-              <span className="relative flex w-2 h-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-              </span>
+              <RobotIcon className="w-5 h-5 text-accent" />
               <span className="text-sm font-medium">Ask Nick</span>
+              <span className="mono text-[9px] uppercase tracking-widest text-accent/70">● online</span>
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -125,28 +251,51 @@ export default function Chat() {
           </form>
         </div>
       )}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-xl shadow-accent/30 hover:scale-105 transition ring-2 ring-accent/40 hover:ring-accent flex items-center justify-center bg-foreground text-background"
-        aria-label={open ? "Close chat" : "Chat with Nick"}
+      <div
+        className="group fixed bottom-8 right-8 z-50 flex flex-col items-center justify-end h-28 w-20 text-accent"
       >
         {open ? (
-          <span className="text-xl">✕</span>
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Close chat"
+            className="w-14 h-14 rounded-full bg-background border border-accent/40 flex items-center justify-center text-xl"
+          >
+            ✕
+          </button>
         ) : (
           <>
-            <span className="absolute inset-0 rounded-full overflow-hidden bg-white">
-              <img
-                src="/img/me/avatar.svg"
-                alt=""
-                width={56}
-                height={56}
-                className="w-full h-full object-cover"
-              />
-            </span>
-            <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-background z-10" />
+            <button
+              onClick={toggleVoice}
+              aria-label={voiceOn ? "Mute robot" : "Enable robot voice"}
+              className={`absolute -top-3 -left-3 mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded border transition-colors ${
+                voiceOn
+                  ? "border-accent text-accent bg-background"
+                  : "border-border text-muted/70 bg-background hover:text-accent hover:border-accent/60"
+              }`}
+            >
+              {voiceOn ? "● VOX" : "○ VOX"}
+            </button>
+            <div
+              className={`absolute -top-2 right-0 mono text-[10px] uppercase tracking-widest bg-background border border-accent/50 text-accent px-2.5 py-1 rounded-md shadow-lg shadow-accent/10 transition-all duration-300 origin-bottom-right whitespace-nowrap ${
+                showQuip ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"
+              }`}
+            >
+              {QUIPS[quip]}
+              <span className="absolute -bottom-[5px] right-5 w-2 h-2 rotate-45 bg-background border-r border-b border-accent/50" />
+            </div>
+            <button
+              onClick={() => setOpen(true)}
+              aria-label="Chat with Nick"
+              className="flex flex-col items-center"
+            >
+              <span className="bot-idle drop-shadow-[0_0_8px_rgba(16,185,129,0.35)] group-hover:drop-shadow-[0_0_14px_rgba(16,185,129,0.6)] transition-[filter]">
+                <Robot className="w-16 h-20" />
+              </span>
+              <span className="bot-shadow w-12 h-1.5 rounded-[50%] bg-accent blur-[3px] -mt-1" />
+            </button>
           </>
         )}
-      </button>
+      </div>
     </>
   );
 }
