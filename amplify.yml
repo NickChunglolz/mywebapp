@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        - node -e 'const s=JSON.parse(process.env.secrets||"{}");require("fs").writeFileSync(".env.production",Object.entries(s).map(([k,v])=>`${k}=${v}`).join("\n")+"\n");console.log("baked:",Object.keys(s).join(",")||"NONE")'
     build:
       commands:
         - npm run build
