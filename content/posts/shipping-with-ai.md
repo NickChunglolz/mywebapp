@@ -83,6 +83,41 @@ This is the part that's actually 10x faster than it used to be. Routing, type ch
 
 The pattern: **AI is great at execution under a clear constraint. It's mediocre at choosing the constraint.** I keep the framing; it does the typing.
 
+## Impl, zoomed in — the audit-and-refine inner loop
+
+The top-level loop hides where AI projects actually rot: inside the Impl stage, where the model defaults to *stacking* — append, never restructure. Left alone, a codebase built this way grows but doesn't get better-shaped. The audit-and-refine inner loop is what stops that:
+
+```mermaid
+flowchart LR
+    PROMPT([Prompt w/ constraint<br/>where it goes, what it touches]) --> GEN([AI generates diff])
+    GEN --> READ{Diff review<br/>3 smell questions}
+    READ -->|smells| CRIT([Ask AI to critique<br/>'spot the over-engineering'])
+    CRIT --> REFACTOR([Refactor pass<br/>delete · collapse · move])
+    REFACTOR --> READ
+    READ -->|clean| CHECK([tsc · lint · run])
+    CHECK -->|red| GEN
+    CHECK -->|green| MERGE([Merge])
+```
+
+The ritual, concrete:
+
+1. **Read the diff, not the plan.** I almost never read the model's explanation. The plan is opinion; the diff is truth. Jumping to the diff first cuts review time in half and catches the over-engineering the plan glosses over.
+
+2. **Three "smell" questions, every diff, before merge:**
+   - *Did anything new get created that an existing file or function could have absorbed?* (the stacking smell — the model's default)
+   - *Are there any new abstractions with exactly one caller?* (premature indirection)
+   - *Did the diff touch more files than the feature warranted?* (sprawl — usually means a missing port or a leaked abstraction)
+
+3. **Ask the model to grade itself, hostile angle only.** Never *"is this good?"* — always returns "yes, here are 4 strengths." The prompts that work: *"Spot the over-engineering in this diff. Be skeptical."* / *"What's the most fragile assumption?"* / *"What would you delete if you had to ship this in half the lines?"* AI is *excellent* as a critic when given a refutation frame; useless as a self-grader.
+
+4. **The refactor pass is always a separate prompt.** "Add feature X" and "clean up file Y" never share a session. Bundling them = the cleanup gets ignored and the feature ships with the existing rot still there. Two prompts, two diffs, two reviews.
+
+5. **Read the file tree weekly, not the diff.** Diff hides bloat. `tree -L 2 app/ components/ lib/` is the highest-ROI 30 seconds I spend on any AI-built project. When `lib/` went from 10 files to 40, the next session is restructure-only.
+
+6. **Trust `tsc --noEmit` and `eslint` as the first reviewer.** They catch hallucinated APIs and dead imports in seconds — better than my second read-through. Line-by-line semantic review I reserve for the risky diffs (auth, money, schema migrations, anything that mutates shared state).
+
+This inner loop is the entire reason AI-built code stays maintainable instead of compounding into the kind of repo nobody wants to open in six months. Skip it and you ship features faster than ever — and accumulate refactor debt faster than ever. The audit/refine cycle is the *cost of admission* to letting the model write most of the code.
+
 ## Test — covered in the next post
 
 Whole post on this: [Quality and testing when AI writes most of the code](/blog/quality-and-testing-with-ai). Short version: AI will write you 14 plausible tests in 30 seconds, and most of them assert what the code does instead of what the requirement says. Choosing what to assert stays with you.
