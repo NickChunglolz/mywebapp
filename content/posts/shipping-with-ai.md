@@ -50,12 +50,15 @@ That's the entire upfront cost. No architecture diagram, no library decision, no
 
 ## ERD — sketch the smallest proof, then have AI try to break it
 
-Even on a side project I now do a quick "ERD-lite" before any code. Half a page in the repo, four headings:
+Even on a side project I now do a quick "ERD-lite" before any code. Half a page in the repo, seven headings:
 
 1. **Approach.** Two paragraphs on how this will be built. "Next.js on Amplify with an SSR API route that calls Gemini; secrets via Hosting Env vars." Skip diagrams. If you can't say the approach in two paragraphs, the PRD isn't tight enough yet.
 2. **Risks.** Three bullets, max. "Amplify Hosting SSR has weird env-var rules. Gemini free tier might rate-limit during launch. Mobile chrome breaks tall flexbox in old iOS." Name them so they don't surprise you in delivery.
 3. **What we're not doing.** This list is more important than the approach. "No auth. No DB. No multi-user. No analytics." Future-you will try to add all of these; the explicit "not doing" list is what makes "no" easy later.
 4. **Smallest proof.** Same proof from the PRD, but now described as a checkable thing. "`curl /api/chat` returns a streamed response." Concrete enough to write the test for, not yet the test itself.
+5. **Test plan.** One line per layer. "Unit: provider router picks gemini when env present. Integration: real fetch to `/api/chat` returns 200 + stream. Smoke: hit prod URL after deploy, assert non-empty response." The test plan in the ERD is *what would prove this works in production*, not the test file paths — those come later. Skipping this is how you ship and then realize you never decided what "done" looks like.
+6. **Open questions.** Three to five, max. "Do we cache responses? What's the rate-limit fallback — fail open or queue? Does this need an LLM cost budget alarm?" Open questions are the cheap way to surface decisions you're *deliberately deferring* — vs the expensive way, which is making the wrong call in code and finding out at delivery. At work the reviewers chew through these in the doc; for side projects, I argue both sides in the markdown and pick one.
+7. **Shirt size.** S / M / L / XL, with a one-line "what makes it bigger." "M — adds an API route, no DB, no auth. L if we add usage tracking." The shirt isn't a commitment, it's a smell test: if a "small" feature keeps drifting to L during the ERD, that's the doc telling you the PRD was wrong or the approach is bloated. Catch it here, not in the impl.
 
 Then I paste the whole thing into the AI and ask one question: *"What's a failure mode I haven't named?"* This is AI at its best — a second pair of eyes with no political stake. It'll catch the IAM gap, the rate-limit math, the cold-start latency, the migration ordering problem. Half the time it surfaces something I'd have spent a day learning the hard way.
 

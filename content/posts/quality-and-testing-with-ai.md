@@ -48,7 +48,19 @@ Four things, in roughly this order of leverage:
 
 ## A test strategy that survives
 
-Per-language recipes are a Google away. What's harder — and what AI is no help with — is knowing **what to test, at what level, with how much depth.** Three rules that decide the rest:
+Per-language recipes are a Google away. What's harder — and what AI is no help with — is knowing **what to test, at what level, with how much depth.** The decision tree I actually run:
+
+```mermaid
+flowchart TD
+    CHANGE([New code]) --> Q{What can break?}
+    Q -->|Money · auth · data loss| DEEP[Deep tests<br/>failure modes covered]
+    Q -->|Business logic w/ branches| INT[Integration test<br/>at boundary, real DB]
+    Q -->|CRUD w/ no rules| SMOKE[One smoke test<br/>proves wiring]
+    Q -->|Pure function| TABLE[One table-driven assert]
+    Q -->|ML model / data pipeline| BACKTEST[Backtest or throughput check<br/>Sharpe · AUC · items/sec vs baseline]
+```
+
+Three rules underwrite it:
 
 **1. Test at the boundary that matters, not the unit you wrote.** A handler that calls three internal services and then a DB doesn't need four unit tests with mocks; it needs *one* integration test that hits the real DB and proves the whole chain works. The most expensive bugs I've shipped live between the units, not inside them — the prod migration where mocked tests stayed green and real tables failed; the SQS retry path where every handler unit-tested fine but the visibility-timeout interaction was wrong. The rule I follow: **mock the boundary of external trust (third-party APIs, network, the clock) and only that boundary.** Anything inside the system runs for real.
 
