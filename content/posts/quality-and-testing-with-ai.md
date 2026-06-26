@@ -5,7 +5,7 @@ summary: "The follow-up: if the model can write the feature, can it write the te
 tags: ["claude-code", "ai-engineering", "testing", "quality"]
 ---
 
-After the [last post](/blog/shipping-a-side-project-with-ai) the question I kept getting is the obvious one: if the model writes the feature, can it also write the tests? Technically yes. Practically, that's where most AI-assisted projects quietly rot.
+After the [last post](/blog/shipping-with-ai) the question I kept getting is the obvious one: if the model writes the feature, can it also write the tests? Technically yes. Practically, that's where most AI-assisted projects quietly rot.
 
 Here's what I've landed on after a year of shipping side projects this way, and the same patterns at the day job where I work on a catalog pipeline that processes 100M+ items/day.
 
