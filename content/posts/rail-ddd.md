@@ -1,11 +1,11 @@
 ---
 title: "DDD and SAGA for 200K passengers a day"
 date: "2026-06-19"
-summary: "Lessons from architecting the Taiwan High-Speed Rail booking platform at IBM Consulting — where event-driven microservices stop being a buzzword and start being the only thing that works."
+summary: "Lessons from architecting a national high-speed rail booking platform at IBM Consulting — where event-driven microservices stop being a buzzword and start being the only thing that works."
 tags: ["ddd", "saga", "event-driven", "microservices"]
 ---
 
-For three years at IBM Consulting in Taipei I led full-stack delivery on the Taiwan High-Speed Rail booking platform. Roughly 200K passengers book through it on a normal day. Spikes — Chinese New Year, long weekends — are an order of magnitude worse. You can't ship a "we'll fix it later" architecture into that.
+For three years at IBM Consulting in Taipei I led full-stack delivery on a national high-speed rail booking platform. Roughly 200K passengers book through it on a normal day. Spikes — Chinese New Year, long weekends — are an order of magnitude worse. You can't ship a "we'll fix it later" architecture into that.
 
 ## Why DDD wasn't optional
 
@@ -13,10 +13,10 @@ A booking is not a row. It's a small saga: search → hold → confirm → pay �
 
 We carved the system along the bounded contexts that already existed in the business:
 
-- **Scheduling** owns the timetable and seat inventory.
-- **Reservation** owns holds and confirmations.
-- **Payment** owns the money path and refunds.
-- **Notification** owns the SMS/email side effects.
+- **Schedule** owns the timetable — trains, stops, times.
+- **Inventory** owns the seats — what exists, what's free, what's held.
+- **Pricing** owns fare rules, discounts, and the price of a given itinerary.
+- **Reservation** owns holds, confirmations, and the lifecycle of a booking.
 
 Every team owned their database, their schema, and their deploy. Anyone who wanted to read another team's data went through an event or an API, not a SQL join. Painful at first. Saved us every time inventory changed shape.
 
@@ -24,12 +24,12 @@ Every team owned their database, their schema, and their deploy. Anyone who want
 
 The naive booking flow is a distributed transaction. The honest version is a SAGA:
 
-1. Hold seats (Reservation).
-2. Charge card (Payment).
-3. Issue ticket (Reservation).
-4. Notify (Notification).
+1. Resolve the itinerary against the timetable (Schedule).
+2. Hold the seats (Inventory).
+3. Quote the fare (Pricing).
+4. Confirm the reservation (Reservation), which fires off the external payment.
 
-Each step has a compensating action: release the hold, refund the card, void the ticket. If step 2 fails, you undo step 1. If step 4 fails, you don't undo — the ticket is valid, you retry the notification.
+Each step has a compensating action: release the hold, void the quote, cancel the reservation. If pricing fails after a hold, you release the hold. If payment fails after confirm, you cancel the reservation and the hold goes back to free. The compensations cross domain boundaries the same way the forward path does — events, not SQL.
 
 The thing nobody tells you about SAGA is that **the compensating actions are the system**. Designing them up front (instead of bolting them on after the first incident) is the difference between a robust booking flow and a Slack channel full of `#refund-stuck` tickets.
 
