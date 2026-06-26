@@ -90,31 +90,33 @@ The top-level loop hides where AI projects actually rot: inside the Impl stage, 
 ```mermaid
 flowchart LR
     PROMPT([Prompt w/ constraint<br/>where it goes, what it touches]) --> GEN([AI generates diff])
-    GEN --> READ{Diff review<br/>3 smell questions}
-    READ -->|smells| CRIT([Ask AI to critique<br/>'spot the over-engineering'])
-    CRIT --> REFACTOR([Refactor pass<br/>delete · collapse · move])
-    REFACTOR --> READ
-    READ -->|clean| CHECK([tsc · lint · run])
+    GEN --> CHECK([tsc · lint · run<br/>mechanical pass])
     CHECK -->|red| GEN
-    CHECK -->|green| MERGE([Merge])
+    CHECK -->|green| CRIT([AI self-critique<br/>'spot the over-engineering'])
+    CRIT --> REVIEW{My review<br/>3 smell questions}
+    REVIEW -->|smells| REFACTOR([Refactor pass<br/>delete · collapse · move])
+    REFACTOR --> CRIT
+    REVIEW -->|clean| MERGE([Merge])
 ```
 
-The ritual, concrete:
+The order matters: **AI reviews the code first, I review what's left.** Inverting the old human-first-then-tools sequence is the single change that made this loop sustainable. AI is faster than me at every mechanical pass (type errors, hallucinated APIs, dead imports, "is there over-engineering in this diff"); I'm the judgment layer that decides which of its flagged issues actually matter. Reversing the order = wasting my attention on things `tsc` and a hostile-frame critique would have caught in seconds.
 
-1. **Read the diff, not the plan.** I almost never read the model's explanation. The plan is opinion; the diff is truth. Jumping to the diff first cuts review time in half and catches the over-engineering the plan glosses over.
+The ritual, concrete and in order:
 
-2. **Three "smell" questions, every diff, before merge:**
+1. **`tsc --noEmit` + `eslint` first, every time.** Before I even open the diff. They catch hallucinated APIs and dead imports in seconds — better than my first read-through ever would. Green here is the prerequisite to spending any of my attention.
+
+2. **AI self-critique second, hostile frame only.** Never *"is this good?"* — always returns "yes, here are 4 strengths." The prompts that work: *"Spot the over-engineering in this diff. Be skeptical."* / *"What's the most fragile assumption?"* / *"What would you delete if you had to ship this in half the lines?"* AI is *excellent* as a critic when given a refutation frame; useless as a self-grader. Whatever it flags here becomes the agenda for my review.
+
+3. **My review third — read the diff, not the plan.** I almost never read the model's explanation. The plan is opinion; the diff is truth. By now `tsc` is green and AI has already surfaced the easy issues, so my attention goes to the decisions only I can make.
+
+4. **Three "smell" questions, every diff, before merge:**
    - *Did anything new get created that an existing file or function could have absorbed?* (the stacking smell — the model's default)
    - *Are there any new abstractions with exactly one caller?* (premature indirection)
    - *Did the diff touch more files than the feature warranted?* (sprawl — usually means a missing port or a leaked abstraction)
 
-3. **Ask the model to grade itself, hostile angle only.** Never *"is this good?"* — always returns "yes, here are 4 strengths." The prompts that work: *"Spot the over-engineering in this diff. Be skeptical."* / *"What's the most fragile assumption?"* / *"What would you delete if you had to ship this in half the lines?"* AI is *excellent* as a critic when given a refutation frame; useless as a self-grader.
+5. **The refactor pass is always a separate prompt.** "Add feature X" and "clean up file Y" never share a session. Bundling them = the cleanup gets ignored and the feature ships with the existing rot still there. Two prompts, two diffs, two reviews.
 
-4. **The refactor pass is always a separate prompt.** "Add feature X" and "clean up file Y" never share a session. Bundling them = the cleanup gets ignored and the feature ships with the existing rot still there. Two prompts, two diffs, two reviews.
-
-5. **Read the file tree weekly, not the diff.** Diff hides bloat. `tree -L 2 app/ components/ lib/` is the highest-ROI 30 seconds I spend on any AI-built project. When `lib/` went from 10 files to 40, the next session is restructure-only.
-
-6. **Trust `tsc --noEmit` and `eslint` as the first reviewer.** They catch hallucinated APIs and dead imports in seconds — better than my second read-through. Line-by-line semantic review I reserve for the risky diffs (auth, money, schema migrations, anything that mutates shared state).
+6. **Read the file tree weekly, not the diff.** Diff hides bloat. `tree -L 2 app/ components/ lib/` is the highest-ROI 30 seconds I spend on any AI-built project. When `lib/` went from 10 files to 40, the next session is restructure-only.
 
 This inner loop is the entire reason AI-built code stays maintainable instead of compounding into the kind of repo nobody wants to open in six months. Skip it and you ship features faster than ever — and accumulate refactor debt faster than ever. The audit/refine cycle is the *cost of admission* to letting the model write most of the code.
 
