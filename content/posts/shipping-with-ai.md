@@ -1,69 +1,73 @@
 ---
-title: "Shipping projects E2E with AI in 2026 — and the parts AI can't save you from"
+title: "Shipping projects E2E with AI in 2026 — the mindset, not the tools"
 date: "2026-06-25"
-summary: "A real arc from one weekend (Vue 2 scaffold → Next.js 16 cockpit → live on Amplify with a Gemini chatbot) and the same patterns I'm running at the day job on a catalog pipeline doing 100M+ items a day. The fast parts were faster than I expected. The slow parts were exactly where I expected them to be."
-tags: ["claude-code", "ai-engineering", "aws", "engineering-practice"]
+summary: "What I've learned starting projects with AI across side projects and a day job on a catalog pipeline doing 100M+ items a day. The tools change every quarter; the mindset doesn't. Start from the product, refuse to pick tools first, hold the decisions AI defaults to wrong."
+tags: ["claude-code", "ai-engineering", "engineering-practice"]
 ---
 
-This is the third weekend of a personal portfolio rewrite. By the end of it the site you're reading was live, the chatbot in the corner was streaming Gemini responses, and I had four merged-and-reverted PRs documenting the exact way AWS Amplify Hosting eats your lunch with secrets.
+I've started a lot of projects with AI in the last year — the portfolio you're reading, a stock-advisor pipeline I'm trying to turn into something more, a CLI agent I use every day, a few work features at the day job on a catalog pipeline doing 100M+ items a day. Different stacks, different audiences, different stakes.
 
-The story is a side project. The lessons are the same ones I'm running at $dayjob, where I work on a catalog pipeline that processes 100M+ items a day. The shape of the problem changes — code review, on-call, blast radius, reviewers who'll catch what I miss — but the way AI helps and the way it misleads are surprisingly consistent across both.
+The thing that surprised me is how little the tools matter. The mindset transfers. The model + scaffold combo is now interchangeable enough that arguing about Next.js vs SvelteKit or LangGraph vs raw SDK is mostly noise. **What separates a project that ships well from one that drags is what you decide before AI writes a single line.**
 
-Here's how I start a project end-to-end with an AI pair today, side or work, and what I had to stop trusting it on.
+This is what I've landed on.
 
-## How I actually start
+## Start from the product, not the tool
 
-Forget "type a prompt and review a PR." The flow that works for me now:
+The first instinct, mine included, is to ask the model "what stack should I use?" That's the wrong question, and the model will happily answer it — confidently, in detail, with a five-step migration plan if you push.
 
-1. **One paragraph of intent, not a spec.** "Take the Vue 2 portfolio in this repo and turn it into a Next.js 16 site with a cockpit-HUD aesthetic and a chatbot in the corner that can talk about my work." At work the equivalent is the goal at the top of the ERD, not the implementation plan. The model is faster at picking structure than I am at writing one.
-2. **Let it propose the scaffold.** I read the diff, not the plan. If I disagree with a choice (Tailwind v4 over CSS modules, App Router over Pages), I push back inline on the diff.
-3. **Ship the boring path first.** Routing, Tailwind, type-checking, deploy target — green before adding a single hero animation. Same rule at work: get the new service deployed to staging with a stub endpoint before writing the real handler. Most "stuck" moments later are really "stuck because the deploy wasn't green to start with."
-4. **Add one delightful (or risky) thing per session.** The robot in the corner. The boot loader. Or at work: the one new query plan, the one new index, the one new compaction strategy. Concrete, scoped, instantly visible.
+Before any of that, I now spend 10 minutes writing down — in the repo, not in chat — three things:
 
-That got me from `git clone` to "Next.js skeleton on localhost" in an hour. From there it's a series of one-session-per-feature loops. The cadence is the same on a work feature; the loop is just longer because there's code review and a staging dance in between.
+1. **Who is this for, and what do they care about?** For the portfolio: someone considering hiring me, who has 90 seconds. For stock-advisor: me, then maybe paying users later, who care about whether the model actually beats SPY. For a work feature: usually a single internal team with a known pain point.
+2. **What does this need to be right about?** Three bullets, max. For the portfolio: don't leak the API key, don't commit it, don't ship broken on mobile. For stock-advisor: don't lie about backtest performance, don't ship a model worse than the baseline. For a work pipeline: don't drop data, don't break the SLO, don't make on-call worse.
+3. **What's the smallest thing that proves this works?** A live URL with a working chatbot. One backtest run that beats a benchmark. One staging request that returns the right shape. Not a feature list — a proof.
 
-## What was genuinely faster
+That's the entire upfront cost. No architecture diagram, no library decision, no story breakdown. Once those three answers exist, the tool choice mostly picks itself, and AI is excellent at executing on it.
 
-- **Boilerplate.** The MDX-rendered blog you're reading was 40 minutes including the `[slug]` route, frontmatter parsing, and styling. At work, the equivalent wins are protobuf scaffolds, repository-pattern CRUD, the third instance of a feature flag wrapper.
-- **Refactors I'd never bother with manually.** Splitting the chat panel out of the layout, extracting `lib/persona.ts`, moving stats out of JSX into typed constants. At work: renaming a domain object across 80 files, moving a handler from one service to another, normalizing 15 slightly-different error wrappers. The kind of thing you put off for a quarter.
-- **Reading other people's code.** "Here's an Amplify build log, what does it say?" beats reading the log myself, every time. Same trick on a 600-line SQL query plan, a noisy CI failure, a Datadog flame graph.
-- **Naming.** Still the most fatiguing thing in coding. AI suggests three, I pick one, move on.
+## Then let it propose the scaffold
 
-## What AI got confidently wrong
+After the product is clear, I let the model pick. "Take this Vue 2 scaffold and turn it into a Next.js 16 site with a chatbot in the corner." One paragraph of intent, no file list. The model is faster at picking structure than I am at writing one.
 
-This is the part that matters.
+I read the diff, not the plan. If I disagree with a choice — Tailwind v4 over CSS modules, App Router over Pages, server actions over an API route — I push back inline on the diff, not on a design doc. The diff is the truth; the plan is just opinion.
 
-When the chatbot wouldn't read my Gemini API key on Amplify, the model and I burned **four merged-and-reverted PRs** chasing the wrong path:
+This is the part that's actually 10x faster than it used to be. Routing, type checks, deploy targets, repository-pattern CRUD, the third instance of a feature flag wrapper, splitting a 400-line component into three — all of it. The kind of work I used to put off for a quarter at $dayjob now happens between meetings.
 
-1. Set the key as an Amplify **Secret** (sounds right — it's a credential).
-2. Add a `preBuild` wrapper that parses `process.env.secrets` JSON into `.env.production`.
-3. It silently bakes `NONE`.
-4. Suspect the wrapper. Rewrite the wrapper. Same result.
-5. Suspect the YAML quoting. Rewrite again. Same result.
-6. **Finally** read the actual log line — `$secrets` was empty because the Amplify service role had no `kms:Decrypt`. The wrapper was always fine.
-7. Grant the IAM. Still doesn't work — **Amplify Hosting SSR doesn't auto-inject console env vars into the Lambda runtime**. You have to bake them into `.env.production` at build time so Next.js loads them on boot.
-8. Move the value from Secret → Environment variable. Add one `echo "GEMINI_API_KEY=$GEMINI_API_KEY" >> .env.production`. Ship.
+## What I delegate vs what I hold
 
-The whole detour was avoidable. The cost wasn't the code — it was that every "what about this guide that says X" the model and I read was *almost right*: it conflated Gen 1 and Gen 2, it called Environment variables "secrets" colloquially, it gave a fix for a Lambda-direct invocation flow when I was on Hosting SSR.
+| Delegated | Held |
+|-----------|------|
+| Scaffolding, refactor, fixtures, log reading, naming | Product decisions, what to assert in a test, what to mock, when "enough" is reached |
+| Choosing between three sensible libraries | Choosing whether the library is even needed |
+| Writing the regression test for a bug I just fixed | Choosing which bug to fix first |
+| The 14-step deploy recipe | Whether I'm even on the right deploy path |
 
-I've seen the exact same failure mode at work, just dressed up differently: a confidently wrong fix for an SQS visibility-timeout issue that referenced a config flag from a version we weren't on; a "definitive" recipe for a Postgres index hint that didn't apply to our query planner. AI is faster than me at writing — and just as fast as me at being wrong with confidence. The professional context doesn't filter this; if anything, the doc-sounding output blends in better when the rest of the room is also speaking in docs.
+The pattern: **AI is great at execution under a clear constraint. It's mediocre at choosing the constraint.** I keep the framing; it does the typing.
 
-## Lessons I'm taking forward
+## What AI gets confidently wrong (the part I keep underestimating)
 
-**Verify the assumption before fixing the symptom.** The single most valuable line I wrote in that whole dance was `console.log("baked:", Object.keys(s).join(",") || "NONE")`. It proved which layer was broken in 30 seconds. The same pattern wins on production debugging: before reaching for a fix, write the one log line or one metric that proves the bug is where you think it is. Whenever an AI suggests a fix, ask: *what one signal would prove this is actually the layer that's broken?*
+Worth one paragraph, because the failure mode is consistent:
 
-**The lazy version is often the right version, and the model will not propose it.** I needed someone — myself — to ask "do you actually need this to be a Secret? It's the same SSM encryption either way." For a one-developer portfolio there's no shoulder-surfer; most security ceremonies on side projects are theater. **At work the calculus is the opposite**: you have reviewers, an attack surface, a security team, an audit trail. The lazy version is still usually right, but the bar for "lazy" moves: dropping a Secret to an env var on a portfolio is fine; doing it on a service that handles payment data is not. The skill is knowing which mode you're in, and the model defaults to neither — it builds whatever ambient definition of "right" the docs imply.
+The model sounds most authoritative right at the edge of where its training data goes stale. Versioned platform docs (AWS, GCP, Snowflake), framework upgrades, anything where Gen 1 and Gen 2 share names. I spent the better part of a day chasing the wrong fix for an Amplify Secret because every guide I read was *almost right* — it conflated Hosting Secrets with Lambda Secrets Manager, called Environment variables "secrets" colloquially, and gave a recipe for a setup I wasn't on. Same failure mode at work: a confidently-wrong SQS visibility-timeout fix that referenced a config flag from a version we'd already upgraded past.
 
-**Doc-sounding text is the most dangerous output.** When the model produces a numbered "to fix this on AWS, do steps 1 through 5" it sounds authoritative. Most of the time it is. The 10% of the time it isn't, it costs you a day. Read it with the same skepticism you'd read a Stack Overflow answer from 2019. This applies harder at work, not less — production stakes raise the cost of every confidently-wrong suggestion.
+The fix isn't to distrust AI. It's to **always have one signal that proves which layer is broken**. The single most valuable line in the Amplify mess was `console.log("baked:", Object.keys(s).join(",") || "NONE")` — it told me in 30 seconds that the wrapper I'd rewritten three times was always fine, and the IAM grant was the actual problem. Whenever the model suggests a fix, ask: *what one log line, metric, or test would prove this is actually the layer that's broken?* If you can't answer, you're guessing.
 
-**Platform quirks are still the long pole.** Code generation is 10x. Local iteration is 5x. Deployment debugging on managed platforms (Amplify, EKS, Dataflow, Snowflake, name your poison)? Maybe 1.5x. The bottleneck moved, but it didn't disappear. Plan project schedules around the platform pain, not the code volume.
+## The mindset that crosses projects
 
-**Ship the lazy version and question it in the same PR.** I should have shipped the plain Environment variable on day one and asked "is the Secret feature worth the IAM dance for this app?" Instead I built the wrapper, found the IAM gap, fixed it, found the Lambda-runtime gap, fixed *that*, then realized the answer was always to delete the wrapper. The wrong question, well-engineered, is still the wrong question. This applies word-for-word to design docs too: the most expensive mistake is a perfectly-executed solution to a problem you didn't have.
+**Lazy is context-dependent.** On a one-developer portfolio, dropping a "Secret" to an Env variable is fine — same encryption at rest, different UI surface, no shoulder-surfer. On a payment service, it isn't. The model defaults to whichever direction the docs lean and won't ask which mode you're in. That question is yours.
 
-## What I'd do differently next time
+**Doc-sounding text is the most dangerous output.** A numbered "to fix this on AWS, do steps 1 through 5" sounds authoritative. The 90% of the time it is, you save an hour. The 10% it isn't, you lose a day. Read it with the skepticism you'd give a Stack Overflow answer from 2019.
 
-Start the project by writing down — in the repo, not in chat — the **three things this app actually needs to be right about**. For the portfolio: don't leak the Gemini key to the browser, don't commit it, don't let it sit in build logs. That's the whole list. The Amplify Secrets feature solves a problem I didn't have.
+**Platform quirks are still the long pole.** Code generation is 10x. Local iteration is 5x. Deployment debugging on managed platforms — Amplify, EKS, Dataflow, Snowflake, name your poison — maybe 1.5x. Plan around the platform pain, not the code volume.
 
-At work the list is longer and the items are different (data correctness, throughput SLOs, blast radius, on-call ergonomics), but the exercise is the same: name what *enough* looks like before you start. The model will follow whatever ambient definition of "right" the docs and the prompt collectively imply. Pinning down what *enough* looks like up front saves more time than any clever scaffold.
+**Ship the lazy version and question it in the same PR.** I should have shipped the plain Environment variable on day one and asked "is the Secret feature worth the dance?" Instead I built a wrapper, found the IAM gap, fixed it, found the runtime gap, fixed *that*, then realized the answer was always to delete the wrapper. The wrong question, well-engineered, is still the wrong question. This rule applies to design docs and ERDs too: the most expensive mistake is a perfectly-executed solution to a problem you didn't have.
 
-And run the deploy on day one. Always. Before the hero animation, before the chatbot, before the boot loader. At work, before the real handler, before the schema migration, before the new metrics. If the platform is going to hate you, you want it to start hating you while the surface area is small.
+**Run the deploy on day one. Always.** Before the hero animation, before the chatbot, before the boot loader. At work: before the real handler, before the schema migration, before the new metrics. If the platform is going to hate you, you want it to start hating you while the surface area is small.
+
+## What I'd say to someone starting
+
+The temptation with AI is to skip the slow upfront thinking and go straight to "type a prompt, review a PR." It feels productive. It usually isn't.
+
+Spend the first 10 minutes on what this thing is *for* and what it has to be *right* about. Spend the next 50 letting the model scaffold the entire thing. From there it's a series of one-session-per-feature loops, and the bottleneck moves from typing to deciding — which is exactly where it should be.
+
+The model will follow whatever ambient definition of "right" the docs and the prompt collectively imply. Pinning down what *enough* looks like up front saves more time than any clever scaffold, any clever harness, any clever model.
+
+The shortest path to a shipped project is the same as it ever was: know what you're building, build the smallest version that proves it, then iterate. AI just made every step inside that loop faster — which makes getting the loop itself wrong more expensive, not less.
