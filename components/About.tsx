@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Section from "./Section";
+import { yearsShipping } from "@/lib/stats";
 
 export default function About() {
   return (
@@ -18,7 +19,7 @@ export default function About() {
         <div className="text-muted leading-relaxed space-y-4">
           <p>
             I&apos;m a senior software engineer based in{" "}
-            <span className="text-foreground">Markham, Ontario</span>, with 6+ years
+            <span className="text-foreground">Markham, Ontario</span>, with {yearsShipping}+ years
             designing and scaling high-traffic distributed systems. Expert in microservices
             architecture, performance engineering, and operational modernization.
           </p>
@@ -37,10 +38,12 @@ export default function About() {
           </p>
           <p>
             Outside of work I build small products end-to-end — <span className="text-foreground">Drip</span> (Canadian
-            subscription tracker) and <span className="text-foreground">claude-toolkit</span>{" "}
-            (a marketplace of Claude Code agents and skills I use daily). I&apos;m biased
-            toward the shortest path to working software — fewer files, boring stdlib,
-            deletions over additions.
+            subscription tracker), <span className="text-foreground">stock-advisor</span>{" "}
+            (LightGBM-backed equity signals), <span className="text-foreground">ad-generator</span>{" "}
+            (AI ad creative studio), plus <span className="text-foreground">ml-pipeline-kit</span> and{" "}
+            <span className="text-foreground">claude-toolkit</span>. I&apos;m biased toward the
+            shortest path to working software — fewer files, boring stdlib, deletions over
+            additions.
           </p>
         </div>
       </div>

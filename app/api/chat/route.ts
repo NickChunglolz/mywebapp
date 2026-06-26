@@ -3,21 +3,33 @@ import { buildSystemPrompt } from "@/lib/persona";
 
 export const runtime = "nodejs";
 
-const useGroq = !!process.env.GROQ_API_KEY;
+const provider = process.env.GEMINI_API_KEY
+  ? "gemini"
+  : process.env.GROQ_API_KEY
+  ? "groq"
+  : "ollama";
 
-const client = useGroq
-  ? new OpenAI({
-      apiKey: process.env.GROQ_API_KEY,
-      baseURL: "https://api.groq.com/openai/v1",
-    })
-  : new OpenAI({
-      apiKey: "ollama",
-      baseURL: process.env.OLLAMA_URL ?? "http://localhost:11434/v1",
-    });
+const client = new OpenAI({
+  apiKey:
+    provider === "gemini"
+      ? process.env.GEMINI_API_KEY!
+      : provider === "groq"
+      ? process.env.GROQ_API_KEY!
+      : "ollama",
+  baseURL:
+    provider === "gemini"
+      ? "https://generativelanguage.googleapis.com/v1beta/openai/"
+      : provider === "groq"
+      ? "https://api.groq.com/openai/v1"
+      : process.env.OLLAMA_URL ?? "http://localhost:11434/v1",
+});
 
-const MODEL = useGroq
-  ? process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile"
-  : process.env.OLLAMA_MODEL ?? "llama3.1:8b";
+const MODEL =
+  provider === "gemini"
+    ? process.env.GEMINI_MODEL ?? "gemini-flash-latest"
+    : provider === "groq"
+    ? process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile"
+    : process.env.OLLAMA_MODEL ?? "llama3.1:8b";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -39,9 +51,8 @@ export async function POST(req: Request) {
       ],
     });
   } catch (err) {
-    const provider = useGroq ? "groq" : `ollama (${MODEL})`;
     return new Response(
-      `Provider error from ${provider}: ${(err as Error).message}`,
+      `Provider error from ${provider} (${MODEL}): ${(err as Error).message}`,
       { status: 502 },
     );
   }

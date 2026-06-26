@@ -22,7 +22,7 @@ export const ROLES: Role[] = [
     link: "https://www.caper.ai/",
     points: [
       "Led the design and architecture of a next-generation catalog system syncing 100M+ items hourly across 1,000+ retail stores (each carrying ~1M SKUs), replacing legacy workflows with high-performance infrastructure that delivered >90% faster syncs and enabled more frequent, reliable updates.",
-      "Spearheaded internal and external self-serve management systems (incentives, NOF item management), empowering operators and partners to resolve issues independently and reducing manual operational overhead by 80%+.",
+      "Spearheaded internal and external self-serve management systems (incentives, NOF (Not-On-File) item management), empowering operators and partners to resolve issues independently and reducing manual operational overhead by 80%+.",
       "Architected and scaled backend microservices using Java 21 / Kotlin, gRPC, Temporal, PostgreSQL, and distributed caching, ensuring >99.9% uptime for real-time cart processing across global retailer integrations.",
       "Drove operational excellence by automating onboarding workflows (−50% time), decreasing MTTR via Datadog observability, and optimizing Snowflake query performance to cut latency and costs by 30%.",
     ],

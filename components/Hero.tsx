@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TypedHeadline from "./TypedHeadline";
+import { yearsShipping } from "@/lib/stats";
 
 export default function Hero() {
   return (
@@ -29,7 +30,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-8 text-lg sm:text-xl text-muted max-w-2xl leading-relaxed">
-          Senior software engineer with 6+ years shipping high-traffic,
+          Senior software engineer with {yearsShipping}+ years shipping high-traffic,
           mission-critical distributed systems —{" "}
           <span className="text-foreground">born and raised in Taiwan</span>, started my
           career in Taipei (IBM Consulting, SUSE), and{" "}
@@ -65,7 +66,7 @@ export default function Hero() {
             { k: ">90%", v: "catalog perf gain" },
             { k: "99.9%", v: "uptime, cart processing" },
             { k: "200k+", v: "daily rail passengers" },
-            { k: "6+", v: "years shipping" },
+            { k: `${yearsShipping}+`, v: "years shipping" },
           ].map((s) => (
             <div key={s.v} className="bg-background px-4 py-5">
               <div className="text-2xl sm:text-3xl font-semibold tracking-tight">{s.k}</div>
