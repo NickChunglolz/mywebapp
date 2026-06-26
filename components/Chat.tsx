@@ -252,7 +252,9 @@ export default function Chat() {
         </div>
       )}
       <div
-        className="group fixed bottom-8 right-8 z-50 flex flex-col items-center justify-end h-28 w-20 text-accent"
+        className={`group fixed bottom-8 right-8 z-50 text-accent ${
+          open ? "" : "flex flex-col items-center justify-end h-28 w-20"
+        }`}
       >
         {open ? (
           <button
