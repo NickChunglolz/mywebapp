@@ -17,10 +17,10 @@ The discipline I'm supposed to run is **PRD → ERD → impl → test → delive
 
 ```mermaid
 flowchart LR
-    PRD([PRD<br/>mine]) --> ERD([ERD<br/>mine, AI critiques])
-    ERD --> IMPL([Impl<br/>mostly AI])
+    PRD([PRD<br/>mine · AI drafts]) --> ERD([ERD<br/>mine · AI drafts + critiques])
+    ERD --> IMPL([Impl<br/>mostly AI · I gate])
     IMPL --> TEST([Test<br/>hybrid])
-    TEST --> DELIVER([Deliver<br/>mine, AI reads logs])
+    TEST --> DELIVER([Deliver<br/>mine · AI verifies + parses])
     DELIVER -.->|new requirement| PRD
     DELIVER -.->|bug| TEST
     IMPL -.->|design gap| ERD
@@ -28,11 +28,11 @@ flowchart LR
 
 Here's what each one actually looks like in my work — and then the honest part, which is the stages I keep skipping.
 
-- **PRD — only mine.** The portfolio is for a hiring manager with 90 seconds. Stock-advisor is for me first, then maybe paying users, who care whether the model actually beats SPY. The eng-agent CLI is for me when I'm context-switching between Jira tickets. AI can't write this because it can't tell me what *I'm* trying to do. The PRD doesn't have to be a doc — half the time it's three lines in the repo README. It just has to exist before any code.
-- **ERD — mine, AI as critic.** Two paragraphs of approach, three risks, an explicit "not doing" list. Once it's written I paste it back into the model and ask *"what failure mode did I miss?"* This is where AI is at its best at the design stage: no political stake, no fear of looking dumb, will happily list the IAM gap or the rate-limit math I glossed over. At work this is a real ERD with reviewers; for side projects it's a markdown file in the repo. Same exercise either way.
+- **PRD — mine, AI drafts.** I bullet the rough idea — *audience: hiring manager with 90 seconds; smallest proof: a working chatbot in the corner; not-doing: auth, multi-user, history* — and let AI expand it into a one-pager. Then I read it, push back, edit, discuss. The *decisions* (who's it for, what does it need to be right about, what's the smallest proof) stay mine. The *drafting* is AI's. This beats writing from a blank page on speed, and the model surfaces angles I'd otherwise skip (*"you haven't named what 'good' looks like for cold-start latency"*). Stock-advisor is for me first, then maybe paying users who care whether the model actually beats SPY. The eng-agent CLI is for me when I'm context-switching between Jira tickets. AI didn't invent those audiences — but it did help me write them down sharply.
+- **ERD — mine, AI drafts and critiques.** Same pattern at higher fidelity. I bullet the approach + the three risks I already see + the explicit "not doing" list, let AI write the one-page draft, then run two passes. **Pass one — accuracy edit:** I correct the things AI got slightly wrong (*"the cache lives in `app/`, not `infra/`"*; *"we're not using Bedrock — direct Anthropic SDK"*). **Pass two — hostile review:** I flip the prompt and ask *"what failure mode did I miss? what would a reviewer push back on?"* This is where AI is at its best in the design stage — no political stake, no fear of looking dumb, will happily list the IAM gap, the rate-limit math, the cold-start latency, the migration ordering. The output is a one-pager mostly written by AI, structured by me, decision-owned by me. At work this is a real ERD with reviewers and a Confluence page; for side projects it's a markdown file in the repo. Same exercise either way.
 - **Impl — mostly AI.** The portfolio went from a Vue 2 scaffold to a Next.js 16 cockpit in a weekend, mostly via diffs I reviewed but didn't write. The eng-agent's tool-routing layer is 80% generated. At $dayjob, refactors I used to put off for a quarter happen between meetings now. I read the diff, not the plan.
 - **Test — hybrid.** AI is great at writing the regression test for a bug I just fixed (it has both states in front of it). It's mediocre at choosing what to assert from scratch. Whole post on this: [Quality and testing when AI writes most of the code](/blog/quality-and-testing-with-ai).
-- **Deliver — mine, AI as log reader.** Push, watch the build, paste the failure trace back into the model, iterate. AI parses a 600-line Amplify build log or a stack trace faster than I can. I own the queue ("what should we ship next"); it owns the parsing.
+- **Deliver — mine, AI verifies and parses.** This is the stage I keep undercrediting AI on. It's not just "AI reads logs" — AI runs most of the actual verification: curls the deployed endpoint and checks the response shape, runs whatever smoke or e2e tests are wired up against the live URL (Playwright for the portfolio chatbot, a Python script that hits `/Stocks/backtest` for stock-advisor and asserts Sharpe is finite), tails CloudWatch and surfaces the one error line that matters in a 600-line build log. I own the *queue* ("what ships next?"), the *push button*, and the *ship/rollback call*. AI owns the verification loop in between — fast enough that the bottleneck moved from "did it work?" to "what's worth shipping?"
 
 **Now the honest part.** I skip PRD on side projects all the time. I skip ERD even more. The Amplify Secrets dance you're about to read was me skipping ERD — went from "I want Gemini chat" straight to "add a wrapper," and paid for it for a day. Almost every "wait, why doesn't this work" session this year traces back to a stage I skipped at the front. The lesson isn't *never skip*; it's that **skipping is cheap on a one-paragraph blog post and expensive on anything that touches more than one system boundary** (auth, IAM, schema, third-party API). The cost of writing a 200-word ERD is 10 minutes. The cost of skipping it on the wrong project is the rest of your day.
 
@@ -126,7 +126,7 @@ Whole post on this: [Quality and testing when AI writes most of the code](/blog/
 
 Before the hero animation, before the chatbot, before the boot loader. At work: before the real handler, before the schema migration, before the new metrics. If the platform is going to hate you, you want it to start hating you while the surface area is small.
 
-Once a stub is shipping, the deliver loop is: small change → push → watch the build → curl the endpoint → repeat. AI is excellent at the second half of that loop (reading build logs, parsing failure traces, suggesting the next change). It's mediocre at the first half (knowing which small change is worth shipping right now). I let it own the log reading; I own the queue.
+Once a stub is shipping, the deliver loop is: small change → push → watch the build → verify the deployed endpoint → repeat. AI runs most of that loop now — not just "reading logs." It parses the build trace, hits the URL, validates the response shape, runs any wired-up smoke or e2e check (Playwright against the live portfolio chatbot; a Python script that calls `/Stocks/backtest` and asserts Sharpe is finite for stock-advisor; a `curl | jq` against the deployed eng-agent), and surfaces the one error line that matters in a 600-line CloudWatch dump. It's mediocre only at the *queue* — knowing which small change is worth shipping right now — and the final *ship/rollback call*. I own those; AI owns the verification cycle in between. The bottleneck moved: "did it work?" used to take 20 minutes of squinting at logs and is now under a minute. "What's worth shipping next?" is still entirely on me, and that's where the cycle bottoms out.
 
 ## What AI gets confidently wrong (the part I keep underestimating)
 
