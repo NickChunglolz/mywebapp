@@ -74,9 +74,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 return (
                   <span className="not-prose flex justify-center my-10">
                     <span className="relative inline-flex flex-col items-center">
-                      <span className="relative inline-flex items-center justify-center w-36 h-36 rounded-2xl border border-accent/40 bg-black/60 shadow-[0_0_30px_-5px] shadow-accent/40 overflow-hidden">
-                        <Character className="w-28 h-32 text-accent drop-shadow-[0_0_8px_rgba(16,185,129,0.45)]" />
-                        <span className="absolute top-1.5 left-2 mono text-[8px] uppercase tracking-widest text-accent/70">● subject</span>
+                      <span className="avatar-glow relative inline-flex items-center justify-center w-36 h-36 rounded-2xl border border-accent/40 bg-black/60 overflow-hidden">
+                        <Character className="flicker w-28 h-32 text-accent drop-shadow-[0_0_8px_rgba(16,185,129,0.45)]" />
+                        <span className="avatar-scan" aria-hidden="true" />
+                        <span className="flicker absolute top-1.5 left-2 mono text-[8px] uppercase tracking-widest text-accent">● subject</span>
                       </span>
                       <span className="mt-3 mono text-[9px] uppercase tracking-[0.25em] text-muted/70">
                         nick · ai-sketched

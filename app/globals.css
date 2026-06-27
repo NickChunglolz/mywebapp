@@ -151,6 +151,41 @@ body::after {
 }
 .bot-visor { animation: visor-blink 6s linear infinite; }
 
+@keyframes avatar-glow {
+  0%, 100% { box-shadow: 0 0 24px -6px rgba(16,185,129,0.45); }
+  50%      { box-shadow: 0 0 40px -2px rgba(16,185,129,0.75); }
+}
+.avatar-glow { animation: avatar-glow 3.2s ease-in-out infinite; }
+
+@keyframes avatar-scan {
+  0%   { transform: translateY(-110%); opacity: 0; }
+  10%  { opacity: 0.85; }
+  90%  { opacity: 0.85; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+.avatar-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(16,185,129,0.35) 48%,
+    rgba(110,231,183,0.55) 50%,
+    rgba(16,185,129,0.35) 52%,
+    transparent 58%,
+    transparent 100%);
+  mix-blend-mode: screen;
+  animation: avatar-scan 3.6s linear infinite;
+}
+
+@keyframes flicker {
+  0%, 22%, 24%, 67%, 69%, 100% { opacity: 1; }
+  23%                          { opacity: 0.3; }
+  68%                          { opacity: 0.4; }
+}
+.flicker { animation: flicker 7s steps(1, end) infinite; }
+
 .card {
   border: 1px solid var(--border);
   border-radius: 1rem;
